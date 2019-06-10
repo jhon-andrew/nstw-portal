@@ -132,7 +132,7 @@ module.exports = {
   |
   */
   csrf: {
-    enable: true,
+    enable: false, // CSRF is not necessary when using JWT: https://security.stackexchange.com/a/166798
     methods: ['POST', 'PUT', 'DELETE'],
     filterUris: [],
     cookieOptions: {
