@@ -14,3 +14,6 @@ database/nstw_2019.sqlite
 # VSCode & Webstorm history directories
 .history
 .idea
+
+# Source Map files
+public/**/*.map
