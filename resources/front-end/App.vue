@@ -1,20 +1,6 @@
 <template>
   <v-app>
     <router-view />
-    <!-- <v-toolbar flat class="py-4">
-      <v-avatar size="64" tile>
-        <img src="assets/dost-seal.png" />
-      </v-avatar>
-      <v-toolbar-title>
-        <v-subheader class="toolbar-subheader">Department of Science and Technology</v-subheader>
-        National Science and Technology Week
-        <v-subheader class="toolbar-subheader">Science for the People | Enabling Technologies for Sustainable Development</v-subheader>
-      </v-toolbar-title>
-    </v-toolbar>
-
-    <v-content>
-      <router-view />
-    </v-content> -->
   </v-app>
 </template>
 
@@ -39,10 +25,5 @@ export default {
 .fw-300 { font-weight: 300 !important; }
 .fw-400 { font-weight: 400 !important; }
 .fw-700 { font-weight: 700 !important; }
-
-.toolbar-subheader {
-  height: initial !important;
-  padding: 0 !important;
-}
 </style>
 

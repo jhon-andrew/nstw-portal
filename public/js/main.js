@@ -101,20 +101,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App'
 });
@@ -317,37 +303,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'landing'
+  name: 'Landing'
 });
 
 /***/ }),
@@ -401,7 +358,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Material+Icons|Poppins:300,400,700|Sacramento&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n#app, body {\r\n  font-family: 'Poppins', sans-serif;\r\n  user-select: none;\n}\n.display-4, .display-3, .display-2, .display-1, .headline, .title, .subheading, .body-2, .body-1, .caption {\r\n  font-family: 'Poppins', sans-serif !important;\n}\n.fw-300 { font-weight: 300 !important;\n}\n.fw-400 { font-weight: 400 !important;\n}\n.fw-700 { font-weight: 700 !important;\n}\n.toolbar-subheader {\r\n  height: initial !important;\r\n  padding: 0 !important;\n}\r\n", ""]);
+exports.push([module.i, "\n#app, body {\r\n  font-family: 'Poppins', sans-serif;\r\n  user-select: none;\n}\n.display-4, .display-3, .display-2, .display-1, .headline, .title, .subheading, .body-2, .body-1, .caption {\r\n  font-family: 'Poppins', sans-serif !important;\n}\n.fw-300 { font-weight: 300 !important;\n}\n.fw-400 { font-weight: 400 !important;\n}\n.fw-700 { font-weight: 700 !important;\n}\r\n", ""]);
 
 // exports
 
@@ -439,7 +396,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.v-content[data-v-607daf59] {\r\n  background: fixed linear-gradient(104deg,  #ffffff 53.5%,#4fa891 46.5%);\n}\n.v-content.responsive[data-v-607daf59] {\r\n  background: #4fa891 !important;\n}\n.slogan-01[data-v-607daf59], .display-4[data-v-607daf59], .display-3[data-v-607daf59], .display-1[data-v-607daf59], .headline[data-v-607daf59] {\r\n  font-family: 'Poppins', sans-serif !important;\r\n  font-weight: 700;\n}\n.slogan-01[data-v-607daf59] {\r\n  color: #1c75bc;\r\n  font-style: italic;\n}\n.nstw[data-v-607daf59] {\r\n  color: #fff200;\r\n  font-weight: bold;\r\n  font-style: italic;\r\n  text-transform: uppercase;\n}\n.italics[data-v-607daf59] {\r\n  font-style: italic;\n}\n.with-shadow[data-v-607daf59] {\r\n  text-shadow: -2px 0px 0px rgba(0, 0, 0, 0.5);\n}\n.cursive[data-v-607daf59] {\r\n  display: inline-block;\r\n  transform: rotate(-20deg);\r\n  position: relative;\r\n  top: -10px;\r\n  left: -10px;\r\n  font-family: 'Sacramento', cursive;\r\n  font-weight: 300;\r\n  text-shadow: none;\r\n  letter-spacing: 0;\r\n  font-size: 50px;\n}\n.v-btn[data-v-607daf59] {\r\n  border-radius: 0 !important;\r\n  color: #4fa891 !important;\r\n  box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.5) !important;\r\n  font-weight: bold !important;\n}\n.footer > .flex[data-v-607daf59]:first-child {\r\n  transform: skew(165deg);\r\n  border-right: 5px solid #ffffff;\n}\n.footer > .flex[data-v-607daf59]:nth-child(3) {\r\n  transform: skew(165deg);\r\n  text-align: justify;\r\n  text-indent: 25px;\n}\n.footer > .flex.responsive[data-v-607daf59] {\r\n  transform: none;\r\n  border-right: none;\n}\r\n", ""]);
+exports.push([module.i, "\n.v-content[data-v-607daf59] {\r\n  background-image: url('/assets/registration/landing-bg.jpg'), linear-gradient(99deg,  #ffffff 53.2%,#4fa891 46.8%);\r\n  background-position: center center, center center;\r\n  background-size: contain;\r\n  background-attachment: fixed;\n}\n.v-content.mobile[data-v-607daf59] {\r\n  background-image: linear-gradient(0deg, #42c3a2 50%, #4fa891 85%);\r\n  background-attachment: scroll;\n}\n.nstw2019[data-v-607daf59] {\r\n  font-style: italic;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\n}\n.nstw2019 > .v-image[data-v-607daf59] {\r\n  vertical-align: middle;\n}\n.promotion > h1[data-v-607daf59], .promotion > h2[data-v-607daf59], .promotion > h3[data-v-607daf59], .headline[data-v-607daf59] {\r\n  font-family: 'Poppins', sans-serif !important;\r\n  font-weight: 700;\r\n  font-style: italic;\r\n  text-align: center;\n}\n.promotion > h2[data-v-607daf59] {\r\n  text-transform: uppercase;\r\n  font-weight: 700;\r\n  font-size: 40px !important;\n}\n.promotion > h1[data-v-607daf59], .promotion > h2[data-v-607daf59] {\r\n  text-shadow: -2px 0px 0px rgba(0, 0, 0, 0.5);\n}\n.promotion > h1 > small[data-v-607daf59] {\r\n  font-family: 'Sacramento', cursive;\r\n  font-weight: 300;\r\n  font-size: 50px;\r\n  letter-spacing: 0;\r\n  display: inline-block;\r\n  transform: rotate(-20deg);\r\n  position: relative;\r\n  top: -10px;\r\n  left: -10px;\n}\n.v-btn[data-v-607daf59]:not(.primary) {\r\n  font-weight: bold !important;\r\n  color: #4fa891;\r\n  box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.5) !important;\r\n  border-radius: 0 !important;\n}\n.footer[data-v-607daf59] {\r\n  transform: skew(170deg);\n}\n.footer.mobile[data-v-607daf59] {\r\n  transform: none;\n}\n.footer.mobile > .flex[data-v-607daf59]:first-child {\r\n  border-top: 1px dashed #ffffff;\r\n  padding-top: 24px;\n}\n.footer > .flex[data-v-607daf59]:nth-child(2) {\r\n  border-left: 5px solid #ffffff;\n}\n.footer > .flex:nth-child(2).mobile[data-v-607daf59] {\r\n  border-left: none;\r\n  border-top: 1px dashed #ffffff;\n}\n.footer .schedule[data-v-607daf59] {\r\n  transform: skew(15deg);\n}\n.footer .schedule > small[data-v-607daf59] {\r\n  font-size: 18px;\n}\n.footer p[data-v-607daf59] {\r\n  text-indent: 25px;\n}\r\n", ""]);
 
 // exports
 
@@ -1845,11 +1802,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-content",
-    { class: { responsive: _vm.$vuetify.breakpoint.mdAndDown } },
+    { class: [_vm.$vuetify.breakpoint.mdAndDown ? "mobile" : null] },
     [
       _c(
         "v-container",
-        { attrs: { "fill-height": "", "grid-list-lg": "" } },
+        { attrs: { "fill-height": "" } },
         [
           _c(
             "v-layout",
@@ -1857,72 +1814,27 @@ var render = function() {
             [
               _c(
                 "v-flex",
-                {
-                  attrs: { xs12: "", lg6: "", "order-xs2": "", "order-lg1": "" }
-                },
+                { attrs: { xs12: "", lg5: "", "offset-lg7": "" } },
                 [
-                  _c("v-img", {
-                    attrs: {
-                      src: "/assets/registration/landing-01.png",
-                      height: "440",
-                      contain: ""
-                    }
-                  }),
-                  _vm._v(" "),
                   _c(
                     "v-layout",
                     {
-                      staticClass: "my-2",
-                      attrs: { row: "", wrap: "", "align-center": "" }
+                      attrs: {
+                        column: "",
+                        wrap: "",
+                        align: "",
+                        "align-center": ""
+                      }
                     },
                     [
-                      _c("v-flex", { attrs: { xs6: "" } }, [
-                        _c(
-                          "p",
-                          { staticClass: "slogan-01 body-2 text-xs-center" },
-                          [
-                            _vm._v(
-                              "For #ASTIGCountryside, we support the SDGs."
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
                       _c(
                         "v-flex",
-                        { attrs: { xs6: "", "d-flex": "" } },
-                        _vm._l(3, function(img) {
-                          return _c("v-img", {
-                            key: img,
-                            staticClass: "mx-2",
-                            attrs: {
-                              src:
-                                "/assets/registration/slogan-icon-0" +
-                                img +
-                                ".jpg",
-                              "aspect-ratio": "1",
-                              contain: ""
-                            }
-                          })
-                        }),
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-layout",
-                    { attrs: { row: "", wrap: "", "align-center": "" } },
-                    [
-                      _c(
-                        "v-flex",
-                        { attrs: { xs6: "" } },
                         [
                           _c("v-img", {
                             attrs: {
-                              src: "/assets/registration/sdg.png",
-                              contain: ""
+                              src: "/assets/dost-seal.png",
+                              contain: "",
+                              width: "80"
                             }
                           })
                         ],
@@ -1931,15 +1843,162 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-flex",
-                        { attrs: { xs6: "" } },
+                        { staticClass: "my-5 nstw2019 yellow--text" },
                         [
                           _c("v-img", {
+                            staticClass: "d-inline-block mr-2",
                             attrs: {
-                              src:
-                                "/assets/registration/science-for-people.png",
-                              contain: ""
+                              src: "/assets/registration/nstw.png",
+                              contain: "",
+                              width: "64"
                             }
-                          })
+                          }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "hidden-md-and-down" }, [
+                            _vm._v("National Science and Technology Week 2019")
+                          ]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "hidden-sm-and-up" }, [
+                            _vm._v("NSTW 2019")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("v-flex", { staticClass: "promotion" }, [
+                        _c("h2", { staticClass: "white--text" }, [
+                          _vm._v("Regional Offices'")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "h1",
+                          {
+                            staticClass: "yellow--text",
+                            class: [
+                              _vm.$vuetify.breakpoint.mdAndDown
+                                ? "display-3"
+                                : "display-4"
+                            ]
+                          },
+                          [_vm._v("Exhibit "), _c("small", [_vm._v("area")])]
+                        ),
+                        _vm._v(" "),
+                        _c("h3", { staticClass: "headline white--text" }, [
+                          _vm._v("#ASTIGCountryside")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "v-flex",
+                        { staticClass: "my-5" },
+                        [
+                          _c("v-btn", { attrs: { large: "" } }, [
+                            _vm._v(
+                              "\n              Register Here\n            "
+                            )
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-flex",
+                        [
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "footer",
+                              class: [
+                                _vm.$vuetify.breakpoint.mdAndDown
+                                  ? "mobile"
+                                  : null
+                              ],
+                              attrs: { row: "", wrap: "", "align-center": "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                {
+                                  staticClass: "mb-4",
+                                  attrs: { xs12: "", lg6: "" }
+                                },
+                                [
+                                  _c(
+                                    "h3",
+                                    {
+                                      staticClass:
+                                        "white--text headline text-lg-left schedule"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                  July 17-21, 2019\n                  "
+                                      ),
+                                      _c(
+                                        "small",
+                                        { staticClass: "d-block body-1" },
+                                        [
+                                          _vm._v(
+                                            "World Trade Center, Pasay City"
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                {
+                                  class: [
+                                    _vm.$vuetify.breakpoint.mdAndDown
+                                      ? "mobile pt-3"
+                                      : "pl-3"
+                                  ],
+                                  attrs: { xs12: "", lg6: "" }
+                                },
+                                [
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "text-xs-justify white--text caption"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                  The DOST Regional Offices' Exhibit area will be a collection of Science, \n                  Technology and Innovation (STI) efforts and stories from the DOST Regional\n                  Offices in bringing "
+                                      ),
+                                      _c(
+                                        "span",
+                                        { staticClass: "yellow--text" },
+                                        [_vm._v("A")]
+                                      ),
+                                      _vm._v("ccelerated "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "yellow--text" },
+                                        [_vm._v("STI")]
+                                      ),
+                                      _vm._v(" for "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "yellow--text" },
+                                        [_vm._v("G")]
+                                      ),
+                                      _vm._v("rowth in the "),
+                                      _c(
+                                        "span",
+                                        { staticClass: "yellow--text" },
+                                        [_vm._v("Countryside")]
+                                      ),
+                                      _vm._v(".\n                ")
+                                    ]
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          )
                         ],
                         1
                       )
@@ -1952,209 +2011,20 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "v-flex",
-                {
-                  attrs: { xs12: "", lg6: "", "order-xs1": "", "order-lg2": "" }
-                },
+                { staticClass: "xs12 hidden-sm-and-up" },
                 [
                   _c(
-                    "v-layout",
-                    { attrs: { column: "", "align-center": "" } },
+                    "v-card",
                     [
-                      _c(
-                        "v-flex",
-                        [
-                          _c("v-img", {
-                            attrs: {
-                              src: "/assets/dost-seal.png",
-                              width: "64",
-                              height: "64"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        {
-                          staticClass: "mt-3",
-                          attrs: { "d-flex": "", "align-center": "" }
-                        },
-                        [
-                          _c("v-img", {
-                            staticClass: "mr-2",
-                            attrs: {
-                              src: "/assets/registration/nstw.png",
-                              width: "64"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            { staticClass: "nstw hidden-md-and-down" },
-                            [
-                              _vm._v(
-                                "National Science and Technology Week 2019"
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "nstw hidden-sm-and-up" }, [
-                            _vm._v("NSTW 2019")
-                          ])
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        { staticClass: "text-xs-center italics my-4" },
-                        [
-                          _c(
-                            "h2",
-                            {
-                              staticClass: "white--text with-shadow display-1"
-                            },
-                            [_vm._v("REGIONAL OFFICES'")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "h1",
-                            {
-                              class: [
-                                "yellow--text",
-                                "with-shadow",
-                                _vm.$vuetify.breakpoint.mdAndDown
-                                  ? "display-3"
-                                  : "display-4"
-                              ]
-                            },
-                            [
-                              _vm._v("Exhibit "),
-                              _c("small", { staticClass: "cursive" }, [
-                                _vm._v("area")
-                              ])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("h3", { staticClass: "white--text headline" }, [
-                            _vm._v("#ASTIGCountryside")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        [
-                          _c("v-btn", { attrs: { large: "" } }, [
-                            _vm._v("Register Here")
-                          ])
-                        ],
-                        1
-                      )
+                      _c("v-img", {
+                        attrs: {
+                          src: "/assets/registration/landing-mobile.jpg",
+                          contain: ""
+                        }
+                      })
                     ],
                     1
-                  ),
-                  _vm._v(" "),
-                  _c("v-divider", {
-                    staticClass: "hidden-sm-and-up mt-5 yellow"
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "v-layout",
-                    {
-                      staticClass: "footer mt-5",
-                      attrs: { row: "", wrap: "" }
-                    },
-                    [
-                      _c(
-                        "v-flex",
-                        {
-                          class: {
-                            responsive: _vm.$vuetify.breakpoint.mdAndDown
-                          },
-                          attrs: { xs12: "", lg5: "" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass: "text-xs-center text-lg-left",
-                              style: {
-                                transform: _vm.$vuetify.breakpoint.mdAndDown
-                                  ? "none"
-                                  : "skew(15deg)"
-                              }
-                            },
-                            [
-                              _c(
-                                "h3",
-                                { staticClass: "white--text headline" },
-                                [_vm._v("July 17-21, 2019")]
-                              ),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "white--text" }, [
-                                _vm._v("World Trade Center, Pasay City")
-                              ])
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("v-divider", {
-                        staticClass: "hidden-sm-and-up mt-5 yellow"
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "v-flex",
-                        {
-                          class: {
-                            responsive: _vm.$vuetify.breakpoint.mdAndDown
-                          },
-                          attrs: { xs12: "", lg7: "" }
-                        },
-                        [
-                          _c(
-                            "p",
-                            {
-                              staticClass: "white--text ml-2",
-                              style: {
-                                transform: _vm.$vuetify.breakpoint.mdAndDown
-                                  ? "none"
-                                  : "skew(15deg)"
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n              The DOST Regional Offices’ Exhibit area \n              will be a collection of Science, Technology \n              and Innovation (STI) efforts and stories from \n              the DOST Regional Offices in bringing \n              "
-                              ),
-                              _c("span", { staticClass: "yellow--text" }, [
-                                _vm._v("A")
-                              ]),
-                              _vm._v("ccelerated "),
-                              _c("span", { staticClass: "yellow--text" }, [
-                                _vm._v("STI")
-                              ]),
-                              _vm._v(" for "),
-                              _c("span", { staticClass: "yellow--text" }, [
-                                _vm._v("G")
-                              ]),
-                              _vm._v("rowth in the "),
-                              _c("span", { staticClass: "yellow--text" }, [
-                                _vm._v("Countryside")
-                              ]),
-                              _vm._v(".\n            ")
-                            ]
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("v-divider", {
-                    staticClass: "hidden-sm-and-up mt-5 yellow"
-                  })
+                  )
                 ],
                 1
               )
@@ -43104,7 +42974,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_3___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  theme: {
+    primary: '#4fa891'
+  }
+});
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.config.productionTip = false;
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
