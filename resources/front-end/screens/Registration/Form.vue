@@ -1,0 +1,203 @@
+<template>
+  <v-content>
+    <section class="primary hidden-md-and-down">
+      <v-container>
+        <v-layout row wrap align-center class="white--text my-4">
+          <v-flex xs1>
+            <v-img src="/assets/dost-seal.png" contain width="80" />
+          </v-flex>
+          <v-flex xs6 class="main-header">
+            <div class="mb-1 pb-1 mr-5" style="border-bottom: 1px solid #ffffff;">Department of Science and Technology</div>
+            <div class="subheading yellow--text">National Science and Technology Week 2019</div>
+            <div class="slogan body-2">"Enabling Technologies for Sustainable Development"</div>
+          </v-flex>
+          <v-flex xs4>
+            <v-layout row wrap align-center>
+              <v-flex xs3>
+                <v-img src="/assets/registration/nstw.png" contain width="94" />
+              </v-flex>
+              <v-flex xs9 class="promotion">
+                <h2 class="white--text">Regional Offices'</h2>
+                <h1 class="yellow--text display-3">Exhibit <small>area</small></h1>
+                <h3 class="white--text caption">#ASTIGCountryside</h3>
+              </v-flex>
+            </v-layout>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </section>
+    <v-container grid-list-lg>
+      <v-layout row wrap align-center>
+        <v-flex lg2>
+          <v-card color="primary lighten-1">
+            <v-card-text>
+              <p>Instructions:</p>
+              <ul>
+                <li>Fill out the needed information.</li>
+                <li>Get and save the code afterwards.</li>
+                <li>Registration confirmation will be sent to the email you provided.</li>
+                <li>Present the code to the Regional Exhibit Concierge during NSTW for easier registration (you can get freebies).</li>
+              </ul>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+
+        <v-flex lg10>
+          <v-form ref="registrationForm">
+            <v-layout row wrap>
+              <v-flex xs12 lg5>
+                <v-text-field box v-model="participant.firstName" label="FIRST NAME" :rules="[$rules.required]" :disabled="loading" required />
+              </v-flex>
+              <v-flex xs12 lg2>
+                <v-text-field box v-model="participant.middleInitial" label="MIDDLE INITIAL" :disabled="loading" />
+              </v-flex>
+              <v-flex xs12 lg5>
+                <v-text-field box v-model="participant.surname" label="SURNAME" :rules="[$rules.required]" :disabled="loading" required />
+              </v-flex>
+              <v-flex xs12 lg1>
+                <v-text-field box type="number" v-model="participant.age" label="AGE" :rules="[$rules.required]" :disabled="loading" required />
+              </v-flex>
+              <v-flex xs12 lg2>
+                <v-menu
+                  ref="birthdate"
+                  v-model="menu.birthdate"
+                  :close-on-content-click="false"
+                  :return-value.sync="participant.birthdate"
+                >
+                  <template v-slot:activator="{ on }">
+                    <v-text-field box v-model="participant.birthdate" label="BIRTHDATE" v-on="on" :rules="[$rules.required]" :disabled="loading" required readonly />
+                  </template>
+                  <v-date-picker v-model="participant.birthdate">
+                    <v-spacer></v-spacer>
+                    <v-btn flat @click="menu.birthdate = false">Cancel</v-btn>
+                    <v-btn flat @click="$refs.birthdate.save(participant.birthdate)" color="primary">OK</v-btn>
+                  </v-date-picker>
+                </v-menu>
+              </v-flex>
+              <v-flex xs12 lg3>
+                <span class="grey--text">SEX</span>
+                <v-radio-group row v-model="participant.sex" class="mt-0" :rules="[$rules.required]" :disabled="loading" required>
+                  <v-radio label="Male" value="male" color="primary" />
+                  <v-radio label="Female" value="female" color="primary" />
+                </v-radio-group>
+              </v-flex>
+              <v-flex xs12 lg6>
+                <v-text-field box v-model="participant.address" label="ADDRESS" :rules="[$rules.required]" :disabled="loading" required />
+              </v-flex>
+              <v-flex xs12 lg5>
+                <v-text-field box v-model="participant.affiliation" label="ORGANIZATION/SCHOOL" :rules="[$rules.required]" :disabled="loading" required />
+              </v-flex>
+              <v-flex xs12 lg7>
+                <span class="grey--text">TYPE OF ORGANIZATION</span>
+                <v-radio-group row v-model="participant.affiliationType" class="mt-0 caption" :rules="[$rules.required]" :disabled="loading" required>
+                  <v-radio color="primary" label="Government" value="government" />
+                  <v-radio color="primary" label="Private" value="private" />
+                  <v-radio color="primary" label="Non-government" value="non-government" />
+                  <v-menu
+                    ref="otherAffiliationType"
+                    v-model="menu.otherAffiliationType"
+                    :close-on-content-click="false"
+                    :return-value.sync="participant.otherAffiliationType"
+                  >
+                    <template v-slot:activator="{ on }">
+                      <v-radio color="primary" :label="participant.otherAffiliationType || 'Others'" :value="participant.otherAffiliationType || 'others'" v-on="on" />
+                    </template>
+                    <v-card>
+                      <v-card-text class="pb-0">
+                        <v-text-field box v-model="participant.otherAffiliationType" label="Please specify" />
+                      </v-card-text>
+                      <v-card-actions>
+                        <v-spacer />
+                        <v-btn flat @click="menu.otherAffiliationType = false">Cancel</v-btn>
+                        <v-btn
+                          flat
+                          @click="() => {
+                            participant.affiliationType = participant.otherAffiliationType
+                            $refs.otherAffiliationType.save(participant.otherAffiliationType)
+                          }"
+                        >
+                          OK
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                  </v-menu>
+                </v-radio-group>
+              </v-flex>
+              <v-flex xs12 lg5>
+                <v-text-field box v-model="participant.email" label="EMAIL" :rules="[$rules.required]" :disabled="loading" required />
+              </v-flex>
+              <v-flex xs12 lg5>
+                <v-text-field box v-model="participant.contactNumber" label="CONTACT NUMBER" :rules="[$rules.required]" :disabled="loading" required />
+              </v-flex>
+              <v-flex xs12 lg2>
+                <v-btn block large color="primary" @click="register" :disabled="loading" :loading="loading">Get Code</v-btn>
+              </v-flex>
+            </v-layout>
+          </v-form>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </v-content>
+</template>
+
+<script>
+export default {
+  name: 'registration-form',
+  data () {
+    return {
+      loading: false,
+      menu: {},
+      participant: {}
+    }
+  },
+  methods: {
+    register () {
+      if (this.$refs.registrationForm.validate()) {
+        this.loading = true
+      }
+    }
+  }
+}
+</script>
+
+<style scoped>
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.main-header {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.main-header > .slogan {
+  font-style: italic;
+}
+
+.promotion > h1, .promotion > h2, .promotion > h3, .headline {
+  font-style: italic;
+  text-align: center;
+  font-weight: 700;
+}
+
+.promotion > h2 {
+  text-transform: uppercase;
+  font-size: 21px !important;
+}
+
+.promotion > h1, .promotion > h2 {
+  text-shadow: -2px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.promotion > h1 > small {
+  font-family: 'Sacramento', cursive;
+  font-weight: 300;
+  font-size: 28px;
+  letter-spacing: 0;
+  display: inline-block;
+  transform: rotate(-20deg);
+  position: relative;
+  top: -6px;
+  left: -12px;
+}
+</style>

@@ -10,6 +10,17 @@ Vue.use(Vuetify, {
   }
 })
 
+Vue.use({ install: (Vue, options) => {
+  Vue.prototype.$rules = {
+    required: v => !!v || 'This field is required.',
+    test: (v, x, y) => {
+      console.log(v, x, y)
+      console.log(arguments)
+      return true
+    }
+  }
+}})
+
 Vue.config.productionTip = false
 
 new Vue({
