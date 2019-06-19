@@ -3,6 +3,7 @@ import App from '@/App'
 import router from '@/router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import axios from 'axios'
 
 Vue.use(Vuetify, {
   theme: {
@@ -13,12 +14,10 @@ Vue.use(Vuetify, {
 Vue.use({ install: (Vue, options) => {
   Vue.prototype.$rules = {
     required: v => !!v || 'This field is required.',
-    test: (v, x, y) => {
-      console.log(v, x, y)
-      console.log(arguments)
-      return true
-    }
+    email: v => /\S+@\S+\.\S+/.test(v) || 'E-mail must be valid'
   }
+
+  Vue.prototype.$request = axios
 }})
 
 Vue.config.productionTip = false

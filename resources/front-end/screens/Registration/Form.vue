@@ -27,6 +27,7 @@
       </v-container>
     </section>
     <v-container grid-list-lg>
+      <v-alert dismissible v-model="error.show" type="error">{{ error.message }}</v-alert>
       <v-layout row wrap align-center>
         <v-flex lg2>
           <v-card color="primary lighten-1">
@@ -46,10 +47,10 @@
           <v-form ref="registrationForm">
             <v-layout row wrap>
               <v-flex xs12 lg5>
-                <v-text-field box v-model="participant.firstName" label="FIRST NAME" :rules="[$rules.required]" :disabled="loading" required />
+                <v-text-field box v-model="participant.first_name" label="FIRST NAME" :rules="[$rules.required]" :disabled="loading" required />
               </v-flex>
               <v-flex xs12 lg2>
-                <v-text-field box v-model="participant.middleInitial" label="MIDDLE INITIAL" :disabled="loading" />
+                <v-text-field box v-model="participant.middle_initial" label="MIDDLE INITIAL" :disabled="loading" />
               </v-flex>
               <v-flex xs12 lg5>
                 <v-text-field box v-model="participant.surname" label="SURNAME" :rules="[$rules.required]" :disabled="loading" required />
@@ -59,18 +60,21 @@
               </v-flex>
               <v-flex xs12 lg2>
                 <v-menu
-                  ref="birthdate"
                   v-model="menu.birthdate"
+                  ref="birthdateMenu"
                   :close-on-content-click="false"
                   :return-value.sync="participant.birthdate"
                 >
                   <template v-slot:activator="{ on }">
                     <v-text-field box v-model="participant.birthdate" label="BIRTHDATE" v-on="on" :rules="[$rules.required]" :disabled="loading" required readonly />
                   </template>
-                  <v-date-picker v-model="participant.birthdate">
+                  <v-date-picker
+                    v-model="participant.birthdate"
+                    ref="birthdate"
+                  >
                     <v-spacer></v-spacer>
                     <v-btn flat @click="menu.birthdate = false">Cancel</v-btn>
-                    <v-btn flat @click="$refs.birthdate.save(participant.birthdate)" color="primary">OK</v-btn>
+                    <v-btn flat @click="$refs.birthdateMenu.save(participant.birthdate)" color="primary">OK</v-btn>
                   </v-date-picker>
                 </v-menu>
               </v-flex>
@@ -89,7 +93,7 @@
               </v-flex>
               <v-flex xs12 lg7>
                 <span class="grey--text">TYPE OF ORGANIZATION</span>
-                <v-radio-group row v-model="participant.affiliationType" class="mt-0 caption" :rules="[$rules.required]" :disabled="loading" required>
+                <v-radio-group row v-model="participant.affiliation_type" class="mt-0 caption" :rules="[$rules.required]" :disabled="loading" required>
                   <v-radio color="primary" label="Government" value="government" />
                   <v-radio color="primary" label="Private" value="private" />
                   <v-radio color="primary" label="Non-government" value="non-government" />
@@ -112,7 +116,7 @@
                         <v-btn
                           flat
                           @click="() => {
-                            participant.affiliationType = participant.otherAffiliationType
+                            participant.affiliation_type = participant.otherAffiliationType
                             $refs.otherAffiliationType.save(participant.otherAffiliationType)
                           }"
                         >
@@ -124,10 +128,10 @@
                 </v-radio-group>
               </v-flex>
               <v-flex xs12 lg5>
-                <v-text-field box v-model="participant.email" label="EMAIL" :rules="[$rules.required]" :disabled="loading" required />
+                <v-text-field box v-model="participant.email" label="EMAIL" :rules="[$rules.required, $rules.email]" :disabled="loading" required />
               </v-flex>
               <v-flex xs12 lg5>
-                <v-text-field box v-model="participant.contactNumber" label="CONTACT NUMBER" :rules="[$rules.required]" :disabled="loading" required />
+                <v-text-field box v-model="participant.contact_number" label="CONTACT NUMBER" :rules="[$rules.required]" :disabled="loading" required />
               </v-flex>
               <v-flex xs12 lg2>
                 <v-btn block large color="primary" @click="register" :disabled="loading" :loading="loading">Get Code</v-btn>
@@ -137,23 +141,74 @@
         </v-flex>
       </v-layout>
     </v-container>
+
+    <v-dialog v-if="success.response" v-model="success.show" width="500" persistent>
+      <v-card>
+        <v-card-title primary-title class="title">
+          Done
+        </v-card-title>
+        <v-divider />
+        <v-card-text class="text-xs-center">
+          <p>You may scan this QR code</p>
+          <v-img :src="`/api/qrcode/${success.response.activationCode}.png`" height="300" contain />
+          <p>or keep the activation code below</p>
+          <p><code style="font-size: 24px;">{{ success.response.activationCode }}</code></p>
+          <p>and verify it on the Concierge during the event.</p>
+        </v-card-text>
+        <v-divider />
+        <v-card-actions>
+          <v-spacer />
+          <v-btn flat color="primary" @click="() => {
+            success.show = false
+            participant = {}
+            $refs.registrationForm.reset()
+          }">Close</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-content>
 </template>
 
 <script>
 export default {
   name: 'registration-form',
+  watch: {
+    'menu.birthdate'(val) {
+      val && setTimeout(() => (this.$refs.birthdate.activePicker = 'YEAR'))
+    }
+  },
   data () {
     return {
       loading: false,
       menu: {},
-      participant: {}
+      participant: {
+        birthdate: null
+      },
+      error: {},
+      success: {}
     }
   },
   methods: {
-    register () {
+    async register () {
+      this.error = { show: false }
+
       if (this.$refs.registrationForm.validate()) {
         this.loading = true
+        const { data: response } = await this.$request.post('/api/registration', this.participant)
+
+        if (response.errors) {
+          return this.error = {
+            show: true,
+            message: response.errors.find(error => error.field === 'email').message
+          }
+        }
+
+        this.success = {
+          show: true,
+          response
+        }
+
+        this.loading = false
       }
     }
   }
@@ -161,7 +216,7 @@ export default {
 </script>
 
 <style scoped>
-h1, h2, h3 {
+h1, h2, h3, .title {
   font-family: 'Poppins', sans-serif !important;
 }
 

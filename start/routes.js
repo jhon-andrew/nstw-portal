@@ -16,4 +16,22 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+// Public Routes
+Route
+  .group(() => {
+    Route.get('qrcode/:id', 'RegistrationController.qrImage').formats(['png'])
+    Route.post('registration', 'RegistrationController.preRegister').validator('PreRegister')
+  })
+  .prefix('api')
+  .middleware(['guest'])
+
+// Private Routes
+Route
+  .group(() => {
+    
+  })
+  .prefix('api')
+  .middleware(['auth'])
+
+// Frontend Routes
 Route.any('*', ({ view }) => view.render('dashboard'))

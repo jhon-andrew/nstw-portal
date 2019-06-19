@@ -19,7 +19,7 @@
               <h3 class="headline white--text">#ASTIGCountryside</h3>
             </v-flex>
             <v-flex class="my-5">
-              <v-btn large to="form">
+              <v-btn large to="/registration/form">
                 Register Here
               </v-btn>
             </v-flex>

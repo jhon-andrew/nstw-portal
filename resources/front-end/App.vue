@@ -10,11 +10,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 @import url('https://fonts.googleapis.com/css?family=Material+Icons|Poppins:300,400,700|Sacramento&display=swap');
 
 #app, body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
   user-select: none;
 }
 
