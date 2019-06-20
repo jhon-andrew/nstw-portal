@@ -17,3 +17,6 @@ database/nstw_2019.sqlite
 
 # Source Map files
 public/**/*.map
+
+# Front-end must be rebuild on every instance
+public/js/main.js
