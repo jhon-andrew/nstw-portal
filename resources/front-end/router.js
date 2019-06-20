@@ -2,8 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Dashboard from '@/screens/Dashboard'
 import Registration from '@/screens/Registration'
-import Landing from '@/screens/Registration/Landing'
-import Form from '@/screens/Registration/Form'
+import RegistrationLanding from '@/screens/Registration/Landing'
+import RegistrationForm from '@/screens/Registration/Form'
+import Exhibit from '@/screens/Exhibit'
+import ExhibitLanding from '@/screens/Exhibit/Landing'
 
 Vue.use(Router)
 
@@ -15,18 +17,29 @@ export default new Router({
       alias: '/',
       component: Dashboard
     },
-    {
+    { // Registration Route
       path: '/registration',
       component: Registration,
       children: [
         {
           path: '',
           alias: 'welcome',
-          component: Landing
+          component: RegistrationLanding
         },
         {
           path: 'form',
-          component: Form
+          component: RegistrationForm
+        }
+      ]
+    },
+    { // Exhibit Route
+      path: '/exhibit',
+      component: Exhibit,
+      children: [
+        {
+          path: '',
+          alias: 'welcome',
+          component: ExhibitLanding
         }
       ]
     }

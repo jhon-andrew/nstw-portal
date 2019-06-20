@@ -20,7 +20,7 @@
               <v-img src="/assets/ro-exhibit-branding.png" contain />
             </v-flex>
             <v-flex class="my-5">
-              <v-btn large to="/form">
+              <v-btn large to="/registration/form">
                 Register Here
               </v-btn>
             </v-flex>
@@ -55,7 +55,7 @@
 
 <script>
 export default {
-  name: 'Landing'
+  name: 'registration-landing'
 }
 </script>
 
@@ -80,13 +80,6 @@ export default {
 
 .nstw2019 > .v-image {
   vertical-align: middle;
-}
-
-.v-btn:not(.primary) {
-  font-weight: bold !important;
-  color: #4fa891;
-  box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.5) !important;
-  border-radius: 0 !important;
 }
 
 .footer {

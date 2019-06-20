@@ -25,5 +25,12 @@ export default {
 .fw-300 { font-weight: 300 !important; }
 .fw-400 { font-weight: 400 !important; }
 .fw-700 { font-weight: 700 !important; }
+
+.v-btn:not(.primary) {
+  font-weight: bold !important;
+  color: #4fa891 !important;
+  box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.5) !important;
+  border-radius: 0 !important;
+}
 </style>
 
