@@ -1,5 +1,14 @@
 <template>
   <v-content>
+    <v-toolbar dark fixed color="primary" class="hidden-lg-and-up">
+      <v-toolbar-title>Pre-registration</v-toolbar-title>
+    </v-toolbar>
+    <section class="primary pa-4 hidden-lg-and-up" style="margin-top: 56px;">
+      <v-img src="/assets/dost-seal.png" contain height="48" />
+      <v-img src="/assets/ro-exhibit-branding.png" class="my-3" contain />
+      <v-img src="/assets/nstw.png" contain height="48" />
+      <h3 class="headline yellow--text text-xs-center mt-3">NSTW 2019</h3>
+    </section>
     <section class="primary hidden-md-and-down">
       <v-container>
         <v-layout row wrap align-center class="white--text my-4">
@@ -14,12 +23,13 @@
           <v-flex xs4>
             <v-layout row wrap align-center>
               <v-flex xs3>
-                <v-img src="/assets/registration/nstw.png" contain width="94" />
+                <v-img src="/assets/nstw.png" contain width="94" />
               </v-flex>
               <v-flex xs9 class="promotion">
-                <h2 class="white--text">Regional Offices'</h2>
+                <!-- <h2 class="white--text">Regional Offices'</h2>
                 <h1 class="yellow--text display-3">Exhibit <small>area</small></h1>
-                <h3 class="white--text caption">#ASTIGCountryside</h3>
+                <h3 class="white--text caption">#ASTIGCountryside</h3> -->
+                <v-img src="/assets/ro-exhibit-branding.png" contain />
               </v-flex>
             </v-layout>
           </v-flex>
@@ -28,7 +38,7 @@
     </section>
     <v-container grid-list-lg>
       <v-alert dismissible v-model="error.show" type="error">{{ error.message }}</v-alert>
-      <v-layout row wrap align-center>
+      <v-layout row wrap>
         <v-flex lg2>
           <v-card color="primary lighten-1">
             <v-card-text>
@@ -44,6 +54,7 @@
         </v-flex>
 
         <v-flex lg10>
+          <h1 class="headline text-xs-left mb-5 hidden-md-and-down">Pre-registration Form</h1>
           <v-form ref="registrationForm">
             <v-layout row wrap>
               <v-flex xs12 lg5>
@@ -148,7 +159,7 @@
           Done
         </v-card-title>
         <v-divider />
-        <v-card-text class="text-xs-center">
+        <v-card-text>
           <p>You may scan this QR code</p>
           <v-img :src="`/api/qrcode/${success.response.activationCode}.png`" height="300" contain />
           <p>or keep the activation code below</p>
@@ -216,8 +227,12 @@ export default {
 </script>
 
 <style scoped>
-h1, h2, h3, .title {
+h1, h2, h3, .title, .headline {
   font-family: 'Poppins', sans-serif !important;
+}
+
+.headline {
+  font-style: normal;
 }
 
 .main-header {
@@ -229,30 +244,9 @@ h1, h2, h3, .title {
   font-style: italic;
 }
 
-.promotion > h1, .promotion > h2, .promotion > h3, .headline {
-  font-style: italic;
+.v-dialog .v-card__text {
   text-align: center;
-  font-weight: 700;
-}
-
-.promotion > h2 {
-  text-transform: uppercase;
-  font-size: 21px !important;
-}
-
-.promotion > h1, .promotion > h2 {
-  text-shadow: -2px 0px 0px rgba(0, 0, 0, 0.5);
-}
-
-.promotion > h1 > small {
-  font-family: 'Sacramento', cursive;
-  font-weight: 300;
-  font-size: 28px;
-  letter-spacing: 0;
-  display: inline-block;
-  transform: rotate(-20deg);
-  position: relative;
-  top: -6px;
-  left: -12px;
+  max-height: 400px;
+  overflow-y: scroll;
 }
 </style>

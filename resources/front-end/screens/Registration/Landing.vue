@@ -4,22 +4,23 @@
       <v-layout row wrap align-center>
         <v-flex xs12 lg5 offset-lg7>
 
-          <v-layout column wrap align align-center>
+          <v-layout column wrap align-center>
             <v-flex>
               <v-img src="/assets/dost-seal.png" contain width="80" />
             </v-flex>
             <v-flex class="my-5 nstw2019 yellow--text">
-              <v-img src="/assets/registration/nstw.png" contain width="64" class="d-inline-block mr-2" />
+              <v-img src="/assets/nstw.png" contain width="64" class="d-inline-block mr-2" />
               <span class="hidden-md-and-down">National Science and Technology Week 2019</span>
               <span class="hidden-sm-and-up">NSTW 2019</span>
             </v-flex>
-            <v-flex class="promotion">
-              <h2 class="white--text">Regional Offices'</h2>
+            <v-flex class="promotion" style="width: 100%;">
+              <!-- <h2 class="white--text">Regional Offices'</h2>
               <h1 class="yellow--text" :class="[$vuetify.breakpoint.mdAndDown ? 'display-3' : 'display-4']">Exhibit <small>area</small></h1>
-              <h3 class="headline white--text">#ASTIGCountryside</h3>
+              <h3 class="headline white--text">#ASTIGCountryside</h3> -->
+              <v-img src="/assets/ro-exhibit-branding.png" contain />
             </v-flex>
             <v-flex class="my-5">
-              <v-btn large to="/registration/form">
+              <v-btn large to="/form">
                 Register Here
               </v-btn>
             </v-flex>
@@ -44,7 +45,7 @@
         </v-flex>
         <v-flex class="xs12 hidden-sm-and-up">
           <v-card>
-            <v-img src="/assets/registration/landing-mobile.jpg" contain />
+            <v-img src="/assets/landing-mobile.jpg" contain />
           </v-card>
         </v-flex>
       </v-layout>
@@ -60,7 +61,7 @@ export default {
 
 <style scoped>
 .v-content {
-  background-image: url('/assets/registration/landing-bg.jpg'), linear-gradient(99deg,  #ffffff 53.2%,#4fa891 46.8%);
+  background-image: url('/assets/landing-bg.jpg'), linear-gradient(99deg,  #ffffff 53.2%,#4fa891 46.8%);
   background-position: center center, center center;
   background-size: contain;
   background-attachment: fixed;
@@ -81,35 +82,6 @@ export default {
   vertical-align: middle;
 }
 
-.promotion > h1, .promotion > h2, .promotion > h3, .headline {
-  font-family: 'Poppins', sans-serif !important;
-  font-weight: 700;
-  font-style: italic;
-  text-align: center;
-}
-
-.promotion > h2 {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 40px !important;
-}
-
-.promotion > h1, .promotion > h2 {
-  text-shadow: -2px 0px 0px rgba(0, 0, 0, 0.5);
-}
-
-.promotion > h1 > small {
-  font-family: 'Sacramento', cursive;
-  font-weight: 300;
-  font-size: 50px;
-  letter-spacing: 0;
-  display: inline-block;
-  transform: rotate(-20deg);
-  position: relative;
-  top: -10px;
-  left: -10px;
-}
-
 .v-btn:not(.primary) {
   font-weight: bold !important;
   color: #4fa891;
@@ -123,6 +95,10 @@ export default {
 
 .footer.mobile {
   transform: none;
+}
+
+.footer.mobile .headline {
+  transform: skew(14deg);
 }
 
 .footer.mobile > .flex:first-child {
@@ -141,6 +117,10 @@ export default {
 
 .footer .schedule {
   transform: skew(15deg);
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700;
+  font-style: italic;
+  text-align: center !important;
 }
 
 .footer .schedule > small {

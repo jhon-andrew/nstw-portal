@@ -2205,6 +2205,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'registration-form',
   watch: {
@@ -2356,6 +2367,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Landing'
 });
@@ -2449,7 +2461,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nh1[data-v-81ca511c], h2[data-v-81ca511c], h3[data-v-81ca511c], .title[data-v-81ca511c] {\r\n  font-family: 'Poppins', sans-serif !important;\n}\n.main-header[data-v-81ca511c] {\r\n  text-transform: uppercase;\r\n  font-weight: bold;\n}\n.main-header > .slogan[data-v-81ca511c] {\r\n  font-style: italic;\n}\n.promotion > h1[data-v-81ca511c], .promotion > h2[data-v-81ca511c], .promotion > h3[data-v-81ca511c], .headline[data-v-81ca511c] {\r\n  font-style: italic;\r\n  text-align: center;\r\n  font-weight: 700;\n}\n.promotion > h2[data-v-81ca511c] {\r\n  text-transform: uppercase;\r\n  font-size: 21px !important;\n}\n.promotion > h1[data-v-81ca511c], .promotion > h2[data-v-81ca511c] {\r\n  text-shadow: -2px 0px 0px rgba(0, 0, 0, 0.5);\n}\n.promotion > h1 > small[data-v-81ca511c] {\r\n  font-family: 'Sacramento', cursive;\r\n  font-weight: 300;\r\n  font-size: 28px;\r\n  letter-spacing: 0;\r\n  display: inline-block;\r\n  transform: rotate(-20deg);\r\n  position: relative;\r\n  top: -6px;\r\n  left: -12px;\n}\r\n", ""]);
+exports.push([module.i, "\nh1[data-v-81ca511c], h2[data-v-81ca511c], h3[data-v-81ca511c], .title[data-v-81ca511c], .headline[data-v-81ca511c] {\r\n  font-family: 'Poppins', sans-serif !important;\n}\n.headline[data-v-81ca511c] {\r\n  font-style: normal;\n}\n.main-header[data-v-81ca511c] {\r\n  text-transform: uppercase;\r\n  font-weight: bold;\n}\n.main-header > .slogan[data-v-81ca511c] {\r\n  font-style: italic;\n}\n.v-dialog .v-card__text[data-v-81ca511c] {\r\n  text-align: center;\r\n  max-height: 400px;\r\n  overflow-y: scroll;\n}\r\n", ""]);
 
 // exports
 
@@ -2468,7 +2480,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.v-content[data-v-607daf59] {\r\n  background-image: url('/assets/registration/landing-bg.jpg'), linear-gradient(99deg,  #ffffff 53.2%,#4fa891 46.8%);\r\n  background-position: center center, center center;\r\n  background-size: contain;\r\n  background-attachment: fixed;\n}\n.v-content.mobile[data-v-607daf59] {\r\n  background-image: linear-gradient(0deg, #42c3a2 50%, #4fa891 85%);\r\n  background-attachment: scroll;\n}\n.nstw2019[data-v-607daf59] {\r\n  font-style: italic;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\n}\n.nstw2019 > .v-image[data-v-607daf59] {\r\n  vertical-align: middle;\n}\n.promotion > h1[data-v-607daf59], .promotion > h2[data-v-607daf59], .promotion > h3[data-v-607daf59], .headline[data-v-607daf59] {\r\n  font-family: 'Poppins', sans-serif !important;\r\n  font-weight: 700;\r\n  font-style: italic;\r\n  text-align: center;\n}\n.promotion > h2[data-v-607daf59] {\r\n  text-transform: uppercase;\r\n  font-weight: 700;\r\n  font-size: 40px !important;\n}\n.promotion > h1[data-v-607daf59], .promotion > h2[data-v-607daf59] {\r\n  text-shadow: -2px 0px 0px rgba(0, 0, 0, 0.5);\n}\n.promotion > h1 > small[data-v-607daf59] {\r\n  font-family: 'Sacramento', cursive;\r\n  font-weight: 300;\r\n  font-size: 50px;\r\n  letter-spacing: 0;\r\n  display: inline-block;\r\n  transform: rotate(-20deg);\r\n  position: relative;\r\n  top: -10px;\r\n  left: -10px;\n}\n.v-btn[data-v-607daf59]:not(.primary) {\r\n  font-weight: bold !important;\r\n  color: #4fa891;\r\n  box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.5) !important;\r\n  border-radius: 0 !important;\n}\n.footer[data-v-607daf59] {\r\n  transform: skew(170deg);\n}\n.footer.mobile[data-v-607daf59] {\r\n  transform: none;\n}\n.footer.mobile > .flex[data-v-607daf59]:first-child {\r\n  border-top: 1px dashed #ffffff;\r\n  padding-top: 24px;\n}\n.footer > .flex[data-v-607daf59]:nth-child(2) {\r\n  border-left: 5px solid #ffffff;\n}\n.footer > .flex:nth-child(2).mobile[data-v-607daf59] {\r\n  border-left: none;\r\n  border-top: 1px dashed #ffffff;\n}\n.footer .schedule[data-v-607daf59] {\r\n  transform: skew(15deg);\n}\n.footer .schedule > small[data-v-607daf59] {\r\n  font-size: 18px;\n}\n.footer p[data-v-607daf59] {\r\n  text-indent: 25px;\n}\r\n", ""]);
+exports.push([module.i, "\n.v-content[data-v-607daf59] {\r\n  background-image: url('/assets/registration/landing-bg.jpg'), linear-gradient(99deg,  #ffffff 53.2%,#4fa891 46.8%);\r\n  background-position: center center, center center;\r\n  background-size: contain;\r\n  background-attachment: fixed;\n}\n.v-content.mobile[data-v-607daf59] {\r\n  background-image: linear-gradient(0deg, #42c3a2 50%, #4fa891 85%);\r\n  background-attachment: scroll;\n}\n.nstw2019[data-v-607daf59] {\r\n  font-style: italic;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\n}\n.nstw2019 > .v-image[data-v-607daf59] {\r\n  vertical-align: middle;\n}\n.v-btn[data-v-607daf59]:not(.primary) {\r\n  font-weight: bold !important;\r\n  color: #4fa891;\r\n  box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.5) !important;\r\n  border-radius: 0 !important;\n}\n.footer[data-v-607daf59] {\r\n  transform: skew(170deg);\n}\n.footer.mobile[data-v-607daf59] {\r\n  transform: none;\n}\n.footer.mobile .headline[data-v-607daf59] {\r\n  transform: skew(14deg);\n}\n.footer.mobile > .flex[data-v-607daf59]:first-child {\r\n  border-top: 1px dashed #ffffff;\r\n  padding-top: 24px;\n}\n.footer > .flex[data-v-607daf59]:nth-child(2) {\r\n  border-left: 5px solid #ffffff;\n}\n.footer > .flex:nth-child(2).mobile[data-v-607daf59] {\r\n  border-left: none;\r\n  border-top: 1px dashed #ffffff;\n}\n.footer .schedule[data-v-607daf59] {\r\n  transform: skew(15deg);\r\n  font-family: 'Poppins', sans-serif !important;\r\n  font-weight: 700;\r\n  font-style: italic;\r\n  text-align: center !important;\n}\n.footer .schedule > small[data-v-607daf59] {\r\n  font-size: 18px;\n}\n.footer p[data-v-607daf59] {\r\n  text-indent: 25px;\n}\r\n", ""]);
 
 // exports
 
@@ -4643,6 +4655,52 @@ var render = function() {
     "v-content",
     [
       _c(
+        "v-toolbar",
+        {
+          staticClass: "hidden-lg-and-up",
+          attrs: { dark: "", fixed: "", color: "primary" }
+        },
+        [_c("v-toolbar-title", [_vm._v("Pre-registration")])],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "section",
+        {
+          staticClass: "primary pa-4 hidden-lg-and-up",
+          staticStyle: { "margin-top": "56px" }
+        },
+        [
+          _c("v-img", {
+            attrs: { src: "/assets/dost-seal.png", contain: "", height: "48" }
+          }),
+          _vm._v(" "),
+          _c("v-img", {
+            staticClass: "my-3",
+            attrs: {
+              src: "/assets/registration/ro-exhibit-branding.png",
+              contain: ""
+            }
+          }),
+          _vm._v(" "),
+          _c("v-img", {
+            attrs: {
+              src: "/assets/registration/nstw.png",
+              contain: "",
+              height: "48"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "h3",
+            { staticClass: "headline yellow--text text-xs-center mt-3" },
+            [_vm._v("NSTW 2019")]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
         "section",
         { staticClass: "primary hidden-md-and-down" },
         [
@@ -4723,23 +4781,15 @@ var render = function() {
                             "v-flex",
                             { staticClass: "promotion", attrs: { xs9: "" } },
                             [
-                              _c("h2", { staticClass: "white--text" }, [
-                                _vm._v("Regional Offices'")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "h1",
-                                { staticClass: "yellow--text display-3" },
-                                [
-                                  _vm._v("Exhibit "),
-                                  _c("small", [_vm._v("area")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("h3", { staticClass: "white--text caption" }, [
-                                _vm._v("#ASTIGCountryside")
-                              ])
-                            ]
+                              _c("v-img", {
+                                attrs: {
+                                  src:
+                                    "/assets/registration/ro-exhibit-branding.png",
+                                  contain: ""
+                                }
+                              })
+                            ],
+                            1
                           )
                         ],
                         1
@@ -4778,7 +4828,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-layout",
-            { attrs: { row: "", wrap: "", "align-center": "" } },
+            { attrs: { row: "", wrap: "" } },
             [
               _c(
                 "v-flex",
@@ -4824,6 +4874,15 @@ var render = function() {
                 "v-flex",
                 { attrs: { lg10: "" } },
                 [
+                  _c(
+                    "h1",
+                    {
+                      staticClass:
+                        "headline text-xs-left mb-5 hidden-md-and-down"
+                    },
+                    [_vm._v("Pre-registration Form")]
+                  ),
+                  _vm._v(" "),
                   _c(
                     "v-form",
                     { ref: "registrationForm" },
@@ -5495,7 +5554,6 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "v-card-text",
-                    { staticClass: "text-xs-center" },
                     [
                       _c("p", [_vm._v("You may scan this QR code")]),
                       _vm._v(" "),
@@ -5602,14 +5660,7 @@ var render = function() {
                 [
                   _c(
                     "v-layout",
-                    {
-                      attrs: {
-                        column: "",
-                        wrap: "",
-                        align: "",
-                        "align-center": ""
-                      }
-                    },
+                    { attrs: { column: "", wrap: "", "align-center": "" } },
                     [
                       _c(
                         "v-flex",
@@ -5649,28 +5700,23 @@ var render = function() {
                         1
                       ),
                       _vm._v(" "),
-                      _c("v-flex", { staticClass: "promotion" }, [
-                        _c("h2", { staticClass: "white--text" }, [
-                          _vm._v("Regional Offices'")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "h1",
-                          {
-                            staticClass: "yellow--text",
-                            class: [
-                              _vm.$vuetify.breakpoint.mdAndDown
-                                ? "display-3"
-                                : "display-4"
-                            ]
-                          },
-                          [_vm._v("Exhibit "), _c("small", [_vm._v("area")])]
-                        ),
-                        _vm._v(" "),
-                        _c("h3", { staticClass: "headline white--text" }, [
-                          _vm._v("#ASTIGCountryside")
-                        ])
-                      ]),
+                      _c(
+                        "v-flex",
+                        {
+                          staticClass: "promotion",
+                          staticStyle: { width: "100%" }
+                        },
+                        [
+                          _c("v-img", {
+                            attrs: {
+                              src:
+                                "/assets/registration/ro-exhibit-branding.png",
+                              contain: ""
+                            }
+                          })
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
                       _c(
                         "v-flex",
