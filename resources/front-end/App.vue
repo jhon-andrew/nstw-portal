@@ -24,7 +24,8 @@ export default {
 
 .fw-300 { font-weight: 300 !important; }
 .fw-400 { font-weight: 400 !important; }
-.fw-700 { font-weight: 700 !important; }
+.fw-700, .fw-bold { font-weight: 700 !important; }
+.fs-italic { font-style: italic; }
 
 .v-btn:not(.primary) {
   font-weight: bold !important;

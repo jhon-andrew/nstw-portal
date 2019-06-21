@@ -1,0 +1,78 @@
+{
+  "exhibits": {
+    "map": {
+      "navigation": {
+        "left": [
+          { "name": "Souvenir Shoppe", "caption": "By DOST OneStore", "path": "/exhibit/souvenir-shoppe" },
+          { "name": "Sustainable Development Goal 16", "caption": "STI for Peace, Justice, & Strong Institutions", "path": "/exhibit/sustainable-development-goal-16" },
+          { "name": "Innovation Lounge", "path": "/exhibit/innovation-lounge" },
+          { "name": "Sustainable Development Goal 8", "caption": "STI for Decent Work and Economic Growth", "path": "/exhibit/sustainable-development-goal-8" }
+        ],
+        "right": [
+          { "name": "Game Zone", "path": "/exhibit/game-zone" },
+          { "name": "Sustainable Development Goal 1", "caption": "STI for No Poverty", "path": "/exhibit/sustainable-development-goal-1" },
+          { "name": "Concierge", "path": "/exhibit/concierge" },
+          { "name": "Garden and Wellness Area", "path": "/exhibit/garden-and-wellness-area" }
+        ]
+      }
+    },
+    "kiosks": [
+      {
+        "name": "Concierge",
+        "description": "<p>Registration Area, Secretariat and Digital File Download Station for program brochures and other promotional materials.</p><p>Evaluation Kiosks.</p>",
+        "action": {
+          "label": "Register Now",
+          "path": "/registration/"
+        }
+      },
+      {
+        "name": "Game Zone",
+        "description": "<p>Fun and learning games.</p><p>Gain points and prizes.</p><p>DOST-3 Teaching Module program for teachers.</p>"
+      },
+      {
+        "name": "Garden and Wellness Area",
+        "description": "<p>Meditation zone showcasing the Vertical Helophyte Filtration System.</p>",
+        "action": {
+          "label": "Learn More Here",
+          "path": "/exhibits/garden-and-wellness-area/learn-more"
+        }
+      },
+      {
+        "name": "Innovation Lounge",
+        "description": "<p>Cafe-like innovation lounge with coffee bar.</p><p>Small group discussion area for:<ul><li>Sharing of innovation stories (Sharing success stories by SETUP clients).</li><li>Techno Pitching.</li><li>Tech Talks.</li></ul></p>"
+      },
+      {
+        "name": "Sustainable Development Goal 1",
+        "description": "<p>Diorama of CEST communities in Luzon, Visayas, and Mindanao.</p><p>Stories of CEST communities.</p><p>Display of CEST products.</p>",
+        "action": {
+          "label": "Learn more about CEST",
+          "path": "/exhibit/sustainable-development-goal-1/learn-more"
+        }
+      },
+      {
+        "name": "Sustainable Development Goal 8",
+        "description": "<p>SETUP 2.0 Program: Social Responsive, Market Oriented, Agile, Resilient, Technology-Intensive Environment-Friendly, Resource Efficient (SMARTER) businesses.</p><p>SETUP products display.</p><p>Machine demonstration: CNC Laser Machine, Vertical Form Fill Seal Machine, 3D Printer Machine.</p>",
+        "action": {
+          "label": "Learn more about SETUP",
+          "path": "/exhibit/sustainable-development-goal-8/learn-more"
+        }
+      },
+      {
+        "name": "Sustainable Development Goal 16",
+        "description": "<p>DOST programs and projects for Marawi City rehabilitation:<ul><li>Scholarship program</li><li>Complementary Feeding program</li><li>Essential oils and Arroz caldo program</li><li>Other projects on Maranao Collection such as Lankit (Maranao weaving)</li></ul></p>",
+        "action": {
+          "label": "Learn more here",
+          "path": "/exhibit/sustainable-development-goal-16/learn-more"
+        }
+      },
+      {
+        "name": "Souvenir Shoppe",
+        "description": "<p>Locally-made items like t-shirts, mugs, key-chain, ballpen, and other goodies from DOST-assisted firms nationwide.</p><p>OneStore Vendo Machines and OneStore Kiosks for online purchases.</p>",
+        "action": {
+          "label": "Learn more about OneStore",
+          "path": "/exhibit/souvenir-shoppe/learn-more"
+        }
+      }
+    ]
+  }
+}

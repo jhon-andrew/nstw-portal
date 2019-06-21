@@ -6,6 +6,8 @@ import RegistrationLanding from '@/screens/Registration/Landing'
 import RegistrationForm from '@/screens/Registration/Form'
 import Exhibit from '@/screens/Exhibit'
 import ExhibitLanding from '@/screens/Exhibit/Landing'
+import ExhibitMap from '@/screens/Exhibit/Map'
+import ExhibitKiosk from '@/screens/Exhibit/Kiosk'
 
 Vue.use(Router)
 
@@ -40,6 +42,14 @@ export default new Router({
           path: '',
           alias: 'welcome',
           component: ExhibitLanding
+        },
+        {
+          path: 'map',
+          component: ExhibitMap
+        },
+        {
+          path: '*',
+          component: ExhibitKiosk
         }
       ]
     }
