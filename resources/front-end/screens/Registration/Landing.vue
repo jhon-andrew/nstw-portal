@@ -20,7 +20,7 @@
               <v-img src="/assets/ro-exhibit-branding.png" contain />
             </v-flex>
             <v-flex class="my-5">
-              <v-btn large to="/registration/form">
+              <v-btn large class="custom-btn" to="/registration/form">
                 Register Here
               </v-btn>
             </v-flex>

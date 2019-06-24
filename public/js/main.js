@@ -2215,6 +2215,70 @@ var _exhibits$map$navigat = _contents__WEBPACK_IMPORTED_MODULE_0__["exhibits"].m
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _contents__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/contents */ "./resources/front-end/contents.json");
+var _contents__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! @/contents */ "./resources/front-end/contents.json", 1);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'exhibit-slideshow',
+  data: function data() {
+    return {
+      exhibits: _contents__WEBPACK_IMPORTED_MODULE_0__["exhibits"]
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/front-end/screens/Exhibit/index.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/front-end/screens/Exhibit/index.vue?vue&type=script&lang=js& ***!
@@ -2639,7 +2703,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Material+Icons|Poppins:300,400,700|Sacramento&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n#app, body {\r\n  font-family: 'Poppins', sans-serif !important;\r\n  user-select: none;\n}\n.display-4, .display-3, .display-2, .display-1, .headline, .title, .subheading, .body-2, .body-1, .caption {\r\n  font-family: 'Poppins', sans-serif !important;\n}\n.fw-300 { font-weight: 300 !important;\n}\n.fw-400 { font-weight: 400 !important;\n}\n.fw-700, .fw-bold { font-weight: 700 !important;\n}\n.fs-italic { font-style: italic;\n}\n.v-btn:not(.primary) {\r\n  font-weight: bold !important;\r\n  color: #4fa891 !important;\r\n  box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.5) !important;\r\n  border-radius: 0 !important;\n}\r\n", ""]);
+exports.push([module.i, "\n#app, body {\r\n  font-family: 'Poppins', sans-serif !important;\r\n  user-select: none;\n}\n.display-4, .display-3, .display-2, .display-1, .headline, .title, .subheading, .body-2, .body-1, .caption {\r\n  font-family: 'Poppins', sans-serif !important;\n}\n.fw-300 { font-weight: 300 !important;\n}\n.fw-400 { font-weight: 400 !important;\n}\n.fw-700, .fw-bold { font-weight: 700 !important;\n}\n.fs-italic { font-style: italic;\n}\n.v-btn.custom-btn {\r\n  font-weight: bold !important;\r\n  color: #4fa891 !important;\r\n  box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.5) !important;\r\n  border-radius: 0 !important;\n}\r\n", ""]);
 
 // exports
 
@@ -2716,6 +2780,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, "\n.v-content[data-v-8f03aa84] {\r\n  background-size: cover;\r\n  background-position: center center;\r\n  transition: background-image .6s ease-in-out !important;\n}\nh2[data-v-8f03aa84], h3[data-v-8f03aa84] {\r\n  font-family: 'Poppins', sans-serif !important;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=style&index=0&id=05fa6510&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=style&index=0&id=05fa6510&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.v-content[data-v-05fa6510] {\r\n  background-color: #231f20;\n}\n.pin-bottom[data-v-05fa6510] {\r\n  font-family: 'Poppins', sans-serif;\r\n  position: absolute;\r\n  bottom: 50px;\r\n  left: 0;\r\n  right: 0;\n}\n.filter[data-v-05fa6510] {\r\n  box-shadow: inset 0 -250px 250px rgba(0,0,0,0.8);\n}\n.nstw[data-v-05fa6510] {\r\n  text-transform: uppercase;\n}\r\n", ""]);
 
 // exports
 
@@ -4139,6 +4222,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=style&index=0&id=05fa6510&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=style&index=0&id=05fa6510&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Slideshow.vue?vue&type=style&index=0&id=05fa6510&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=style&index=0&id=05fa6510&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/front-end/screens/Registration/Form.vue?vue&type=style&index=0&id=81ca511c&scoped=true&lang=css&":
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/front-end/screens/Registration/Form.vue?vue&type=style&index=0&id=81ca511c&scoped=true&lang=css& ***!
@@ -5281,7 +5394,7 @@ var render = function() {
                   _c(
                     "v-btn",
                     {
-                      staticClass: "my-5",
+                      staticClass: "my-5 custom-btn",
                       attrs: { large: "", to: "/exhibit/map/" }
                     },
                     [_vm._v("Go to Exhibits")]
@@ -5560,6 +5673,205 @@ var render = function() {
                     },
                     [_vm._v("Semi-top View")]
                   )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=template&id=05fa6510&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=template&id=05fa6510&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-content",
+    [
+      _c(
+        "v-container",
+        { attrs: { "fill-height": "" } },
+        [
+          _c(
+            "v-layout",
+            { attrs: { row: "", wrap: "", "align-center": "" } },
+            [
+              _c(
+                "v-flex",
+                { attrs: { xs12: "" } },
+                [
+                  _c(
+                    "v-carousel",
+                    {
+                      staticClass: "mx-auto",
+                      staticStyle: { width: "500px", height: "500px" }
+                    },
+                    _vm._l(_vm.exhibits.slideshow, function(slideshow) {
+                      return _c(
+                        "v-carousel-item",
+                        {
+                          key: slideshow,
+                          attrs: { "hide-controls": "", src: slideshow.image }
+                        },
+                        [
+                          _c(
+                            "v-layout",
+                            {
+                              staticClass: "filter",
+                              attrs: { "fill-height": "", column: "" }
+                            },
+                            [
+                              _c(
+                                "v-flex",
+                                [
+                                  _c(
+                                    "v-layout",
+                                    {
+                                      staticClass: "ma-2",
+                                      attrs: { row: "", wrap: "" }
+                                    },
+                                    [
+                                      _c(
+                                        "v-flex",
+                                        [
+                                          _c("v-img", {
+                                            attrs: {
+                                              contain: "",
+                                              src: "/assets/dost-seal.png",
+                                              width: "64",
+                                              height: "64"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c("v-spacer"),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-flex",
+                                        [
+                                          _c("v-img", {
+                                            staticClass: "right",
+                                            attrs: {
+                                              contain: "",
+                                              src: slideshow.icon,
+                                              width: "64",
+                                              height: "64"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c("v-flex", { attrs: { "justify-end": "" } }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "text-xs-center white--text display-1 pin-bottom"
+                                  },
+                                  [
+                                    _c("p", {
+                                      domProps: {
+                                        innerHTML: _vm._s(slideshow.caption)
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "v-btn",
+                                      {
+                                        attrs: {
+                                          large: "",
+                                          color: "blue darken-2",
+                                          to: slideshow.learnMore
+                                        }
+                                      },
+                                      [_vm._v("Learn More")]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ])
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    }),
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-flex",
+                { attrs: { xs4: "" } },
+                [
+                  _c("v-img", {
+                    attrs: {
+                      contain: "",
+                      src: "/assets/un-sdg.png",
+                      width: "172"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("v-flex", { attrs: { xs4: "" } }, [
+                _c("p", { staticClass: "yellow--text text-xs-center nstw" }, [
+                  _vm._v(
+                    "\n          National Science and Technology Week 2019"
+                  ),
+                  _c("br"),
+                  _vm._v("\n          Regional Exhibit Area\n        ")
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "v-flex",
+                { attrs: { xs4: "" } },
+                [
+                  _c("v-img", {
+                    staticClass: "right",
+                    attrs: {
+                      contain: "",
+                      src: "/assets/sftp.png",
+                      width: "164"
+                    }
+                  })
                 ],
                 1
               )
@@ -6683,7 +6995,10 @@ var render = function() {
                         [
                           _c(
                             "v-btn",
-                            { attrs: { large: "", to: "/registration/form" } },
+                            {
+                              staticClass: "custom-btn",
+                              attrs: { large: "", to: "/registration/form" }
+                            },
                             [
                               _vm._v(
                                 "\n              Register Here\n            "
@@ -47752,7 +48067,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! exports provided: exhibits, default */
 /***/ (function(module) {
 
-module.exports = {"exhibits":{"map":{"navigation":{"left":[{"name":"Souvenir Shoppe","caption":"By DOST OneStore","path":"/exhibit/souvenir-shoppe"},{"name":"Sustainable Development Goal 16","caption":"STI for Peace, Justice, & Strong Institutions","path":"/exhibit/sustainable-development-goal-16"},{"name":"Innovation Lounge","path":"/exhibit/innovation-lounge"},{"name":"Sustainable Development Goal 8","caption":"STI for Decent Work and Economic Growth","path":"/exhibit/sustainable-development-goal-8"}],"right":[{"name":"Game Zone","path":"/exhibit/game-zone"},{"name":"Sustainable Development Goal 1","caption":"STI for No Poverty","path":"/exhibit/sustainable-development-goal-1"},{"name":"Concierge","path":"/exhibit/concierge"},{"name":"Garden and Wellness Area","path":"/exhibit/garden-and-wellness-area"}]}},"kiosks":[{"name":"Concierge","description":"<p>Registration Area, Secretariat and Digital File Download Station for program brochures and other promotional materials.</p><p>Evaluation Kiosks.</p>","action":{"label":"Register Now","path":"/registration/"}},{"name":"Game Zone","description":"<p>Fun and learning games.</p><p>Gain points and prizes.</p><p>DOST-3 Teaching Module program for teachers.</p>"},{"name":"Garden and Wellness Area","description":"<p>Meditation zone showcasing the Vertical Helophyte Filtration System.</p>","action":{"label":"Learn More Here","path":"/exhibits/garden-and-wellness-area/learn-more"}},{"name":"Innovation Lounge","description":"<p>Cafe-like innovation lounge with coffee bar.</p><p>Small group discussion area for:<ul><li>Sharing of innovation stories (Sharing success stories by SETUP clients).</li><li>Techno Pitching.</li><li>Tech Talks.</li></ul></p>"},{"name":"Sustainable Development Goal 1","description":"<p>Diorama of CEST communities in Luzon, Visayas, and Mindanao.</p><p>Stories of CEST communities.</p><p>Display of CEST products.</p>","action":{"label":"Learn more about CEST","path":"/exhibit/sustainable-development-goal-1/learn-more"}},{"name":"Sustainable Development Goal 8","description":"<p>SETUP 2.0 Program: Social Responsive, Market Oriented, Agile, Resilient, Technology-Intensive Environment-Friendly, Resource Efficient (SMARTER) businesses.</p><p>SETUP products display.</p><p>Machine demonstration: CNC Laser Machine, Vertical Form Fill Seal Machine, 3D Printer Machine.</p>","action":{"label":"Learn more about SETUP","path":"/exhibit/sustainable-development-goal-8/learn-more"}},{"name":"Sustainable Development Goal 16","description":"<p>DOST programs and projects for Marawi City rehabilitation:<ul><li>Scholarship program</li><li>Complementary Feeding program</li><li>Essential oils and Arroz caldo program</li><li>Other projects on Maranao Collection such as Lankit (Maranao weaving)</li></ul></p>","action":{"label":"Learn more here","path":"/exhibit/sustainable-development-goal-16/learn-more"}},{"name":"Souvenir Shoppe","description":"<p>Locally-made items like t-shirts, mugs, key-chain, ballpen, and other goodies from DOST-assisted firms nationwide.</p><p>OneStore Vendo Machines and OneStore Kiosks for online purchases.</p>","action":{"label":"Learn more about OneStore","path":"/exhibit/souvenir-shoppe/learn-more"}}]}};
+module.exports = {"exhibits":{"map":{"navigation":{"left":[{"name":"Souvenir Shoppe","caption":"By DOST OneStore","path":"/exhibit/souvenir-shoppe"},{"name":"Sustainable Development Goal 16","caption":"STI for Peace, Justice, & Strong Institutions","path":"/exhibit/sustainable-development-goal-16"},{"name":"Innovation Lounge","path":"/exhibit/innovation-lounge"},{"name":"Sustainable Development Goal 8","caption":"STI for Decent Work and Economic Growth","path":"/exhibit/sustainable-development-goal-8"}],"right":[{"name":"Game Zone","path":"/exhibit/game-zone"},{"name":"Sustainable Development Goal 1","caption":"STI for No Poverty","path":"/exhibit/sustainable-development-goal-1"},{"name":"Concierge","path":"/exhibit/concierge"},{"name":"Garden and Wellness Area","path":"/exhibit/garden-and-wellness-area"}]}},"kiosks":[{"name":"Concierge","description":"<p>Registration Area, Secretariat and Digital File Download Station for program brochures and other promotional materials.</p><p>Evaluation Kiosks.</p>","action":{"label":"Register Now","path":"/registration/"}},{"name":"Game Zone","description":"<p>Fun and learning games.</p><p>Gain points and prizes.</p><p>DOST-3 Teaching Module program for teachers.</p>"},{"name":"Garden and Wellness Area","description":"<p>Meditation zone showcasing the Vertical Helophyte Filtration System.</p>","action":{"label":"Learn More Here","path":"/exhibits/garden-and-wellness-area/learn-more"}},{"name":"Innovation Lounge","description":"<p>Cafe-like innovation lounge with coffee bar.</p><p>Small group discussion area for:<ul><li>Sharing of innovation stories (Sharing success stories by SETUP clients).</li><li>Techno Pitching.</li><li>Tech Talks.</li></ul></p>"},{"name":"Sustainable Development Goal 1","description":"<p>Diorama of CEST communities in Luzon, Visayas, and Mindanao.</p><p>Stories of CEST communities.</p><p>Display of CEST products.</p>","action":{"label":"Learn more about CEST","path":"/exhibit/sustainable-development-goal-1/learn-more"}},{"name":"Sustainable Development Goal 8","description":"<p>SETUP 2.0 Program: Social Responsive, Market Oriented, Agile, Resilient, Technology-Intensive Environment-Friendly, Resource Efficient (SMARTER) businesses.</p><p>SETUP products display.</p><p>Machine demonstration: CNC Laser Machine, Vertical Form Fill Seal Machine, 3D Printer Machine.</p>","action":{"label":"Learn more about SETUP","path":"/exhibit/sustainable-development-goal-8/learn-more"}},{"name":"Sustainable Development Goal 16","description":"<p>DOST programs and projects for Marawi City rehabilitation:<ul><li>Scholarship program</li><li>Complementary Feeding program</li><li>Essential oils and Arroz caldo program</li><li>Other projects on Maranao Collection such as Lankit (Maranao weaving)</li></ul></p>","action":{"label":"Learn more here","path":"/exhibit/sustainable-development-goal-16/learn-more"}},{"name":"Souvenir Shoppe","description":"<p>Locally-made items like t-shirts, mugs, key-chain, ballpen, and other goodies from DOST-assisted firms nationwide.</p><p>OneStore Vendo Machines and OneStore Kiosks for online purchases.</p>","action":{"label":"Learn more about OneStore","path":"/exhibit/souvenir-shoppe/learn-more"}}],"slideshow":[{"caption":"What DO WE DO<br />to help the marginalized communities?","image":"/assets/slideshow-01-cest.jpg","icon":"/assets/slideshow-01-cest-icon.jpg","learnMore":"/exhibit/cest"},{"caption":"WHAT DO WE PROVIDE<br />for the small business?","image":"/assets/slideshow-02-setup.jpg","icon":"/assets/slideshow-02-setup-icon.jpg","learnMore":"/exhibit/setup"},{"caption":"WHAT DO WE DO<br />to ensure strong institutions?","image":"/assets/slideshow-03-strong.jpg","icon":"/assets/slideshow-03-strong-icon.jpg","learnMore":"/exhibit/strong"}]}};
 
 /***/ }),
 
@@ -47831,6 +48146,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _screens_Exhibit_Landing__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/screens/Exhibit/Landing */ "./resources/front-end/screens/Exhibit/Landing.vue");
 /* harmony import */ var _screens_Exhibit_Map__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/screens/Exhibit/Map */ "./resources/front-end/screens/Exhibit/Map.vue");
 /* harmony import */ var _screens_Exhibit_Kiosk__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/screens/Exhibit/Kiosk */ "./resources/front-end/screens/Exhibit/Kiosk.vue");
+/* harmony import */ var _screens_Exhibit_Slideshow__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/screens/Exhibit/Slideshow */ "./resources/front-end/screens/Exhibit/Slideshow.vue");
+
 
 
 
@@ -47871,6 +48188,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     }, {
       path: 'map',
       component: _screens_Exhibit_Map__WEBPACK_IMPORTED_MODULE_8__["default"]
+    }, {
+      path: 'slideshow',
+      component: _screens_Exhibit_Slideshow__WEBPACK_IMPORTED_MODULE_10__["default"]
     }, {
       path: '*',
       component: _screens_Exhibit_Kiosk__WEBPACK_IMPORTED_MODULE_9__["default"]
@@ -48292,6 +48612,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Map_vue_vue_type_template_id_8f03aa84_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Map_vue_vue_type_template_id_8f03aa84_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/front-end/screens/Exhibit/Slideshow.vue":
+/*!***********************************************************!*\
+  !*** ./resources/front-end/screens/Exhibit/Slideshow.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Slideshow_vue_vue_type_template_id_05fa6510_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Slideshow.vue?vue&type=template&id=05fa6510&scoped=true& */ "./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=template&id=05fa6510&scoped=true&");
+/* harmony import */ var _Slideshow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Slideshow.vue?vue&type=script&lang=js& */ "./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Slideshow_vue_vue_type_style_index_0_id_05fa6510_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Slideshow.vue?vue&type=style&index=0&id=05fa6510&scoped=true&lang=css& */ "./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=style&index=0&id=05fa6510&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Slideshow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Slideshow_vue_vue_type_template_id_05fa6510_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Slideshow_vue_vue_type_template_id_05fa6510_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "05fa6510",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/front-end/screens/Exhibit/Slideshow.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Slideshow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Slideshow.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Slideshow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=style&index=0&id=05fa6510&scoped=true&lang=css&":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=style&index=0&id=05fa6510&scoped=true&lang=css& ***!
+  \********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Slideshow_vue_vue_type_style_index_0_id_05fa6510_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Slideshow.vue?vue&type=style&index=0&id=05fa6510&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=style&index=0&id=05fa6510&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Slideshow_vue_vue_type_style_index_0_id_05fa6510_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Slideshow_vue_vue_type_style_index_0_id_05fa6510_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Slideshow_vue_vue_type_style_index_0_id_05fa6510_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Slideshow_vue_vue_type_style_index_0_id_05fa6510_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Slideshow_vue_vue_type_style_index_0_id_05fa6510_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=template&id=05fa6510&scoped=true&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=template&id=05fa6510&scoped=true& ***!
+  \******************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Slideshow_vue_vue_type_template_id_05fa6510_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Slideshow.vue?vue&type=template&id=05fa6510&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/front-end/screens/Exhibit/Slideshow.vue?vue&type=template&id=05fa6510&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Slideshow_vue_vue_type_template_id_05fa6510_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Slideshow_vue_vue_type_template_id_05fa6510_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

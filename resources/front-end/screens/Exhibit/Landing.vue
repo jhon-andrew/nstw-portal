@@ -15,7 +15,7 @@
             Know what to see at the NSTW Regional Exhibits Area.
           </p>
 
-          <v-btn large class="my-5" to="/exhibit/map/">Go to Exhibits</v-btn>
+          <v-btn large class="my-5 custom-btn" to="/exhibit/map/">Go to Exhibits</v-btn>
 
           <div class="my-5">
             <v-img contain src="/assets/nstw.png" width="94" class="d-inline-block" />

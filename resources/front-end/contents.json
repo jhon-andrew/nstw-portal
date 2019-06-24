@@ -73,6 +73,26 @@
           "path": "/exhibit/souvenir-shoppe/learn-more"
         }
       }
+    ],
+    "slideshow": [
+      {
+        "caption": "What DO WE DO<br />to help the marginalized communities?",
+        "image": "/assets/slideshow-01-cest.jpg",
+        "icon": "/assets/slideshow-01-cest-icon.jpg",
+        "learnMore": "/exhibit/cest"
+      },
+      {
+        "caption": "WHAT DO WE PROVIDE<br />for the small business?",
+        "image": "/assets/slideshow-02-setup.jpg",
+        "icon": "/assets/slideshow-02-setup-icon.jpg",
+        "learnMore": "/exhibit/setup"
+      },
+      {
+        "caption": "WHAT DO WE DO<br />to ensure strong institutions?",
+        "image": "/assets/slideshow-03-strong.jpg",
+        "icon": "/assets/slideshow-03-strong-icon.jpg",
+        "learnMore": "/exhibit/strong"
+      }
     ]
   }
 }

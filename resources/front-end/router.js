@@ -8,6 +8,7 @@ import Exhibit from '@/screens/Exhibit'
 import ExhibitLanding from '@/screens/Exhibit/Landing'
 import ExhibitMap from '@/screens/Exhibit/Map'
 import ExhibitKiosk from '@/screens/Exhibit/Kiosk'
+import ExhibitSlideshow from '@/screens/Exhibit/Slideshow'
 
 Vue.use(Router)
 
@@ -46,6 +47,10 @@ export default new Router({
         {
           path: 'map',
           component: ExhibitMap
+        },
+        {
+          path: 'slideshow',
+          component: ExhibitSlideshow
         },
         {
           path: '*',

@@ -27,7 +27,7 @@ export default {
 .fw-700, .fw-bold { font-weight: 700 !important; }
 .fs-italic { font-style: italic; }
 
-.v-btn:not(.primary) {
+.v-btn.custom-btn {
   font-weight: bold !important;
   color: #4fa891 !important;
   box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.5) !important;
