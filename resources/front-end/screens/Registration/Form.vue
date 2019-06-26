@@ -4,16 +4,20 @@
       <v-toolbar-title>Pre-registration</v-toolbar-title>
     </v-toolbar>
     <section class="primary pa-4 hidden-lg-and-up" style="margin-top: 56px;">
-      <v-img src="/assets/dost-seal.png" contain height="48" />
-      <v-img src="/assets/ro-exhibit-branding.png" class="my-3" contain />
-      <v-img src="/assets/nstw.png" contain height="48" />
+      <!-- <v-img src="/assets/dost-seal.png" contain height="48" /> -->
+      <v-img src="https://drive.google.com/uc?id=11EvmezlErcmdMUhrLmSk6HKzrLtkhC0E" contain height="48" />
+      <!-- <v-img src="/assets/ro-exhibit-branding.png" class="my-3" contain /> -->
+      <v-img src="https://drive.google.com/uc?id=1ju5nmAXAf6Fk-ahx-t_4H49lBaieyphS" class="my-3" contain />
+      <!-- <v-img src="/assets/nstw.png" contain height="48" /> -->
+      <v-img src="https://drive.google.com/uc?id=1MHlfZJiNYYXK0gTZRMrJO6XxCqhN0S9C" contain height="48" />
       <h3 class="headline yellow--text text-xs-center mt-3">NSTW 2019</h3>
     </section>
     <section class="primary hidden-md-and-down">
       <v-container>
         <v-layout row wrap align-center class="white--text my-4">
           <v-flex xs1>
-            <v-img src="/assets/dost-seal.png" contain width="80" />
+            <!-- <v-img src="/assets/dost-seal.png" contain width="80" /> -->
+            <v-img src="https://drive.google.com/uc?id=11EvmezlErcmdMUhrLmSk6HKzrLtkhC0E" contain width="80" />
           </v-flex>
           <v-flex xs6 class="main-header">
             <div class="mb-1 pb-1 mr-5" style="border-bottom: 1px solid #ffffff;">Department of Science and Technology</div>
@@ -23,13 +27,15 @@
           <v-flex xs4>
             <v-layout row wrap align-center>
               <v-flex xs3>
-                <v-img src="/assets/nstw.png" contain width="94" />
+                <!-- <v-img src="/assets/nstw.png" contain width="94" /> -->
+                <v-img src="https://drive.google.com/uc?id=1MHlfZJiNYYXK0gTZRMrJO6XxCqhN0S9C" contain width="94" />
               </v-flex>
               <v-flex xs9 class="promotion">
                 <!-- <h2 class="white--text">Regional Offices'</h2>
                 <h1 class="yellow--text display-3">Exhibit <small>area</small></h1>
                 <h3 class="white--text caption">#ASTIGCountryside</h3> -->
-                <v-img src="/assets/ro-exhibit-branding.png" contain />
+                <!-- <v-img src="/assets/ro-exhibit-branding.png" contain /> -->
+                <v-img src="https://drive.google.com/uc?id=1ju5nmAXAf6Fk-ahx-t_4H49lBaieyphS" contain />
               </v-flex>
             </v-layout>
           </v-flex>
@@ -41,7 +47,7 @@
       <v-layout row wrap>
         <v-flex lg2>
           <v-card color="primary lighten-1">
-            <v-card-text>
+            <v-card-text class="caption">
               <p>Instructions:</p>
               <ul>
                 <li>Fill out the needed information.</li>
@@ -66,7 +72,7 @@
               <v-flex xs12 lg5>
                 <v-text-field box v-model="participant.surname" label="SURNAME" :rules="[$rules.required]" :disabled="loading" required />
               </v-flex>
-              <v-flex xs12 lg1>
+              <!-- <v-flex xs12 lg1>
                 <v-text-field box type="number" v-model="participant.age" label="AGE" :rules="[$rules.required]" :disabled="loading" required />
               </v-flex>
               <v-flex xs12 lg2>
@@ -88,6 +94,9 @@
                     <v-btn flat @click="$refs.birthdateMenu.save(participant.birthdate)" color="primary">OK</v-btn>
                   </v-date-picker>
                 </v-menu>
+              </v-flex> -->
+              <v-flex xs12 lg3>
+                <v-select box v-model="participant.age_group" label="AGE GROUP" :items="['Below 10', '10 - 15', '16 - 20', '21 - 30', '31 - 40', '41 - 50', '51 - 60', 'Above 60']"></v-select>
               </v-flex>
               <v-flex xs12 lg3>
                 <span class="grey--text">SEX</span>
@@ -139,7 +148,7 @@
                 </v-radio-group>
               </v-flex>
               <v-flex xs12 lg5>
-                <v-text-field box v-model="participant.email" label="EMAIL" :rules="[$rules.required, $rules.email]" :disabled="loading" required />
+                <v-text-field box v-model="participant.email" label="EMAIL" :rules="[$rules.required, $rules.email]" :disabled="loading" hint="We will be sending a confirmation email to this address." required />
               </v-flex>
               <v-flex xs12 lg5>
                 <v-text-field box v-model="participant.contact_number" label="CONTACT NUMBER" :rules="[$rules.required]" :disabled="loading" required />
@@ -160,11 +169,12 @@
         </v-card-title>
         <v-divider />
         <v-card-text>
-          <p>You may scan this QR code</p>
+          <!-- <p>You may scan this QR code</p>
           <v-img :src="`/api/qrcode/${success.response.activationCode}.png`" height="300" contain />
           <p>or keep the activation code below</p>
           <p><code style="font-size: 24px;">{{ success.response.activationCode }}</code></p>
-          <p>and verify it on the Concierge during the event.</p>
+          <p>and verify it on the Concierge during the event.</p> -->
+          <p>We've sent an activation code to your email. Please follow the instructions from there on how to verify your registration.</p>
         </v-card-text>
         <v-divider />
         <v-card-actions>
@@ -174,6 +184,7 @@
             participant = {}
             $refs.registrationForm.reset()
           }">Close</v-btn>
+          <v-btn color="primary" to="/exhibit/">Go to Exhibits</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -208,6 +219,7 @@ export default {
         const { data: response } = await this.$request.post('/api/registration', this.participant)
 
         if (response.errors) {
+          this.loading = false
           return this.error = {
             show: true,
             message: response.errors.find(error => error.field === 'email').message

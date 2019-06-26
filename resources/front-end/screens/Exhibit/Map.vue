@@ -1,13 +1,16 @@
 <template>
-  <v-content :style="{ backgroundImage: `url('/assets/venue-view-${mapPerspective}.jpg')` }">
+  <!-- <v-content :style="{ backgroundImage: `url('/assets/venue-view-${mapPerspective}.jpg')` }"> -->
+  <v-content :style="{ backgroundImage: `url('${cdnLink}')` }">
     <v-container fluid grid-list-lg>
       <v-layout row wrap align-center>
         <v-flex>
-          <v-img contain src="/assets/nstw.png" width="76" class="d-inline-block" />
+          <!-- <v-img contain src="/assets/nstw.png" width="76" class="d-inline-block" /> -->
+          <v-img contain src="https://drive.google.com/uc?id=1MHlfZJiNYYXK0gTZRMrJO6XxCqhN0S9C" width="76" class="d-inline-block" />
           <h2 class="display-1 primary--text d-inline-block fw-700">#NSTW2019</h2>
         </v-flex>
         <v-flex>
-          <v-img contain src="/assets/ro-exhibit-branding-light-02.png" width="256" height="76.19" class="mx-auto" />
+          <!-- <v-img contain src="/assets/ro-exhibit-branding-light-02.png" width="256" height="76.19" class="mx-auto" /> -->
+          <v-img contain src="https://drive.google.com/uc?id=18zAsZ0GrXK6czuNV2SdnzvOVbixBwdTs" width="256" height="76.19" class="mx-auto" />
         </v-flex>
         <v-flex class="text-xs-right">
           <h3 class="headline blue--text fw-700 fs-italic">#ASTIGCountryside</h3>
@@ -62,6 +65,18 @@ export default {
   watch: {
     mapPerspective (to, from) {
       this.mapPerspective = !to ? from : to
+    }
+  },
+  computed: {
+    cdnLink () {
+      const cdnLinks = {
+        top: 'https://drive.google.com/uc?id=1VmlTDbGFZfXLSh53vPv_xW9g9B4UXJnV',
+        front: 'https://drive.google.com/uc?id=1NHWiAOSyZdRQCHg_ojlu9d03Ocgcqnn9',
+        rear: 'https://drive.google.com/uc?id=1KlvVvP2pYW7xjRijfI47mCqAzJOsHyGH',
+        semitop: 'https://drive.google.com/uc?id=1dkLW0fRtjKrX_SJRP5bjkr1DsdcH-w--'
+      }
+
+      return cdnLinks[this.mapPerspective]
     }
   }
 }

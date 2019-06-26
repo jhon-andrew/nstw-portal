@@ -77,20 +77,20 @@
     "slideshow": [
       {
         "caption": "What DO WE DO<br />to help the marginalized communities?",
-        "image": "/assets/slideshow-01-cest.jpg",
-        "icon": "/assets/slideshow-01-cest-icon.jpg",
+        "image": "https://drive.google.com/uc?id=16OdBVLI5bBCooSPhtZKnrLulOx3QoSjJ",
+        "icon": "https://drive.google.com/uc?id=1OmUlFMMkO7ti2zvfcoQ77Oe-FT2_gr5U",
         "learnMore": "/exhibit/cest"
       },
       {
         "caption": "WHAT DO WE PROVIDE<br />for the small business?",
-        "image": "/assets/slideshow-02-setup.jpg",
-        "icon": "/assets/slideshow-02-setup-icon.jpg",
+        "image": "https://drive.google.com/uc?id=1iivqKUe8AF48RJdUcJEZbNp3E3WyQGf8",
+        "icon": "https://drive.google.com/uc?id=18KLdXO8lfJpq-zMWM1FQDe_4VrY5gnkQ",
         "learnMore": "/exhibit/setup"
       },
       {
         "caption": "WHAT DO WE DO<br />to ensure strong institutions?",
-        "image": "/assets/slideshow-03-strong.jpg",
-        "icon": "/assets/slideshow-03-strong-icon.jpg",
+        "image": "https://drive.google.com/uc?id=1WEWPCdH3aL5pi57_QyuPmxoFy2vJBsdA",
+        "icon": "https://drive.google.com/uc?id=1BaFZAxpkzJ8K232SIrGurFalcxKYb4mB",
         "learnMore": "/exhibit/strong"
       }
     ]

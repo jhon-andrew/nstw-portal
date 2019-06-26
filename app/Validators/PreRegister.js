@@ -5,8 +5,7 @@ class PreRegister {
     return {
       first_name: 'required',
       surname: 'required',
-      age: 'required|integer',
-      birthdate: 'required|dateFormat:YYYY-MM-DD',
+      age_group: 'required',
       sex: 'required',
       address: 'required',
       affiliation: 'required',

@@ -6,7 +6,8 @@
     <v-container fill-height style="padding-top: 56px;">
       <v-layout row wrap align-center>
         <v-flex xs12 lg6>
-          <v-img contain src="/assets/venue-thumbnail.png" class="my-3" />
+          <!-- <v-img contain src="/assets/venue-thumbnail.png" class="my-3" /> -->
+          <v-img contain src="https://drive.google.com/uc?id=1AD8jt0Rob-CCt3TfxMdgrMGWARkmI7r8" class="my-3" />
         </v-flex>
         <v-flex xs12 lg6 class="text-xs-center">
           <h1 class="yellow--text display-4 hidden-md-and-down">exhibits</h1>
@@ -18,11 +19,13 @@
           <v-btn large class="my-5 custom-btn" to="/exhibit/map/">Go to Exhibits</v-btn>
 
           <div class="my-5">
-            <v-img contain src="/assets/nstw.png" width="94" class="d-inline-block" />
+            <!-- <v-img contain src="/assets/nstw.png" width="94" class="d-inline-block" /> -->
+            <v-img contain src="https://drive.google.com/uc?id=1MHlfZJiNYYXK0gTZRMrJO6XxCqhN0S9C" width="94" class="d-inline-block" />
             <h2 class="display-3 white--text d-inline-block ml-2">#NSTW2019</h2>
           </div>
 
-          <v-img contain src="/assets/ro-exhibit-branding.png" max-width="256" class="mx-auto" />
+          <!-- <v-img contain src="/assets/ro-exhibit-branding.png" max-width="256" class="mx-auto" /> -->
+          <v-img contain src="https://drive.google.com/uc?id=1ju5nmAXAf6Fk-ahx-t_4H49lBaieyphS" max-width="256" class="mx-auto" />
         </v-flex>
       </v-layout>
     </v-container>

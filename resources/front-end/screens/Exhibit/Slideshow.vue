@@ -8,7 +8,8 @@
               <v-layout fill-height column class="filter">
                 <v-flex>
                   <v-layout row wrap class="ma-2">
-                    <v-flex><v-img contain src="/assets/dost-seal.png" width="64" height="64" /></v-flex>
+                    <!-- <v-flex><v-img contain src="/assets/dost-seal.png" width="64" height="64" /></v-flex> -->
+                    <v-flex><v-img contain src="https://drive.google.com/uc?id=11EvmezlErcmdMUhrLmSk6HKzrLtkhC0E" width="64" height="64" /></v-flex>
                     <v-spacer />
                     <v-flex ><v-img contain :src="slideshow.icon" width="64" height="64" class="right" /></v-flex>
                   </v-layout>
@@ -24,7 +25,8 @@
           </v-carousel>
         </v-flex>
         <v-flex xs4>
-          <v-img contain src="/assets/un-sdg.png" width="172" />
+          <!-- <v-img contain src="/assets/un-sdg.png" width="172" /> -->
+          <v-img contain src="https://drive.google.com/uc?id=1O7BCcPKZjLccwZtTZpwwtKadoH19QI_1" width="172" />
         </v-flex>
         <v-flex xs4>
           <p class="yellow--text text-xs-center nstw">
@@ -33,7 +35,8 @@
           </p>
         </v-flex>
         <v-flex xs4>
-          <v-img contain src="/assets/sftp.png" width="164" class="right" />
+          <!-- <v-img contain src="/assets/sftp.png" width="164" class="right" /> -->
+          <v-img contain src="https://drive.google.com/uc?export=download&id=1Cxxc6xK-XDO3ejSYirOxtatuaVDYNL7l" width="164" class="right" />
         </v-flex>
       </v-layout>
     </v-container>

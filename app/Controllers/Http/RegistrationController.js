@@ -7,6 +7,7 @@
 const Env = use('Env')
 const User = use('App/Models/User')
 const Profile = use('App/Models/Profile')
+const Mail = use('Mail')
 
 const qr = require('qr-image')
 const hashids = require('hashids')
@@ -34,7 +35,7 @@ class RegistrationController {
    * @param {Response} ctx.response
    */
   async preRegister ({ request, response }) {
-    const participant = request.only(['first_name', 'middle_initial', 'surname', 'age', 'birthdate', 'sex', 'address', 'affiliation', 'affiliation_type', 'email', 'contact_number'])
+    const participant = request.only(['first_name', 'middle_initial', 'surname', 'age_group', 'sex', 'address', 'affiliation', 'affiliation_type', 'email', 'contact_number'])
 
     const user = await User.create({
       username: participant.email,
@@ -43,8 +44,16 @@ class RegistrationController {
     })
 
     const profile = await user.profile().create(participant)
+    const activationCode = hashid.encode(user.id)
 
-    response.json({ success: true, userId: user.id, activationCode: hashid.encode(user.id) })
+    await Mail.send('email-templates.welcome', { activationCode, ...profile.toJSON() }, message => {
+      message
+        .to(profile.email)
+        .from(Env.get('MAIL_USERNAME'))
+        .subject('[Email Confirmation] Regional Offices\' Exhibit #ASTIGCountryside')
+    })
+
+    response.json({ success: true, userId: user.id, activationCode })
   }
 }
 
