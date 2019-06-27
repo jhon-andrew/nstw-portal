@@ -10,7 +10,7 @@ class PreRegister {
       address: 'required',
       affiliation: 'required',
       affiliation_type: 'required',
-      email: 'required|email|unique:users',
+      email: 'required|email|unique:adonis_users',
       contact_number: 'required'
     }
   }

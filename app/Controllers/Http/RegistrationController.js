@@ -43,8 +43,8 @@ class RegistrationController {
       password: participant.email
     })
 
-    const profile = await user.profile().create(participant)
     const activationCode = hashid.encode(user.id)
+    const profile = await user.profile().create({ activation_code: activationCode, ...participant })
 
     await Mail.send('email-templates.welcome', { activationCode, ...profile.toJSON() }, message => {
       message

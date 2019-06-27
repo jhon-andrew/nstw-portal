@@ -48605,11 +48605,11 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
   mode: 'history',
   routes: [{
     path: '/dashboard',
-    alias: '/',
     component: _screens_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
     // Registration Route
     path: '/registration',
+    alias: '/',
     component: _screens_Registration__WEBPACK_IMPORTED_MODULE_3__["default"],
     children: [{
       path: '',

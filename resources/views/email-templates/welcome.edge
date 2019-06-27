@@ -1,4 +1,113 @@
-<p><strong>Welcome {{first_name}}!</strong></p>
-<p>Thank you for filling up the pre-registration form. Please keep this email or the activation code below and present it in the Concierge during the event.</p>
-<h2><code>{{activationCode}}</code></h2>
-<p><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{activationCode}}" alt="{{activationCode}}"></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Welcome</title>
+</head>
+<body style="
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+">
+  <div
+    class="banner"
+    style="
+      background-color: #4fa892;
+      /* background-image: url('/assets/email/banner-left-bg.png'), url('/assets/email/banner-right-bg.png'); */
+      background-image: url('https://drive.google.com/uc?id=1_H6htQdX3DlKPr5FHyDGMqwPvajdBKY4'), url('https://drive.google.com/uc?id=15S9zxb2GThpCvNt4G2-NprtIYd5gGFNz');
+      background-position: bottom left, bottom right;
+      background-repeat: no-repeat, no-repeat;
+      background-size: contain;
+      height: 400px;
+      text-align: center;
+    "
+  >
+    <!-- <img src="/assets/email/banner-content.png" style="height: inherit;" /> -->
+    <img src="https://drive.google.com/uc?id=16LZ_fBm1T-7PjZ-CtV58WDIfbyStGhiq" style="height: inherit;" />
+  </div>
+
+  <div class="content">
+    <div
+      class="wrapper"
+      style="
+        max-width: 800px;
+        margin: 20px auto;
+        text-align: center;
+      "
+    >
+      <h1 style="text-align: left;font-weight: normal">Welcome <span style="font-weight: bold;">{{first_name}}</span>!</h1>
+      <div
+        class="left"
+        style="
+          width: 50%;
+          float: left;
+          padding-top: 82px;
+        "
+      >
+        <!-- <img src="/assets/email/venue-map.jpg" style="width: 100%;"> -->
+        <img src="https://drive.google.com/uc?id=1IgUhcfZs1N8KZ-ShcXjHawYD0xPs36X5" style="width: 100%;">
+      </div>
+      <div
+        class="right"
+        style="
+          width: 50%;
+          float: right;
+          text-align: center;
+        "
+      >
+        <div class="ro-branding">
+          <!-- <img src="/assets/email/ro-branding.jpg" style="width: 164px;"> -->
+          <img src="https://drive.google.com/uc?id=1mhhwmTMC1Zd5E3HKU8mYtpYk5BPdEbqU" style="width: 164px;">
+        </div>
+        <div class="qr-code" style="margin-top: 82px;">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{activationCode}}" style="width: 150px; height: 150px; box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);border: 10px solid #ffffff;border-radius: 2px;">
+        </div>
+        <h1
+          class="activation-code"
+          style="
+            font-weight: bold;
+            font-size: 2.5em;
+            color: #ed1b24;
+          "
+        >
+          {{activationCode}}
+        </h1>
+        <p style="width: 256px;margin: 0 auto;">Present the QR or activation code to the Concierge during the event.</p>
+        <a
+          style="
+            display: inline-block;
+            background-color: #231f20;
+            color: hsl(0, 0%, 100%);
+            border: 0;
+            font-size: 1.2em;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 1px rgba(0, 0, 0, 0.8);
+            margin-top: 82px;
+            text-decoration: none;
+          "
+          href="http://192.168.1.210:3333/exhibit/"
+          target="_blank"
+          >
+          Check the exhibit map
+      </a>
+        <p style="margin-top: 82px; text-align: left;padding: 5px;">The area is a collection of Science, Technology and Innovation (STI) efforts and stories from the DOST Regional Offices in bringing <span style="color: #1676c3;">A</span>ccelerated <span style="color: #1676c3;">STI</span> for <span style="color: #1676c3;">G</span>rowth in the <span style="color: #1676c3;">Countryside</span>.</p>
+      </div>
+      <div class="clear-float" style="clear: both;"></div>
+    </div>
+  </div>
+
+  <div
+    class="footer"
+    style="
+      background-color: #231f20;
+      text-align: center;
+      padding: 20px 0;
+    "
+  >
+    <!-- <img src="/assets/email/footer.jpg" style="max-width: 800px;"> -->
+    <img src="https://drive.google.com/uc?id=1Qdl_EcfeTIcpXYE4gpcKf6HHky4Is9Sh" style="max-width: 800px;">
+  </div>
+</body>
+</html>

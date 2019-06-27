@@ -17,11 +17,11 @@ export default new Router({
   routes: [
     {
       path: '/dashboard',
-      alias: '/',
       component: Dashboard
     },
     { // Registration Route
       path: '/registration',
+      alias: '/',
       component: Registration,
       children: [
         {
