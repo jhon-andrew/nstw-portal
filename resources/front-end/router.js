@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Dashboard from '@/screens/Dashboard'
 import Registration from '@/screens/Registration'
 import RegistrationLanding from '@/screens/Registration/Landing'
 import RegistrationForm from '@/screens/Registration/Form'
@@ -9,6 +8,8 @@ import ExhibitLanding from '@/screens/Exhibit/Landing'
 import ExhibitMap from '@/screens/Exhibit/Map'
 import ExhibitKiosk from '@/screens/Exhibit/Kiosk'
 import ExhibitSlideshow from '@/screens/Exhibit/Slideshow'
+import Dashboard from '@/screens/Dashboard'
+import DashboardPrograms from '@/screens/Dashboard/Programs'
 
 Vue.use(Router)
 
@@ -16,8 +17,15 @@ export default new Router({
   mode: 'history',
   routes: [
     {
+      name: 'dashboard',
       path: '/dashboard',
-      component: Dashboard
+      component: Dashboard,
+      children: [
+        {
+          path: 'program-of-activities',
+          component: DashboardPrograms
+        }
+      ]
     },
     { // Registration Route
       path: '/registration',
