@@ -8,6 +8,7 @@ const Env = use('Env')
 const User = use('App/Models/User')
 const Profile = use('App/Models/Profile')
 const Mail = use('Mail')
+const Ws = use('Ws')
 
 const qr = require('qr-image')
 const hashids = require('hashids')
@@ -46,6 +47,7 @@ class RegistrationController {
     const activationCode = hashid.encode(user.id)
     const profile = await user.profile().create({ activation_code: activationCode, ...participant })
 
+    // Send email
     await Mail.send('email-templates.welcome', { activationCode, ...profile.toJSON() }, message => {
       message
         .to(profile.email)
@@ -53,7 +55,31 @@ class RegistrationController {
         .subject('[Email Confirmation] Regional Offices\' Exhibit #ASTIGCountryside')
     })
 
+    // Broadcast to websocket
+    const topic = Ws.getChannel('stats:*').topic('stats:preregistered')
+    if (topic) topic.broadcast('updateStats', user.id)
+
     response.json({ success: true, userId: user.id, activationCode })
+  }
+
+  async confirm ({ request, response }) {
+    const { activation_code } = request.only(['activation_code'])
+    const profile = await Profile.findBy('activation_code', activation_code)
+
+    if (profile && profile.activation_code === activation_code) {
+      profile.confirmed = true
+      await profile.save()
+
+      const topic = Ws.getChannel('stats:*').topic('stats:confirmed')
+      if (topic) topic.broadcast('updateStats', {
+        stats: await Profile.query().where('confirmed', true).getCount()
+      })
+
+      response.json({ success: true, message: 'Registration has been confirmed.' })
+    } else response.json({
+      error: true,
+      message: 'Activation code is incorrect.'
+    })
   }
 }
 

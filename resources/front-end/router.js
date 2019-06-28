@@ -10,6 +10,7 @@ import ExhibitKiosk from '@/screens/Exhibit/Kiosk'
 import ExhibitSlideshow from '@/screens/Exhibit/Slideshow'
 import Dashboard from '@/screens/Dashboard'
 import DashboardPrograms from '@/screens/Dashboard/Programs'
+import DashboardStats from '@/screens/Dashboard/Stats'
 
 Vue.use(Router)
 
@@ -24,6 +25,10 @@ export default new Router({
         {
           path: 'program-of-activities',
           component: DashboardPrograms
+        },
+        {
+          path: 'stats/:type',
+          component: DashboardStats
         }
       ]
     },

@@ -32,6 +32,8 @@
     "@adonisjs/session": "^1.0.27",
     "@adonisjs/shield": "^1.0.8",
     "@adonisjs/validator": "^5.0.6",
+    "@adonisjs/websocket": "^1.0.11",
+    "@adonisjs/websocket-client": "^1.0.9",
     "axios": "^0.19.0",
     "dayjs": "^1.8.14",
     "hashids": "^1.2.2",

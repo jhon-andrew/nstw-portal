@@ -44,7 +44,7 @@ export default {
   created () {
     this.nstwBrandingCarouselTimer = setInterval(() => {
       this.nstwBrandingCarousel += (this.nstwBrandingCarousel === 2) ? -2 : 1
-    }, 4000)
+    }, 3608)
   },
   beforeDestroy () {
     clearInterval(this.nstwBrandingCarouselTimer)

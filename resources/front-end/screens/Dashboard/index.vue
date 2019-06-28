@@ -54,9 +54,10 @@
       </v-layout>
     </v-container>
 
-    <v-dialog persistent scrollable v-model="modal" max-width="75%">
-      <router-view />
-    </v-dialog>
+    <!-- <v-dialog persistent scrollable v-model="modal" max-width="75%">
+      
+    </v-dialog> -->
+    <router-view />
   </v-content>
 </template>
 

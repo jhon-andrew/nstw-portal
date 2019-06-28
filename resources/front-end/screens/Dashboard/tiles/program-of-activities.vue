@@ -51,14 +51,14 @@ export default {
     this.programsSlidesTimer = setInterval(() => {
       let maxSlide = this.programs.length - 1
       this.programSlide += (this.programSlide === maxSlide) ? (maxSlide * -1) : 1
-    }, 5000)
+    }, 5024)
 
     this.clockWidget.updater = setInterval(() => {
       const { showSeparator } = this.clockWidget
-      this.clockWidget.time = dayjs().format(`HH${showSeparator ? ':' : ' '}mm A`)
+      this.clockWidget.time = dayjs().format(`h${showSeparator ? ':' : ' '}mm A`)
       this.clockWidget.date = dayjs().format('dddd, D MMMM')
       this.clockWidget.showSeparator = !showSeparator
-    }, 1000)
+    }, 507)
   },
   beforeDestroy () {
     clearInterval(this.programsSlidesTimer)
