@@ -27,7 +27,7 @@
       <div class="d-flex">
         <v-img contain src="/assets/dashboard/un-sdg.png" width="279" height="32" />
         <v-spacer />
-        <span class="text-xs-right white--text" style="text-shadow: 0px 0px 2px #1f6879;">World Trade Center, Pasay City, July 17 - 21, 2019</span>
+        <span class="text-xs-right white--text subheading" style="text-shadow: 0px 1px 5px #1f6879;">World Trade Center, Pasay City, July 17 - 21, 2019</span>
       </div>
     </v-card-text>
   </v-card>
