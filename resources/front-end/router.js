@@ -12,6 +12,9 @@ import Dashboard from '@/screens/Dashboard'
 import DashboardPrograms from '@/screens/Dashboard/Programs'
 import DashboardStats from '@/screens/Dashboard/Stats'
 import DashboardContest from '@/screens/Dashboard/Contest'
+import DashboardMap from '@/screens/Dashboard/Map'
+import DashboardMapMap from '@/screens/Dashboard/Map/map'
+import DashboardMapKiosk from '@/screens/Dashboard/Map/contents'
 import DashboardExhibit from '@/screens/Dashboard/Exhibit'
 import DashboardExhibitMenu from '@/screens/Dashboard/Exhibit/menu'
 import DashboardExhibitContents from '@/screens/Dashboard/Exhibit/contents'
@@ -59,6 +62,20 @@ export default new Router({
             default: DashboardExhibitContents,
             video: DashboardExhibitVideo
           }
+        }
+      ]
+    },
+    {
+      path: '/dashboard/map',
+      component: DashboardMap,
+      children: [
+        {
+          path: '',
+          component: DashboardMapMap
+        },
+        {
+          path: 'kiosk/:id',
+          component: DashboardMapKiosk
         }
       ]
     },
