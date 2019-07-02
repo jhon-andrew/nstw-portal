@@ -11,6 +11,7 @@ import ExhibitSlideshow from '@/screens/Exhibit/Slideshow'
 import Dashboard from '@/screens/Dashboard'
 import DashboardPrograms from '@/screens/Dashboard/Programs'
 import DashboardStats from '@/screens/Dashboard/Stats'
+import DashboardContest from '@/screens/Dashboard/Contest'
 import DashboardExhibit from '@/screens/Dashboard/Exhibit'
 import DashboardExhibitMenu from '@/screens/Dashboard/Exhibit/menu'
 import DashboardExhibitContents from '@/screens/Dashboard/Exhibit/contents'
@@ -33,6 +34,10 @@ export default new Router({
         {
           path: 'stats/:type',
           component: DashboardStats
+        },
+        {
+          path: 'contest',
+          component: DashboardContest
         }
       ]
     },

@@ -58,7 +58,8 @@ export default {
         this.venues.push(program.venue)
       }
     })
-
+  },
+  mounted () {
     this.modal = true
   }
 }

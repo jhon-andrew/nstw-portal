@@ -22,8 +22,9 @@ class RegistrationController {
    * @param {object} ctx
    * @param {Response} ctx.response
    */
-  qrImage ({ response, params }) {
-    const qrCode = qr.image(params.id, { size: 10 })
+  qrImage ({ response, params, request }) {
+    const data = request.get().data || params.id
+    const qrCode = qr.image(data, { size: 10 })
     response.type('image/png')
     return qrCode.pipe(response.response)
   }

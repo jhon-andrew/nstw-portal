@@ -30,7 +30,7 @@ export default {
       today: dayjs().format('h:mm A [today]')
     }
   },
-  created () {
+  mounted () {
     this.modal = true
   }
 }
