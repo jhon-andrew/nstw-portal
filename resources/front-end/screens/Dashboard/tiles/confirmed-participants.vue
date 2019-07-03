@@ -22,12 +22,12 @@ export default {
   created () {
     this.stats.on('ready', () => {
       this.stats.emit('getStats')
-      console.log('Confirmed participants stat should be ready.')
+      // console.log('Confirmed participants stat should be ready.')
     })
 
     this.stats.on('updateStats', resp => {
       this.count = resp.stats
-      console.log(resp)
+      // console.log(resp)
     })
   },
   beforeDestroy () {

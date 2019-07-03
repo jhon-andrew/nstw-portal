@@ -1,5 +1,5 @@
 <template>
-  <v-dialog persistent v-model="modal" max-width="50%">
+  <v-dialog persistent v-model="modal" max-width="40%">
     <v-card :class="['white--text', $route.params.type === 'pre-registered' ? 'teal' : 'indigo darken-1']" style="height: 300px;">
       <v-layout fill-height>
         <v-flex xs4 d-flex :class="[$route.params.type === 'pre-registered' ? 'teal darken-1' : 'indigo darken-2']">

@@ -16,10 +16,15 @@
                 </v-flex>
                 <v-flex d-flex class="flex-to-30">
                   <v-layout>
-                    <v-flex xs6 d-flex>
+                    <v-flex xs3 d-flex>
                       <!-- Contest/Raffles -->
                       <contest />
                       <!-- /Contest/Raffles -->
+                    </v-flex>
+                    <v-flex xs3 d-flex>
+                      <!-- Activation -->
+                      <activation />
+                      <!-- /Activation -->
                     </v-flex>
                     <v-flex xs3 d-flex>
                       <!-- Pre-registered -->
@@ -68,11 +73,12 @@ import exhibits from './tiles/exhibits'
 import preRegistered from './tiles/pre-registered'
 import confirmedParticipants from './tiles/confirmed-participants'
 import contest from './tiles/contest'
+import activation from './tiles/activation'
 
 export default {
   name: 'dashboard',
   components: {
-    nstwBranding, programOfActivities, exhibits, preRegistered, confirmedParticipants, contest
+    nstwBranding, programOfActivities, exhibits, preRegistered, confirmedParticipants, contest, activation
   },
   data () {
     return {

@@ -18,9 +18,6 @@ const hashid = new hashids(Env.get('APP_KEY'), 6)
 class RegistrationController {
   /**
    * Generate a qr-code image
-   *
-   * @param {object} ctx
-   * @param {Response} ctx.response
    */
   qrImage ({ response, params, request }) {
     const data = request.get().data || params.id
@@ -31,10 +28,6 @@ class RegistrationController {
 
   /**
    * Pre-register a participant
-   * 
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
    */
   async preRegister ({ request, response }) {
     const participant = request.only(['first_name', 'middle_initial', 'surname', 'age_group', 'sex', 'address', 'affiliation', 'affiliation_type', 'email', 'contact_number'])
@@ -63,23 +56,29 @@ class RegistrationController {
     response.json({ success: true, userId: user.id, activationCode })
   }
 
+  /**
+   * Confirm Registration
+   */
   async confirm ({ request, response }) {
     const { activation_code } = request.only(['activation_code'])
     const profile = await Profile.findBy('activation_code', activation_code)
 
-    if (profile && profile.activation_code === activation_code) {
-      profile.confirmed = true
-      await profile.save()
+    if (!profile) return response.json({
+      response: 'Activation code does not exist.'
+    })
 
-      const topic = Ws.getChannel('stats:*').topic('stats:confirmed')
-      if (topic) topic.broadcast('updateStats', {
-        stats: await Profile.query().where('confirmed', true).getCount()
-      })
+    profile.confirmed = true
+    await profile.save()
 
-      response.json({ success: true, message: 'Registration has been confirmed.' })
-    } else response.json({
-      error: true,
-      message: 'Activation code is incorrect.'
+    // Broadcast to websocket
+    const topic = Ws.getChannel('stats:*').topic('stats:confirmed')
+    if (topic) {
+      const count = await Profile.query().where('confirmed', true).getCount()
+      topic.broadcast('updateStats', { stats: count })
+    }
+
+    return response.json({
+      response: `${profile.first_name}, your registration has been confirmed.`
     })
   }
 }

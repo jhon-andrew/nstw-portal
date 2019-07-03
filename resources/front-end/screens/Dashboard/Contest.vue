@@ -1,5 +1,5 @@
 <template>
-  <v-dialog persistent v-model="dialog" max-width="50%">
+  <v-dialog persistent v-model="dialog" max-width="30%">
     <v-card>
       <v-card-title primary-title class="blue lighten-1">
         <div class="white--text">
