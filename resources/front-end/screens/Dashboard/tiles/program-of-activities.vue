@@ -3,7 +3,7 @@
     <v-layout class="ma-0" fill-height>
       <v-flex xs4 d-flex class="red darken-2" style="border-radius: 2px 0 0 2px;">
         <div class="white--text ma-auto text-xs-center">
-          <span class="d-block headline">{{clockWidget.time}}</span>
+          <span class="d-block display-1">{{clockWidget.time}}</span>
           <span class="d-block caption">{{clockWidget.date}}</span>
         </div>
       </v-flex>
@@ -67,7 +67,7 @@ export default {
 }
 </script>
 <style scoped>
-.title {
+.title, .headline {
   font-family: 'Poppins', sans-serif !important;
 }
 </style>

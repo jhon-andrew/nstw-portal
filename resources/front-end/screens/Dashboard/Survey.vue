@@ -3,7 +3,7 @@
     <v-card>
       <v-card-title primary-title class="blue lighten-1">
         <div class="white--text">
-          <p class="title mb-0">Answer the Survey</p>
+          <p class="title mb-0">Answer the Evaluation</p>
           <p class="caption mb-0">and win special prizes!</p>
         </div>
         <v-spacer />
@@ -18,7 +18,7 @@
           <li>You will then be redirected to our survey form.</li>
           <li>Fill up the form and have an entry to win some of our special prizes.</li>
         </ol>
-        <p class="text-xs-center"><img src="/api/qrcode/generate.php?data=http://astigcountryside-nstw2019.dost9.ph/" style="width: 300px; height: 300px;"></p>
+        <p class="text-xs-center"><img :src="`/api/qrcode/generate.php?data=${surveyLink}`" style="width: 300px; height: 300px;"></p>
       </v-card-text>
     </v-card>
   </v-dialog>
@@ -27,7 +27,8 @@
 export default {
   data () {
     return {
-      dialog: false
+      dialog: false,
+      surveyLink: `${location.protocol}//${location.host}/evaluation/`
     }
   },
   mounted () {

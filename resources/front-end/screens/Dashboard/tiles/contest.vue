@@ -3,8 +3,8 @@
     <v-layout column fill-height class="ma-0">
       <v-flex d-flex>
         <v-card-text class="my-auto text-xs-center">
-          <v-icon large color="white" class="mb-3">ballot</v-icon>
-          <p class="title">Contest</p>
+          <v-icon large color="white" class="mb-3">tag_faces</v-icon>
+          <p class="title">Raffle</p>
           <!-- <p class="caption">and win special prizes!</p> -->
         </v-card-text>
       </v-flex>

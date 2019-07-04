@@ -36,6 +36,7 @@
     "@adonisjs/websocket-client": "^1.0.9",
     "axios": "^0.19.0",
     "dayjs": "^1.8.14",
+    "dom-confetti": "^0.1.1",
     "hashids": "^1.2.2",
     "jsqr": "^1.2.0",
     "laravel-mix": "^4.0.16",

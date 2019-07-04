@@ -9,7 +9,7 @@
       <v-flex d-flex class="blue">
         <v-card-text class="my-auto text-xs-center">
           <v-icon large color="white" class="mb-3">list_alt</v-icon>
-          <p class="title">Answer the survey</p>
+          <p class="title">Answer the evaluation</p>
           <p class="caption">and win special prizes!</p>
         </v-card-text>
       </v-flex>

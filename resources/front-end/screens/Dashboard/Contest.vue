@@ -1,9 +1,9 @@
 <template>
-  <v-dialog persistent v-model="modal" max-width="70%">
+  <v-dialog persistent v-model="modal" max-width="70%" content-class="contest-dialog">
     <v-card>
       <v-card-title primary-title class="teal white--text">
         <div class="white--text">
-          <p class="title mb-0">{{done ? 'Congratulations!' : 'Contest'}}</p>
+          <p class="title mb-0">{{done ? 'Congratulations!' : 'Raffle'}}</p>
           <!-- <p class="caption mb-0">and win special prizes!</p> -->
         </div>
         <v-spacer />
@@ -16,6 +16,7 @@
           <h3 class="display-2 grey--text">{{prevName}}</h3>
           <h2 :class="[done ? 'display-4' : 'display-3']">{{winner}}</h2>
           <h3 class="display-2 grey--text">{{nextName}}</h3>
+          <div ref="confetti" style="width: 10px; margin: 0 auto;"></div>
         </div>
         <!-- <v-layout wrap>
           <v-flex xs2>
@@ -36,6 +37,8 @@
   </v-dialog>
 </template>
 <script>
+import { confetti } from 'dom-confetti'
+
 export default {
   data () {
     return {
@@ -58,6 +61,7 @@ export default {
   },
   mounted () {
     this.modal = true
+    console.log(this.$refs.confetti)
   },
   async created () {
     const { data: { profiles } } = await this.$request.get('/api/profiles')
@@ -87,6 +91,7 @@ export default {
 
         if (rounds >= 3 && currentIndex === winner) {
           this.done = true
+          confetti(this.$refs.confetti)
         } else {
           currentIndex += (currentIndex === (this.names.length - 1)) ? currentIndex * -1 : 1
           roller()
@@ -101,5 +106,10 @@ export default {
 <style scoped>
 .display-4, .display-3, .display-2 {
   font-family: 'Poppins', sans-serif !important;
+}
+</style>
+<style>
+.contest-dialog {
+  overflow: hidden !important;
 }
 </style>
