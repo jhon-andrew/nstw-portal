@@ -5,7 +5,7 @@
         <h1 class="display-4 ma-auto">{{count}}</h1>
       </v-flex>
       <v-flex class="indigo darken-2" shrink>
-        <span>Confirmed Participants</span>
+        <span>Registered</span>
       </v-flex>
     </v-layout>
   </v-card>
@@ -16,7 +16,7 @@ export default {
   data () {
     return {
       count: null,
-      stats: this.$socket.subscribe('stats:confirmed')
+      stats: this.$socket.subscribe('stats:preregistered')
     }
   },
   created () {

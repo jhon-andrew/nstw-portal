@@ -22,7 +22,7 @@
       <div class="sustainable-development-goal-16" v-ripple="{ class: 'indigo--text text--lighten-3' }" @click="$router.push({ path: '/dashboard/exhibit/kiosk/sustainable-development-goal-16' })">
         <span>Sustainable Development Goal 16</span>
       </div>
-      <div class="sustainable-development-goal-1" v-ripple="{ class: 'indigo--text text--lighten-3' }" @click="$router.push({ path: '/dashboard/exhibit/kiosk/sustainable-development-goal-1' })">
+      <div class="sustainable-development-goal-1" v-ripple="{ class: 'indigo--text text--lighten-3' }" @click="$router.push({ path: '/dashboard/map/kiosk/sustainable-development-goal-1' })">
         <span>Sustainable Development Goal 1</span>
       </div>
       <div class="sustainable-development-goal-8" v-ripple="{ class: 'indigo--text text--lighten-3' }" @click="$router.push({ path: '/dashboard/map/kiosk/sustainable-development-goal-8' })">

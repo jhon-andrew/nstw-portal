@@ -11,7 +11,7 @@ import ExhibitSlideshow from '@/screens/Exhibit/Slideshow'
 import Dashboard from '@/screens/Dashboard'
 import DashboardPrograms from '@/screens/Dashboard/Programs'
 import DashboardStats from '@/screens/Dashboard/Stats'
-import DashboardContest from '@/screens/Dashboard/Contest'
+import DashboardSurvey from '@/screens/Dashboard/Survey'
 import DashboardActivation from '@/screens/Dashboard/Activation'
 import DashboardMap from '@/screens/Dashboard/Map'
 import DashboardMapMap from '@/screens/Dashboard/Map/map'
@@ -40,8 +40,8 @@ export default new Router({
           component: DashboardStats
         },
         {
-          path: 'contest',
-          component: DashboardContest
+          path: 'survey',
+          component: DashboardSurvey
         },
         {
           path: 'activation',

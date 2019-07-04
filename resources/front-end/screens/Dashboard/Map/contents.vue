@@ -1,6 +1,6 @@
 <template>
   <video ref="video" class="video" @click="exitVideo()">
-    <source src="/assets/dashboard/rendered/videos/sustainable-development-goal-8.mp4" type="video/mp4" />
+    <source :src="`/assets/dashboard/rendered/videos/${$route.params.id}.mp4`" type="video/mp4" />
   </video>
 </template>
 <script>
@@ -15,15 +15,17 @@ export default {
     const video = this.$refs.video
     this.video = video
 
-    video.currentTime = 2
+    // video.currentTime = 2
     video.playbackRate = 1.5
 
     video.addEventListener('timeupdate', () => {
-      if (video.currentTime >= 5 && !this.resume) video.pause()
+      if (video.currentTime >= 2 && !this.resume) video.pause()
+      if (video.currentTime === video.duration) this.$router.go(-1)
     })
     
     video.addEventListener('loadedmetadata', function () {
       this.play().then(() => console.log('Playing...')).catch(err => console.log(err))
+      console.log(this.duration)
     })
   },
   methods: {
