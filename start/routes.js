@@ -23,6 +23,7 @@ Route
     Route.get('qrcode/:id', 'RegistrationController.qrImage').formats(['png'])
     Route.post('registration', 'RegistrationController.preRegister').validator('PreRegister')
     Route.post('confirm-registration', 'RegistrationController.confirm')
+    Route.get('profiles', 'UserController.profiles')
   })
   .prefix('api')
   .middleware(['guest'])

@@ -13,6 +13,7 @@ import DashboardPrograms from '@/screens/Dashboard/Programs'
 import DashboardStats from '@/screens/Dashboard/Stats'
 import DashboardSurvey from '@/screens/Dashboard/Survey'
 import DashboardActivation from '@/screens/Dashboard/Activation'
+import DashboardContest from '@/screens/Dashboard/Contest'
 import DashboardMap from '@/screens/Dashboard/Map'
 import DashboardMapMap from '@/screens/Dashboard/Map/map'
 import DashboardMapKiosk from '@/screens/Dashboard/Map/contents'
@@ -46,6 +47,10 @@ export default new Router({
         {
           path: 'activation',
           component: DashboardActivation
+        },
+        {
+          path: 'contest',
+          component: DashboardContest
         }
       ]
     },

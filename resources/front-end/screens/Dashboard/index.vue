@@ -28,6 +28,9 @@
                       <pre-registered />
                     </v-flex> -->
                     <v-flex xs3 d-flex>
+                      <contest />
+                    </v-flex>
+                    <v-flex xs3 d-flex>
                       <!-- Confirmed Participants -->
                       <confirmed-participants />
                       <!-- /Confirmed Participants -->
@@ -70,11 +73,12 @@ import preRegistered from './tiles/pre-registered'
 import confirmedParticipants from './tiles/confirmed-participants'
 import survey from './tiles/survey'
 import activation from './tiles/activation'
+import contest from './tiles/contest'
 
 export default {
   name: 'dashboard',
   components: {
-    nstwBranding, programOfActivities, exhibits, preRegistered, confirmedParticipants, survey, activation
+    nstwBranding, programOfActivities, exhibits, preRegistered, confirmedParticipants, survey, activation, contest
   },
   data () {
     return {

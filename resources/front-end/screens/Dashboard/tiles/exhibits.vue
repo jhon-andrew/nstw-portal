@@ -1,5 +1,5 @@
 <template>
-  <v-card :ripple="{ class: 'blue--text text--lighten-4' }" to="/dashboard/exhibit/">
+  <v-card :ripple="{ class: 'blue--text text--lighten-4' }" to="/dashboard/map/">
     <!-- <v-card-text>
       <p class="title white--text">Exhibits</p>
     </v-card-text> -->
