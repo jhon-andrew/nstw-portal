@@ -4,12 +4,19 @@
       <v-layout fill-height>
         <v-flex xs4 d-flex :class="[$route.params.type === 'pre-registered' ? 'teal darken-1' : 'indigo darken-2']">
           <v-card-text class="my-auto">
-            <h1 class="display-4 text-xs-center my-2">{{$route.query.count}}</h1>
+            <!-- <h1 class="display-4 text-xs-center my-2">{{$route.query.count}}</h1> -->
+            <v-img :src="`/api/qrcode/generate.png?data=${registrationLink}`" class="elevation-2" />
           </v-card-text>
         </v-flex>
         <v-flex xs8 d-flex>
-          <v-card-text class="my-auto title text-xs-center">
-            Total number of participants that {{$route.params.type}}.
+          <v-card-text class="my-auto title">
+            <!-- Total number of participants that {{$route.params.type}}. -->
+            <p>Instructions</p>
+            <ol>
+              <li>Connect to the Concierge WiFi.</li>
+              <li>Scan the QR code.</li>
+              <li>Fill up the form and register.</li>
+            </ol>
           </v-card-text>
           <div class="close-btn">
             <v-btn icon dark @click="modal = false; $router.go(-1);">
@@ -23,11 +30,13 @@
 </template>
 <script>
 import dayjs from 'dayjs'
+const { protocol, host } = location
 export default {
   data () {
     return {
       modal: false,
-      today: dayjs().format('h:mm A [today]')
+      today: dayjs().format('h:mm A [today]'),
+      registrationLink: `${protocol}//${host}/registration/`
     }
   },
   mounted () {

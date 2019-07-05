@@ -32,7 +32,7 @@
         <v-card-text>
           <p>Scan the QR code to download the file.</p>
           <p class="text-xs-center">
-            <img v-if="downloadFile.fileId" :src="`/api/qrcode/generate.php?data=http://astigcountryside-nstw2019.dost9.ph/download/?fileId=${downloadFile.fileId}`" style="width: 300px; height: 300px;" />
+            <img v-if="downloadFile.fileId" :src="`/api/qrcode/generate.png?data=http://astigcountryside-nstw2019.dost9.ph/download/?fileId=${downloadFile.fileId}`" style="width: 300px; height: 300px;" />
           </p>
         </v-card-text>
       </v-card>

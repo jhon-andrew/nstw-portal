@@ -11,11 +11,13 @@
           <v-icon>close</v-icon>
         </v-btn>
       </v-card-title>
-      <v-card-text style="min-height: 240px; align-items: center;" class="d-flex">
+      <v-card-text style="min-height: 339px; align-items: center;" class="d-flex">
         <div class="text-xs-center">
-          <h3 class="display-2 grey--text">{{prevName}}</h3>
-          <h2 :class="[done ? 'display-4' : 'display-3']">{{winner}}</h2>
-          <h3 class="display-2 grey--text">{{nextName}}</h3>
+          <h3 :class="['display-1 grey--text', alternateColor ? '' : ' teal lighten-5 with-border']">{{prevName2}}</h3>
+          <h3 :class="['display-2 grey--text', alternateColor ? ' teal lighten-5 with-border' : '']">{{prevName}}</h3>
+          <h2 :class="[done ? 'display-4' : 'display-3', alternateColor ? '' : 'teal lighten-5 with-border']">{{winner}}</h2>
+          <h3 :class="['display-2 grey--text', alternateColor ? ' teal lighten-5 with-border' : '']">{{nextName}}</h3>
+          <h3 :class="['display-1 grey--text', alternateColor ? '' : ' teal lighten-5 with-border']">{{nextName2}}</h3>
           <div ref="confetti" style="width: 10px; margin: 0 auto;"></div>
         </div>
         <!-- <v-layout wrap>
@@ -46,7 +48,8 @@ export default {
       winner: null,
       winnerIndex: null,
       names: [],
-      done: false
+      done: false,
+      alternateColor: true
     }
   },
   computed: {
@@ -54,9 +57,17 @@ export default {
       const prevIndex = this.winnerIndex - 1
       return this.names[prevIndex < 0 ? this.names.length - 1 : prevIndex]
     },
+    prevName2 () {
+      const prevIndex = this.winnerIndex - 2
+      return this.names[prevIndex < 0 ? this.names.length - 2 : prevIndex]
+    },
     nextName () {
       const nextIndex = this.winnerIndex + 1
       return this.names[nextIndex >= this.names.length ? 0 : nextIndex]
+    },
+    nextName2 () {
+      const nextIndex = this.winnerIndex + 2
+      return this.names[nextIndex >= this.names.length ? 1 : nextIndex]
     }
   },
   mounted () {
@@ -80,6 +91,7 @@ export default {
       const roller = () => setTimeout(() => {
         this.winner = this.names[currentIndex]
         this.winnerIndex = currentIndex
+        this.alternateColor = !this.alternateColor
 
         if (rounds >= 2) {
           timeout += 25
@@ -106,6 +118,9 @@ export default {
 <style scoped>
 .display-4, .display-3, .display-2 {
   font-family: 'Poppins', sans-serif !important;
+}
+.with-border {
+  border-top: 1px solid #000;
 }
 </style>
 <style>

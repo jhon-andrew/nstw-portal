@@ -18,7 +18,7 @@
           <li>You will then be redirected to our survey form.</li>
           <li>Fill up the form and have an entry to win some of our special prizes.</li>
         </ol>
-        <p class="text-xs-center"><img :src="`/api/qrcode/generate.php?data=${surveyLink}`" style="width: 300px; height: 300px;"></p>
+        <p class="text-xs-center"><img :src="`/api/qrcode/generate.png?data=${surveyLink}`" style="width: 300px; height: 300px;"></p>
       </v-card-text>
     </v-card>
   </v-dialog>
