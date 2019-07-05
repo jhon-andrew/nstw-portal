@@ -20,3 +20,5 @@ public/**/*.map
 
 # Front-end must be rebuild on every instance
 public/js/main.js
+public/js/main.js.map
+public/mix-manifest.json
