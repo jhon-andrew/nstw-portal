@@ -21,6 +21,7 @@ Route
   .group(() => {
     Route.get('qrcode/:id', 'RegistrationController.qrImage').formats(['png'])
     Route.post('registration', 'RegistrationController.preRegister').validator('PreRegister')
+    Route.post('evaluation', 'EvaluationController.create')
   })
   .prefix('api')
   .middleware(['guest'])
