@@ -6,7 +6,7 @@
         <div class="title ml-2">Department of Science and Technology</div>
       </div>
     </v-card-title>
-    <v-window v-model="nstwBrandingCarousel">
+    <v-window v-model="nstwBrandingCarousel" style="overflow: hidden;" vertical reverse>
       <v-window-item class="mx-auto" style="padding-bottom: 70px !important;">
         <div class="d-flex" style="align-items: center;">
           <v-img contain src="/assets/nstw.png" width="84" />
@@ -17,7 +17,7 @@
         </div>
       </v-window-item>
       <v-window-item class="mx-auto">
-        <v-img contain src="/assets/dashboard/sftp.png" width="500" />
+        <v-img contain src="/assets/dashboard/sftp.png" width="450" />
       </v-window-item>
       <v-window-item class="mx-auto text-xs-center" style="width: 512px;">
         <span class="display-2">Enabling Technologies for Sustainable Development</span>
@@ -27,7 +27,7 @@
       <div class="d-flex">
         <v-img contain src="/assets/dashboard/un-sdg.png" width="279" height="32" />
         <v-spacer />
-        <span class="text-xs-right white--text" style="text-shadow: 0px 0px 2px #1f6879;">World Trade Center, Pasay City, July 17 - 21, 2019</span>
+        <span class="text-xs-right white--text subheading" style="text-shadow: 0px 1px 5px #1f6879;">World Trade Center, Pasay City, July 17 - 21, 2019</span>
       </div>
     </v-card-text>
   </v-card>
@@ -44,11 +44,10 @@ export default {
   created () {
     this.nstwBrandingCarouselTimer = setInterval(() => {
       this.nstwBrandingCarousel += (this.nstwBrandingCarousel === 2) ? -2 : 1
-    }, 3000)
+    }, 3608)
   },
   beforeDestroy () {
-    const interval = clearInterval(this.nstwBrandingCarouselTimer)
-    console.log(`Interval ${interval} has been cleared.`)
+    clearInterval(this.nstwBrandingCarouselTimer)
   }
 }
 </script>

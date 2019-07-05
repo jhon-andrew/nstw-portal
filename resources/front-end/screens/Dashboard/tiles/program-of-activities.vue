@@ -1,23 +1,26 @@
 <template>
-  <v-card class="d-flex" :ripple="{ class: 'blue--text text--lighten-4' }">
+  <v-card class="d-flex" :ripple="{ class: 'blue--text text--lighten-4' }" to="/dashboard/program-of-activities/">
     <v-layout class="ma-0" fill-height>
       <v-flex xs4 d-flex class="red darken-2" style="border-radius: 2px 0 0 2px;">
         <div class="white--text ma-auto text-xs-center">
-          <!-- <v-icon class="white--text">schedule</v-icon> -->
-          <span class="d-block headline">4:40 PM</span>
-          <span class="d-block caption">Tuesday, 25 June</span>
-          <!-- <v-icon class="white--text mt-2">place</v-icon>
-          <span class="d-block">World Trade Center, Function Rooms 1 (Luna)</span> -->
+          <span class="d-block display-1">{{clockWidget.time}}</span>
+          <span class="d-block caption">{{clockWidget.date}}</span>
         </div>
       </v-flex>
-      <v-flex xs8 d-flex>
-        <v-window v-model="programOfActivities" class="ma-auto text-xs-center">
+      <v-flex xs8 d-flex class="red lighten-5">
+        <v-window v-model="programSlide" class="ma-auto text-xs-center" style="overflow: hidden;">
           <v-window-item v-for="(program, index) in programs" :key="index">
             <p class="caption">
-              <v-icon small>schedule</v-icon>
-              {{program.time}} {{program.date}}
+              <v-icon small v-if="program.time">schedule</v-icon>
+              {{program.time}}
+              <v-icon small class="ml-1" v-if="program.date">calendar_today</v-icon>
+              {{program.date}}
             </p>
             <p class="subheading">{{program.activity}}</p>
+            <p class="caption" v-if="program.venue">
+              <v-icon small>place</v-icon>
+              {{program.venue}}
+            </p>
           </v-window-item>
         </v-window>
       </v-flex>
@@ -26,19 +29,45 @@
 </template>
 <script>
 import { programs } from '../contents.json'
+import dayjs from 'dayjs'
 
 export default {
   name: 'program-of-activities',
   data () {
     return {
-      programOfActivities: 0,
-      programs
+      programSlide: 0,
+      programs,
+      programsSlidesTimer: null,
+      clockWidget: {
+        time: '...',
+        date: '. . .',
+        updater: null,
+        showSeparator: true
+      }
     }
+  },
+  created () {
+    // Auto Slider
+    this.programsSlidesTimer = setInterval(() => {
+      let maxSlide = this.programs.length - 1
+      this.programSlide += (this.programSlide === maxSlide) ? (maxSlide * -1) : 1
+    }, 5024)
+
+    this.clockWidget.updater = setInterval(() => {
+      const { showSeparator } = this.clockWidget
+      this.clockWidget.time = dayjs().format(`h${showSeparator ? ':' : ' '}mm A`)
+      this.clockWidget.date = dayjs().format('dddd, D MMMM')
+      this.clockWidget.showSeparator = !showSeparator
+    }, 507)
+  },
+  beforeDestroy () {
+    clearInterval(this.programsSlidesTimer)
+    clearInterval(this.clockWidget.updater)
   }
 }
 </script>
 <style scoped>
-.title {
+.title, .headline {
   font-family: 'Poppins', sans-serif !important;
 }
 </style>

@@ -18,6 +18,7 @@ Vue.use({ install: (Vue, options) => {
   }
 
   Vue.prototype.$request = axios
+  Vue.prototype.$socket = require('@adonisjs/websocket-client/dist/Ws.browser')().connect()
 }})
 
 Vue.config.productionTip = false
@@ -26,5 +27,9 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App />'
+  template: '<App />',
+  created () {
+    this.$socket.on('open', () => console.log('Connection to the WS server has been initialized.'))
+    this.$socket.on('error', () => console.log('Error connecting to the WS server.'))
+  }
 })

@@ -17,21 +17,23 @@
                 <v-flex d-flex class="flex-to-30">
                   <v-layout>
                     <v-flex xs6 d-flex>
-                      <!-- Contest/Raffles -->
-                      <v-card :ripple="{ class: 'blue--text text--lighten-4' }">
-                        <v-card-text>Contest/Raffles</v-card-text>
-                      </v-card>
-                      <!-- /Contest/Raffles -->
+                      <!-- Survey -->
+                      <survey />
+                      <!-- /Survey -->
+                    </v-flex>
+                    <!-- <v-flex xs3 d-flex>
+                      <activation />
                     </v-flex>
                     <v-flex xs3 d-flex>
-                      <v-card :ripple="{ class: 'blue--text text--lighten-4' }">
-                        <v-card-text>Pre-registered Counter</v-card-text>
-                      </v-card>
+                      <pre-registered />
+                    </v-flex> -->
+                    <v-flex xs3 d-flex>
+                      <contest />
                     </v-flex>
                     <v-flex xs3 d-flex>
-                      <v-card :ripple="{ class: 'blue--text text--lighten-4' }">
-                        <v-card-text>Confirmed Participants Counter</v-card-text>
-                      </v-card>
+                      <!-- Confirmed Participants -->
+                      <confirmed-participants />
+                      <!-- /Confirmed Participants -->
                     </v-flex>
                   </v-layout>
                 </v-flex>
@@ -45,14 +47,9 @@
                   <!-- /Program of Activities -->
                 </v-flex>
                 <v-flex d-flex class="flex-to-70">
-                  <v-card :ripple="{ class: 'blue--text text--lighten-4' }">
-                    <!-- <v-card-text>Venue Map</v-card-text> -->
-                    <v-layout align-center justify-center fill-height class="grey ma-0">
-                      <v-flex xs5>
-                        <v-btn block>Button</v-btn>
-                      </v-flex>
-                    </v-layout>
-                  </v-card>
+                  <!-- Exhibits -->
+                  <exhibits />
+                  <!-- /Exhibits -->
                 </v-flex>
               </v-layout>
             </v-flex>
@@ -60,17 +57,38 @@
         </v-flex>
       </v-layout>
     </v-container>
+
+    <!-- <v-dialog persistent scrollable v-model="modal" max-width="75%">
+      
+    </v-dialog> -->
+    <router-view />
   </v-content>
 </template>
 
 <script>
 import nstwBranding from './tiles/nstw'
 import programOfActivities from './tiles/program-of-activities'
+import exhibits from './tiles/exhibits'
+import preRegistered from './tiles/pre-registered'
+import confirmedParticipants from './tiles/confirmed-participants'
+import survey from './tiles/survey'
+import activation from './tiles/activation'
+import contest from './tiles/contest'
 
 export default {
-  name: 'Dashboard',
+  name: 'dashboard',
   components: {
-    nstwBranding, programOfActivities
+    nstwBranding, programOfActivities, exhibits, preRegistered, confirmedParticipants, survey, activation, contest
+  },
+  data () {
+    return {
+      modal: this.$route.name !== 'dashboard'
+    }
+  },
+  watch: {
+    $route (to, from) {
+      this.modal = to.name !== 'dashboard'
+    }
   }
 }
 </script>
