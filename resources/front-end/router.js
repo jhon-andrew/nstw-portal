@@ -8,6 +8,9 @@ import ExhibitLanding from '@/screens/Exhibit/Landing'
 import ExhibitMap from '@/screens/Exhibit/Map'
 import ExhibitKiosk from '@/screens/Exhibit/Kiosk'
 import ExhibitSlideshow from '@/screens/Exhibit/Slideshow'
+import Evaluation from '@/screens/Evaluation'
+import EvaluationLanding from '@/screens/Evaluation/Landing'
+import EvaluationForm from '@/screens/Evaluation/Form'
 import Dashboard from '@/screens/Dashboard'
 import DashboardPrograms from '@/screens/Dashboard/Programs'
 import DashboardStats from '@/screens/Dashboard/Stats'
@@ -87,6 +90,24 @@ export default new Router({
           path: 'kiosk/:id',
           component: DashboardMapKiosk
         }
+      ]
+    },
+    {
+      path: '/evaluation',
+      component: Evaluation,
+      children: [
+        {
+            path: '',
+            component: EvaluationLanding
+        },
+        {
+            path: 'form',
+            component: EvaluationForm
+        },
+        /*{
+            path: 'statistics',
+            component: EvaluationStatistic
+        }*/
       ]
     },
     { // Registration Route
