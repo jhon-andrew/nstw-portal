@@ -1,0 +1,41 @@
+{
+  "NOTE (PLEASE READ!)": [
+    "DO NOT CHANGE THE ORDER OF ANY VALUE AS IT IS LINKED IN THE DATABASE.",
+    "THIS IS NOT THE IDEAL WAY, BUT THIS IS THE FASTEST FOR NOW."
+  ],
+  "age_group": ["Below 10", "10 - 15", "16 - 20", "21 - 30", "31 - 40", "41 - 50", "51 - 60", "Above 60"],
+  "organization": [
+    "Academe",
+    "Government Agency",
+    "Industry/MSME/Business Entity",
+    "People's Organization",
+    "Private Individual"
+  ],
+  "prev_nstw": ["Not satisfied", "Somewhat satisfied", "Satisfied", "Very Satisfied"],
+  "nstw_ref": [
+    "TV",
+    "Radio",
+    "Newspaper",
+    "Social Media (Facebook, Twitter, Instagram)",
+    "Print Ads (flyers, streamers, posters)",
+    "Word of Mouth",
+    "Invitation"
+  ],
+  "prev_astigc": ["Not satisfied", "Somewhat satisfied", "Satisfied", "Very Satisfied"],
+  "astigc_ref": [
+    "TV",
+    "Radio",
+    "Newspaper",
+    "Social Media (Facebook, Twitter, Instagram)",
+    "Print Ads (flyers, streamers, posters)",
+    "Word of Mouth",
+    "Invitation"
+  ],
+  "astigc_insights": [
+    "I am inspired to avail more DOST programs and services",
+    "I will highly recommend DOST programs and services to my family and friends",
+    "My knowledge of DOST programs and services has widened",
+    "I already have learned about DOST programs and services elsewhere",
+    "I have only been aware of most DOST programs and services today"
+  ]
+}

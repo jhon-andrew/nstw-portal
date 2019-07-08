@@ -5227,6 +5227,7 @@ var _location = location,
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Evaluation_Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Evaluation/Form */ "./resources/front-end/screens/Evaluation/Form.vue");
 //
 //
 //
@@ -5252,7 +5253,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    EvaluationForm: _Evaluation_Form__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       dialog: false,
@@ -5727,6 +5736,18 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants.json */ "./resources/front-end/screens/Evaluation/constants.json");
+var _constants_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./constants.json */ "./resources/front-end/screens/Evaluation/constants.json", 1);
+
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -5927,207 +5948,75 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      e1: 0,
-      loading: false,
+      step: 1,
       evaluation: {
-        q1: '',
-        q2: '',
-        q3: '',
-        q4: '',
-        q5: '',
-        q6: [],
-        q7: [],
-        q8: '',
-        q9: '',
-        q10: [],
-        q11: ''
-      }
+        sex: null,
+        nstw_ref: [],
+        astigc_ref: [],
+        astigc_insights: [],
+        recommend_astigc: null
+      },
+      constants: _constants_json__WEBPACK_IMPORTED_MODULE_1__,
+      loading: false,
+      prompt: false,
+      response: {}
     };
   },
-  methods: {
-    submitForm: function submitForm(evaluation) {//this.$http.post('/evaluation/create', this.evaluation).then(() => alert('test msg'))
-      //alert(evaluation)
-    },
-    appendToQ2: function appendToQ2(value) {
-      this.evaluation.q2 = value;
-    },
-    appendToQ5: function appendToQ5(value) {
-      this.evaluation.q5 = value;
-    },
-    appendToQ6: function appendToQ6(value) {
-      var index = this.evaluation.q6.indexOf(value);
-
-      if (index < 0) {
-        this.evaluation.q6.push(value);
-      } else {
-        this.evaluation.q6.splice(index, 1);
-      }
-    },
-    appendToQ7: function appendToQ7(value) {
-      var index = this.evaluation.q7.indexOf(value);
-
-      if (index < 0) {
-        this.evaluation.q7.push(value);
-      } else {
-        this.evaluation.q7.splice(index, 1);
-      }
-    },
-    appendToQ8: function appendToQ8(value) {
-      this.evaluation.q8 = value;
-    },
-    appendToQ9: function appendToQ9(value) {
-      this.evaluation.q9 = value;
-    },
-    appendToQ10: function appendToQ10(value) {
-      var index = this.evaluation.q10.indexOf(value);
-
-      if (index < 0) {
-        this.evaluation.q10.push(value);
-      } else {
-        this.evaluation.q10.splice(index, 1);
+  watch: {
+    'evaluation.first_time': function evaluationFirst_time(from, to) {
+      if (to === true) {
+        this.evaluation.prev_nstw = undefined;
       }
     }
+  },
+  methods: {
+    submit: function () {
+      var _submit = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this = this;
+
+        var evaluation, _ref, response;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                evaluation = {};
+                this.loading = true;
+                Object.keys(this.evaluation).forEach(function (key) {
+                  if (_typeof(_this.evaluation[key]) === 'object') {
+                    evaluation[key] = _this.evaluation[key].length > 1 ? _this.evaluation[key].join(',') : String(_this.evaluation[key][0]);
+                  } else evaluation[key] = _this.evaluation[key];
+                });
+                _context.next = 5;
+                return this.$request.post('/api/evaluation/', evaluation);
+
+              case 5:
+                _ref = _context.sent;
+                response = _ref.data;
+                this.loading = false;
+                this.response = response;
+                this.prompt = true;
+
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function submit() {
+        return _submit.apply(this, arguments);
+      }
+
+      return submit;
+    }()
   }
 });
 
@@ -7389,7 +7278,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.v-content[data-v-976d9762] {\r\n  /* background-image: url('/assets/landing-bg.jpg'), linear-gradient(99deg,  #ffffff 53.2%,#4fa891 46.8%); */\r\n  background-image: url('https://drive.google.com/uc?export=download&id=1-UEW228dNkLuOHAIHZ8-QyLUxBgTfWAo'), linear-gradient(99deg,  #ffffff 53.2%,#4fa891 46.8%);\r\n  background-position: center center, center center;\r\n  background-size: contain;\r\n  background-attachment: fixed;\n}\n.v-content.mobile[data-v-976d9762] {\r\n  background-image: linear-gradient(0deg, #42c3a2 50%, #4fa891 85%);\r\n  background-attachment: scroll;\n}\n.nstw2019[data-v-976d9762] {\r\n  font-style: italic;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\n}\n.nstw2019 > .v-image[data-v-976d9762] {\r\n  vertical-align: middle;\n}\n.footer[data-v-976d9762] {\r\n  transform: skew(170deg);\n}\n.footer.mobile[data-v-976d9762] {\r\n  transform: none;\n}\n.footer.mobile .headline[data-v-976d9762] {\r\n  transform: skew(14deg);\n}\n.footer.mobile > .flex[data-v-976d9762]:first-child {\r\n  border-top: 1px dashed #ffffff;\r\n  padding-top: 24px;\n}\n.footer > .flex[data-v-976d9762]:nth-child(2) {\r\n  border-left: 5px solid #ffffff;\n}\n.footer > .flex:nth-child(2).mobile[data-v-976d9762] {\r\n  border-left: none;\r\n  border-top: 1px dashed #ffffff;\n}\n.footer .schedule[data-v-976d9762] {\r\n  transform: skew(15deg);\r\n  font-family: 'Poppins', sans-serif !important;\r\n  font-weight: 700;\r\n  font-style: italic;\r\n  text-align: center !important;\n}\n.footer .schedule > small[data-v-976d9762] {\r\n  font-size: 18px;\n}\n.footer p[data-v-976d9762] {\r\n  text-indent: 25px;\n}\n.gender-selecttion[data-v-976d9762] {\r\n  width: 200px;\r\n  height: 200px;\r\n  display: block;\r\n  border-right: 100px;\r\n  float: left;\r\n  text-align: center;\n}\n.headline[data-v-976d9762] {\r\n        text-align: center;\n}\r\n", ""]);
+exports.push([module.i, "\n.v-content[data-v-976d9762] {\r\n  background-image: linear-gradient(145deg, #11998e, #38ef7d);\n}\n.display-3[data-v-976d9762], .display-2[data-v-976d9762], .display-1[data-v-976d9762] {\r\n  font-family: 'Poppins', sans-serif !important;\n}\n.v-stepper__content .layout[data-v-976d9762] {\r\n  max-width: 1024px;\n}\r\n", ""]);
 
 // exports
 
@@ -21713,7 +21602,7 @@ var render = function() {
   return _c(
     "v-dialog",
     {
-      attrs: { persistent: "", "max-width": "30%" },
+      attrs: { persistent: "", "max-width": "80%" },
       model: {
         value: _vm.dialog,
         callback: function($$v) {
@@ -21724,71 +21613,25 @@ var render = function() {
     },
     [
       _c(
-        "v-card",
-        [
-          _c(
-            "v-card-title",
-            { staticClass: "blue lighten-1", attrs: { "primary-title": "" } },
-            [
-              _c("div", { staticClass: "white--text" }, [
-                _c("p", { staticClass: "title mb-0" }, [
-                  _vm._v("Answer the Evaluation")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "caption mb-0" }, [
-                  _vm._v("and win special prizes!")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("v-spacer"),
-              _vm._v(" "),
-              _c(
-                "v-btn",
-                {
-                  staticClass: "ma-0 white--text",
-                  attrs: { icon: "" },
-                  on: {
-                    click: function($event) {
-                      return _vm.$router.go(-1)
-                    }
-                  }
-                },
-                [_c("v-icon", [_vm._v("close")])],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("v-card-text", [
-            _c("p", [_c("strong", [_vm._v("Instructions:")])]),
-            _vm._v(" "),
-            _c("ol", { staticClass: "mb-3" }, [
-              _c("li", [_vm._v("Using your phone, scan the QR code below.")]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("You will then be redirected to our survey form.")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "Fill up the form and have an entry to win some of our special prizes."
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-xs-center" }, [
-              _c("img", {
-                staticStyle: { width: "300px", height: "300px" },
-                attrs: {
-                  src: "/api/qrcode/generate.png?data=" + _vm.surveyLink
-                }
-              })
-            ])
-          ])
-        ],
+        "v-btn",
+        {
+          staticStyle: {
+            float: "right",
+            "margin-left": "-64px",
+            "z-index": "1"
+          },
+          attrs: { small: "", fab: "", icon: "", color: "primary elevation-1" },
+          on: {
+            click: function($event) {
+              return _vm.$router.go(-1)
+            }
+          }
+        },
+        [_c("v-icon", [_vm._v("close")])],
         1
-      )
+      ),
+      _vm._v(" "),
+      _c("evaluation-form")
     ],
     1
   )
@@ -22653,1232 +22496,952 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-content",
-    { class: [_vm.$vuetify.breakpoint.mdAndDown ? "mobile" : null] },
     [
       _c(
         "v-container",
-        { attrs: { fluid: "" } },
+        { attrs: { "fill-height": "" } },
         [
           _c(
-            "v-stepper",
-            {
-              model: {
-                value: _vm.e1,
-                callback: function($$v) {
-                  _vm.e1 = $$v
-                },
-                expression: "e1"
-              }
-            },
+            "v-layout",
+            { attrs: { column: "" } },
             [
-              _c(
-                "v-stepper-header",
-                [
-                  _c(
-                    "v-stepper-step",
-                    { attrs: { complete: _vm.e1 > 1, step: "1" } },
-                    [_vm._v("Gender | Age Group")]
-                  ),
-                  _vm._v(" "),
-                  _c("v-divider"),
-                  _vm._v(" "),
-                  _c(
-                    "v-stepper-step",
-                    { attrs: { complete: _vm.e1 > 2, step: "2" } },
-                    [_vm._v("Name of step 2")]
-                  ),
-                  _vm._v(" "),
-                  _c("v-divider"),
-                  _vm._v(" "),
-                  _c("v-stepper-step", { attrs: { step: "3" } }, [
-                    _vm._v("Name of step 3")
-                  ])
-                ],
-                1
-              ),
+              _c("v-flex", { attrs: { shrink: "" } }, [
+                _c(
+                  "h2",
+                  {
+                    staticClass: "white--text",
+                    class: [
+                      _vm.$vuetify.breakpoint.mdAndDown
+                        ? "display-1"
+                        : "display-3"
+                    ]
+                  },
+                  [_vm._v("Evaluation Form")]
+                )
+              ]),
               _vm._v(" "),
               _c(
-                "v-stepper-items",
+                "v-flex",
+                { attrs: { "d-flex": "" } },
                 [
                   _c(
-                    "v-stepper-content",
-                    { attrs: { step: "1" } },
+                    "v-stepper",
+                    {
+                      model: {
+                        value: _vm.step,
+                        callback: function($$v) {
+                          _vm.step = $$v
+                        },
+                        expression: "step"
+                      }
+                    },
                     [
                       _c(
-                        "v-card",
-                        { staticClass: "mb-5", attrs: { height: "100%" } },
+                        "v-stepper-header",
                         [
                           _c(
-                            "v-form",
-                            { ref: "evaluationForm" },
+                            "v-stepper-step",
+                            { attrs: { complete: _vm.step > 1, step: "1" } },
+                            [_vm._v("Personal Information")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-stepper-step",
+                            { attrs: { complete: _vm.step > 2, step: "2" } },
+                            [_vm._v("NSTW")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-stepper-step",
+                            { attrs: { complete: _vm.step > 3, step: "3" } },
+                            [_vm._v("#ASTIGCountryside")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-stepper-step",
+                            { attrs: { complete: _vm.step > 4, step: "4" } },
+                            [_vm._v("Insights")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-stepper-items",
+                        [
+                          _c(
+                            "v-stepper-content",
+                            { attrs: { step: "1" } },
                             [
                               _c(
-                                "v-container",
-                                { attrs: { fluid: "" } },
+                                "v-layout",
+                                {
+                                  staticClass: "mx-auto",
+                                  attrs: { wrap: "", "justify-center": "" }
+                                },
                                 [
                                   _c(
-                                    "v-layout",
-                                    {
-                                      staticStyle: { auto: "0" },
-                                      attrs: { row: "", wrap: "" }
-                                    },
+                                    "v-flex",
+                                    { attrs: { xs12: "", lg4: "" } },
                                     [
-                                      _c("v-flex", {
-                                        staticStyle: {
-                                          auto: "0",
-                                          "text-align": "center"
+                                      _c("span", { staticClass: "display-1" }, [
+                                        _vm._v("Registration Code")
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-flex",
+                                    { attrs: { xs12: "", lg8: "" } },
+                                    [
+                                      _c("v-text-field", {
+                                        attrs: {
+                                          label:
+                                            "Fill up if you pre-registered."
                                         },
-                                        attrs: { xs12: "", lg4: "" }
+                                        model: {
+                                          value: _vm.evaluation.activation_code,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.evaluation,
+                                              "activation_code",
+                                              $$v
+                                            )
+                                          },
+                                          expression:
+                                            "evaluation.activation_code"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-flex",
+                                    { attrs: { xs12: "", lg4: "" } },
+                                    [
+                                      _c("span", { staticClass: "display-2" }, [
+                                        _vm._v("Sex")
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-flex",
+                                    { attrs: { xs12: "", lg8: "" } },
+                                    [
+                                      _c(
+                                        "v-container",
+                                        { attrs: { "grid-list-lg": "" } },
+                                        [
+                                          _c(
+                                            "v-layout",
+                                            {
+                                              attrs: {
+                                                wrap: "",
+                                                "justify-center": ""
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "v-flex",
+                                                { attrs: { xs6: "" } },
+                                                [
+                                                  _c(
+                                                    "v-card",
+                                                    {
+                                                      attrs: {
+                                                        color:
+                                                          _vm.evaluation.sex ===
+                                                          "male"
+                                                            ? "teal lighten-4"
+                                                            : ""
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          _vm.evaluation.sex =
+                                                            "male"
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "v-card-text",
+                                                        {
+                                                          staticClass:
+                                                            "text-xs-center"
+                                                        },
+                                                        [
+                                                          _c("v-img", {
+                                                            staticStyle: {
+                                                              "max-height":
+                                                                "128px"
+                                                            },
+                                                            attrs: {
+                                                              contain: "",
+                                                              src:
+                                                                "/assets/evaluation/q1-male.png"
+                                                            }
+                                                          }),
+                                                          _vm._v(" "),
+                                                          _c("span", [
+                                                            _vm._v("Male")
+                                                          ])
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "v-flex",
+                                                { attrs: { xs6: "" } },
+                                                [
+                                                  _c(
+                                                    "v-card",
+                                                    {
+                                                      attrs: {
+                                                        color:
+                                                          _vm.evaluation.sex ===
+                                                          "female"
+                                                            ? "teal lighten-4"
+                                                            : ""
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          _vm.evaluation.sex =
+                                                            "female"
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "v-card-text",
+                                                        {
+                                                          staticClass:
+                                                            "text-xs-center"
+                                                        },
+                                                        [
+                                                          _c("v-img", {
+                                                            staticStyle: {
+                                                              "max-height":
+                                                                "128px"
+                                                            },
+                                                            attrs: {
+                                                              contain: "",
+                                                              src:
+                                                                "/assets/evaluation/q1-female.png"
+                                                            }
+                                                          }),
+                                                          _vm._v(" "),
+                                                          _c("span", [
+                                                            _vm._v("Female")
+                                                          ])
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-flex",
+                                    { attrs: { xs12: "", lg4: "" } },
+                                    [
+                                      _c("span", { staticClass: "display-2" }, [
+                                        _vm._v("Age Group")
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-flex",
+                                    { attrs: { xs12: "", lg8: "" } },
+                                    [
+                                      _c("v-select", {
+                                        attrs: {
+                                          box: "",
+                                          label:
+                                            "Which age group do you belong?",
+                                          items: _vm.constants.age_group
+                                        },
+                                        model: {
+                                          value: _vm.evaluation.age_group,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.evaluation,
+                                              "age_group",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "evaluation.age_group"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-flex",
+                                    { attrs: { xs12: "", lg4: "" } },
+                                    [
+                                      _c("span", { staticClass: "display-2" }, [
+                                        _vm._v("Organization")
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-flex",
+                                    { attrs: { xs12: "", lg8: "" } },
+                                    [
+                                      _c("v-select", {
+                                        attrs: {
+                                          box: "",
+                                          label: "Where are you connected?",
+                                          items: _vm.constants.organization
+                                        },
+                                        model: {
+                                          value: _vm.evaluation.organization,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.evaluation,
+                                              "organization",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "evaluation.organization"
+                                        }
                                       })
                                     ],
                                     1
                                   )
                                 ],
                                 1
-                              ),
-                              _vm._v(" "),
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-stepper-content",
+                            { attrs: { step: "2" } },
+                            [
                               _c(
                                 "v-layout",
-                                { attrs: { row: "", "justify-center": "" } },
+                                {
+                                  staticClass: "mx-auto",
+                                  attrs: { wrap: "", "justify-center": "" }
+                                },
                                 [
+                                  _c("v-flex", { attrs: { xs12: "" } }, [
+                                    _c("span", { staticClass: "display-2" }, [
+                                      _vm._v(
+                                        "Is this your first time to attend the NSTW?"
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
                                   _c(
                                     "v-flex",
-                                    { attrs: { xs2: "" } },
+                                    { attrs: { xs12: "" } },
                                     [
                                       _c(
-                                        "v-hover",
-                                        [
-                                          _c("v-img", {
-                                            attrs: {
-                                              hover: "",
-                                              width: "155",
-                                              src:
-                                                "/assets/evaluation/q1-male.png"
+                                        "v-radio-group",
+                                        {
+                                          attrs: { row: "" },
+                                          model: {
+                                            value: _vm.evaluation.first_time,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.evaluation,
+                                                "first_time",
+                                                $$v
+                                              )
                                             },
-                                            on: {
-                                              click: function($event) {
-                                                _vm.evaluation.q1 = "male"
-                                              }
+                                            expression: "evaluation.first_time"
+                                          }
+                                        },
+                                        [
+                                          _c("v-radio", {
+                                            attrs: {
+                                              color: "teal",
+                                              label: "Yes, it is.",
+                                              value: true
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("v-radio", {
+                                            attrs: {
+                                              color: "teal",
+                                              label:
+                                                "No, I have joined previously.",
+                                              value: false
                                             }
                                           })
                                         ],
                                         1
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        {
-                                          staticStyle: {
-                                            "text-align": "center"
-                                          },
-                                          attrs: { width: "155" }
-                                        },
-                                        [_vm._v("Male")]
                                       )
                                     ],
                                     1
                                   ),
                                   _vm._v(" "),
                                   _c(
+                                    "v-slide-x-transition",
+                                    [
+                                      _vm.evaluation.first_time === false
+                                        ? _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c(
+                                                "span",
+                                                { staticClass: "display-2" },
+                                                [
+                                                  _vm._v(
+                                                    "How was your experience of the last NSTW?"
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        : _vm._e()
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-slide-x-transition",
+                                    [
+                                      _vm.evaluation.first_time === false
+                                        ? _c(
+                                            "v-flex",
+                                            { attrs: { xs12: "" } },
+                                            [
+                                              _c(
+                                                "v-radio-group",
+                                                {
+                                                  attrs: { row: "" },
+                                                  model: {
+                                                    value:
+                                                      _vm.evaluation.prev_nstw,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        _vm.evaluation,
+                                                        "prev_nstw",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "evaluation.prev_nstw"
+                                                  }
+                                                },
+                                                _vm._l(
+                                                  _vm.constants.prev_nstw,
+                                                  function(prev_nstw, index) {
+                                                    return _c("v-radio", {
+                                                      key: prev_nstw,
+                                                      attrs: {
+                                                        color: "teal",
+                                                        label:
+                                                          index +
+                                                          ": " +
+                                                          prev_nstw,
+                                                        value: index
+                                                      }
+                                                    })
+                                                  }
+                                                ),
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        : _vm._e()
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c("v-flex", { attrs: { xs12: "" } }, [
+                                    _c(
+                                      "span",
+                                      { staticClass: "display-2 d-block" },
+                                      [
+                                        _vm._v(
+                                          "How did you know about the NSTW 2019?"
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "caption" }, [
+                                      _vm._v(
+                                        "Select multiple options if applicable."
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
                                     "v-flex",
-                                    { attrs: { xs2: "" } },
+                                    { attrs: { xs12: "" } },
                                     [
                                       _c(
-                                        "v-hover",
-                                        [
-                                          _c("v-img", {
-                                            attrs: {
-                                              hover: "",
-                                              width: "155",
-                                              src:
-                                                "/assets/evaluation/q1-female.png"
+                                        "v-layout",
+                                        { attrs: { wrap: "" } },
+                                        _vm._l(_vm.constants.nstw_ref, function(
+                                          nstw_ref,
+                                          index
+                                        ) {
+                                          return _c(
+                                            "v-flex",
+                                            {
+                                              key: nstw_ref,
+                                              staticClass: "mr-3",
+                                              attrs: { shrink: "" }
                                             },
-                                            on: {
-                                              click: function($event) {
-                                                _vm.evaluation.q1 = "female"
-                                              }
-                                            }
-                                          })
-                                        ],
+                                            [
+                                              _c("v-checkbox", {
+                                                attrs: {
+                                                  color: "teal",
+                                                  label:
+                                                    index + ": " + nstw_ref,
+                                                  value: index
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.evaluation.nstw_ref,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.evaluation,
+                                                      "nstw_ref",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "evaluation.nstw_ref"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        }),
                                         1
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        {
-                                          staticStyle: {
-                                            "text-align": "center"
-                                          },
-                                          attrs: { width: "155" }
-                                        },
-                                        [_vm._v("Female")]
                                       )
                                     ],
                                     1
                                   )
                                 ],
                                 1
-                              ),
-                              _vm._v(" "),
-                              _c("br"),
-                              _vm._v(" "),
-                              _c(
-                                "h3",
-                                { staticStyle: { "text-align": "center" } },
-                                [_vm._v("I am a:")]
-                              ),
-                              _vm._v(" "),
-                              _c("br"),
-                              _vm._v(" "),
-                              _c("br"),
-                              _vm._v(" "),
-                              _c("br"),
-                              _vm._v(" "),
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-stepper-content",
+                            { attrs: { step: "3" } },
+                            [
                               _c(
                                 "v-layout",
-                                { attrs: { row: "", "justify-center": "" } },
-                                _vm._l(
-                                  [
-                                    "Below 10",
-                                    "10-15",
-                                    "16-20",
-                                    "21-30",
-                                    "31-40",
-                                    "41-50",
-                                    "51-60",
-                                    "Above 60"
-                                  ],
-                                  function(value) {
-                                    return _c(
-                                      "v-flex",
-                                      {
-                                        key: _vm.values,
-                                        attrs: { xs4: "" },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.appendToQ2(value)
-                                          }
-                                        }
-                                      },
+                                {
+                                  staticClass: "mx-auto",
+                                  attrs: { wrap: "", "justify-center": "" }
+                                },
+                                [
+                                  _c("v-flex", { attrs: { xs12: "" } }, [
+                                    _c(
+                                      "span",
+                                      { staticClass: "display-2 d-block" },
                                       [
-                                        _c(
-                                          "v-card",
-                                          {
-                                            staticClass: "white--text",
-                                            attrs: {
-                                              color: "blue-grey darken-2",
-                                              hover: ""
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "v-card-title",
+                                        _vm._v(
+                                          "How did you know about the #ASTIGCountryside?"
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "caption" }, [
+                                      _vm._v(
+                                        "Select multiple options if applicable."
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-flex",
+                                    { attrs: { xs12: "" } },
+                                    [
+                                      _c(
+                                        "v-layout",
+                                        { attrs: { wrap: "" } },
+                                        _vm._l(
+                                          _vm.constants.astigc_ref,
+                                          function(astigc_ref, index) {
+                                            return _c(
+                                              "v-flex",
                                               {
-                                                attrs: { "primary-title": "" }
+                                                key: astigc_ref,
+                                                staticClass: "mr-3",
+                                                attrs: { shrink: "" }
                                               },
                                               [
-                                                _c("div", [
-                                                  _c(
-                                                    "div",
-                                                    { staticClass: "headline" },
-                                                    [_vm._v(_vm._s(value))]
-                                                  )
-                                                ])
-                                              ]
+                                                _c("v-checkbox", {
+                                                  attrs: {
+                                                    color: "teal",
+                                                    label:
+                                                      index + ": " + astigc_ref,
+                                                    value: index
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.evaluation.astigc_ref,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        _vm.evaluation,
+                                                        "astigc_ref",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "evaluation.astigc_ref"
+                                                  }
+                                                })
+                                              ],
+                                              1
                                             )
-                                          ],
-                                          1
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  }
-                                ),
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "h3",
-                                { staticStyle: { "text-align": "center" } },
-                                [_vm._v("Which age group do you belong?")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-layout",
-                                { attrs: { row: "", "justify-center": "" } },
-                                [
-                                  _c(
-                                    "v-flex",
-                                    {
-                                      attrs: { xs4: "" },
-                                      on: {
-                                        click: function($event) {
-                                          _vm.evaluation.q3 = "Academe"
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-card",
-                                        {
-                                          staticClass: "white--text",
-                                          attrs: {
-                                            color: "blue-grey darken-2",
-                                            hover: ""
                                           }
-                                        },
-                                        [
-                                          _c(
-                                            "v-card-title",
-                                            { attrs: { "primary-title": "" } },
-                                            [
-                                              _c("div", [
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "headline" },
-                                                  [_vm._v("Academe")]
-                                                )
-                                              ])
-                                            ]
-                                          )
-                                        ],
+                                        ),
                                         1
                                       )
                                     ],
                                     1
                                   ),
                                   _vm._v(" "),
-                                  _c(
-                                    "v-flex",
-                                    {
-                                      attrs: { xs4: "" },
-                                      on: {
-                                        click: function($event) {
-                                          _vm.evaluation.q3 =
-                                            "Government Agency"
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-card",
-                                        {
-                                          staticClass: "white--text",
-                                          attrs: {
-                                            color: "blue-grey darken-2",
-                                            hover: ""
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "v-card-title",
-                                            { attrs: { "primary-title": "" } },
-                                            [
-                                              _c("div", [
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "headline" },
-                                                  [_vm._v("Government Agency")]
-                                                )
-                                              ])
-                                            ]
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-flex",
-                                    {
-                                      attrs: { xs4: "" },
-                                      on: {
-                                        click: function($event) {
-                                          _vm.evaluation.q3 =
-                                            "Industry/ MSME/Business Entity"
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-card",
-                                        {
-                                          staticClass: "white--text",
-                                          attrs: {
-                                            color: "blue-grey darken-2",
-                                            hover: ""
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "v-card-title",
-                                            { attrs: { "primary-title": "" } },
-                                            [
-                                              _c("div", [
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "headline" },
-                                                  [
-                                                    _vm._v(
-                                                      "Industry/ MSME/Business Entity"
-                                                    )
-                                                  ]
-                                                )
-                                              ])
-                                            ]
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-flex",
-                                    {
-                                      attrs: { xs4: "" },
-                                      on: {
-                                        click: function($event) {
-                                          _vm.evaluation.q3 =
-                                            "Peoples Organization"
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-card",
-                                        {
-                                          staticClass: "white--text",
-                                          attrs: {
-                                            color: "blue-grey darken-2",
-                                            hover: ""
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "v-card-title",
-                                            { attrs: { "primary-title": "" } },
-                                            [
-                                              _c("div", [
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "headline" },
-                                                  [
-                                                    _vm._v(
-                                                      "People's Organization"
-                                                    )
-                                                  ]
-                                                )
-                                              ])
-                                            ]
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "v-flex",
-                                    {
-                                      attrs: { xs4: "" },
-                                      on: {
-                                        click: function($event) {
-                                          _vm.evaluation.q3 =
-                                            "Private Individual"
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-card",
-                                        {
-                                          staticClass: "white--text",
-                                          attrs: {
-                                            color: "blue-grey darken-2",
-                                            hover: ""
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "v-card-title",
-                                            { attrs: { "primary-title": "" } },
-                                            [
-                                              _c("div", [
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "headline" },
-                                                  [_vm._v("Private Individual")]
-                                                )
-                                              ])
-                                            ]
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c("br"),
-                              _vm._v(" "),
-                              _c(
-                                "h3",
-                                { staticStyle: { "text-align": "center" } },
-                                [_vm._v("Type of Organization:")]
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(
-                            "\n                " +
-                              _vm._s(_vm.evaluation) +
-                              "\n            "
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { color: "primary" },
-                          on: {
-                            click: function($event) {
-                              _vm.e1 = 2
-                            }
-                          }
-                        },
-                        [_vm._v("\n              NEXT\n            ")]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-stepper-content",
-                    { attrs: { step: "2" } },
-                    [
-                      _c(
-                        "v-card",
-                        { staticClass: "mb-5", attrs: { height: "400px" } },
-                        [
-                          _c(
-                            "v-layout",
-                            { attrs: { row: "", "justify-center": "" } },
-                            [
-                              _c(
-                                "h4",
-                                { staticStyle: { "text-align": "center" } },
-                                [
-                                  _vm._v(
-                                    "Is this your first time to attend the event (NSTW)?"
-                                  )
-                                ]
-                              ),
-                              _c("br"),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs4: "" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.evaluation.q4 = "Yes"
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "v-card",
-                                    {
-                                      staticClass: "white--text",
-                                      attrs: {
-                                        color: "blue-grey darken-2",
-                                        hover: ""
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-card-title",
-                                        { attrs: { "primary-title": "" } },
-                                        [
-                                          _c("div", [
-                                            _c(
-                                              "div",
-                                              { staticClass: "headline" },
-                                              [_vm._v("Yes")]
-                                            )
-                                          ])
-                                        ]
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                {
-                                  attrs: { xs4: "" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.evaluation.q4 = "No"
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "v-card",
-                                    {
-                                      staticClass: "white--text",
-                                      attrs: {
-                                        color: "blue-grey darken-2",
-                                        hover: ""
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-card-title",
-                                        { attrs: { "primary-title": "" } },
-                                        [
-                                          _c("div", [
-                                            _c(
-                                              "div",
-                                              { staticClass: "headline" },
-                                              [_vm._v("No")]
-                                            )
-                                          ])
-                                        ]
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("br"),
-                          _vm._v(" "),
-                          _vm.evaluation.q4 == "No"
-                            ? _c(
-                                "v-layout",
-                                { attrs: { row: "", "justify-center": "" } },
-                                [
-                                  _c(
-                                    "h4",
-                                    { staticStyle: { "text-align": "center" } },
-                                    [
+                                  _c("v-flex", { attrs: { xs12: "" } }, [
+                                    _c("span", { staticClass: "display-2" }, [
                                       _vm._v(
-                                        "How was your experience of the last event (NSTW2018)?  (Multiple selections allowed)"
+                                        "How will you rate your overall experience in the #ASTIGCountryside?"
                                       )
-                                    ]
-                                  ),
-                                  _c("br"),
+                                    ])
+                                  ]),
                                   _vm._v(" "),
-                                  _vm._l(
+                                  _c(
+                                    "v-flex",
+                                    { attrs: { xs12: "" } },
                                     [
-                                      "Not Satisfied",
-                                      "Somewhat Satisfied",
-                                      "Satisfied",
-                                      "Very Satisfied"
-                                    ],
-                                    function(value) {
-                                      return _c(
-                                        "v-flex",
+                                      _c(
+                                        "v-radio-group",
                                         {
-                                          key: _vm.values,
-                                          attrs: { xs4: "" },
+                                          attrs: { row: "" },
+                                          model: {
+                                            value: _vm.evaluation.prev_astigc,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.evaluation,
+                                                "prev_astigc",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "evaluation.prev_astigc"
+                                          }
+                                        },
+                                        _vm._l(
+                                          _vm.constants.prev_astigc,
+                                          function(prev_astigc, index) {
+                                            return _c("v-radio", {
+                                              key: prev_astigc,
+                                              attrs: {
+                                                color: "teal",
+                                                label:
+                                                  index + ": " + prev_astigc,
+                                                value: index
+                                              }
+                                            })
+                                          }
+                                        ),
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c("v-flex", { attrs: { xs12: "" } }, [
+                                    _c("span", { staticClass: "display-2" }, [
+                                      _vm._v(
+                                        "How likely will you recommend the #ASTIGCountryside to your family and friends?"
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-flex",
+                                    { attrs: { xs12: "" } },
+                                    [
+                                      _c(
+                                        "v-btn",
+                                        {
+                                          attrs: {
+                                            large: "",
+                                            icon: "",
+                                            round: "",
+                                            outline: "",
+                                            color: _vm.evaluation
+                                              .recommend_astigc
+                                              ? "teal"
+                                              : ""
+                                          },
                                           on: {
                                             click: function($event) {
-                                              return _vm.appendToQ5(value)
+                                              _vm.evaluation.recommend_astigc = true
                                             }
                                           }
                                         },
-                                        [
-                                          _c(
-                                            "v-card",
-                                            {
-                                              staticClass: "white--text",
-                                              attrs: {
-                                                color: "blue-grey darken-2",
-                                                hover: ""
-                                              }
-                                            },
-                                            [
-                                              _c(
-                                                "v-card-title",
-                                                {
-                                                  attrs: { "primary-title": "" }
-                                                },
-                                                [
-                                                  _c("div", [
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass: "headline"
-                                                      },
-                                                      [_vm._v(_vm._s(value))]
-                                                    )
-                                                  ])
-                                                ]
-                                              )
-                                            ],
-                                            1
-                                          )
-                                        ],
+                                        [_c("v-icon", [_vm._v("thumb_up")])],
                                         1
-                                      )
-                                    }
-                                  )
-                                ],
-                                2
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c("br"),
-                          _vm._v(" "),
-                          _vm.evaluation.q4
-                            ? _c(
-                                "v-layout",
-                                { attrs: { row: "", "justify-center": "" } },
-                                [
-                                  _c(
-                                    "h4",
-                                    { staticStyle: { "text-align": "center" } },
-                                    [
-                                      _vm._v(
-                                        "How did you know about the NSTW2019? (Multiple selections allowed)?"
-                                      )
-                                    ]
-                                  ),
-                                  _c("br"),
-                                  _vm._v(" "),
-                                  _vm._l(
-                                    [
-                                      "TV",
-                                      "Radio",
-                                      "Newspaper",
-                                      "Social Media (FB, twitter, IG)",
-                                      "Print Ads (flyers, streamers, poster)",
-                                      "Word of Mouth",
-                                      "Invitations"
-                                    ],
-                                    function(value) {
-                                      return _c(
-                                        "v-flex",
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-btn",
                                         {
-                                          key: _vm.values,
-                                          attrs: { xs4: "" },
+                                          attrs: {
+                                            large: "",
+                                            icon: "",
+                                            round: "",
+                                            outline: "",
+                                            color:
+                                              _vm.evaluation
+                                                .recommend_astigc === false
+                                                ? "teal"
+                                                : ""
+                                          },
                                           on: {
                                             click: function($event) {
-                                              return _vm.appendToQ6(value)
+                                              _vm.evaluation.recommend_astigc = false
                                             }
                                           }
                                         },
-                                        [
-                                          _c(
-                                            "v-card",
-                                            {
-                                              staticClass: "white--text",
-                                              attrs: {
-                                                color: "blue-grey darken-2",
-                                                hover: ""
-                                              }
-                                            },
-                                            [
-                                              _c(
-                                                "v-card-title",
-                                                {
-                                                  attrs: { "primary-title": "" }
-                                                },
-                                                [
-                                                  _c("div", [
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass: "headline"
-                                                      },
-                                                      [_vm._v(_vm._s(value))]
-                                                    )
-                                                  ])
-                                                ]
-                                              )
-                                            ],
-                                            1
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    }
-                                  )
-                                ],
-                                2
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c("br"),
-                          _vm._v(
-                            "\n              " +
-                              _vm._s(_vm.evaluation) +
-                              "\n            "
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { color: "primary" },
-                          on: {
-                            click: function($event) {
-                              _vm.e1 = 1
-                            }
-                          }
-                        },
-                        [_vm._v("\n              PREVIOUS\n            ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { color: "primary" },
-                          on: {
-                            click: function($event) {
-                              _vm.e1 = 3
-                            }
-                          }
-                        },
-                        [_vm._v("\n              NEXT\n            ")]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-stepper-content",
-                    { attrs: { step: "3" } },
-                    [
-                      _c(
-                        "v-card",
-                        { staticClass: "mb-5", attrs: { height: "400px" } },
-                        [
-                          _c(
-                            "v-layout",
-                            { attrs: { row: "", "justify-center": "" } },
-                            [
-                              _c(
-                                "h4",
-                                { staticStyle: { "text-align": "center" } },
-                                [
-                                  _vm._v(
-                                    "How did you know about the  #ASTIGCountryside?  (Multiple selections allowed)"
-                                  )
-                                ]
-                              ),
-                              _c("br"),
-                              _vm._v(" "),
-                              _vm._l(
-                                [
-                                  "TV",
-                                  "Radio",
-                                  "Newspaper",
-                                  "Social Media (FB, twitter, IG)",
-                                  "Print Ads (flyers, streamers, poster)",
-                                  "Word of Mouth",
-                                  "Invitations"
-                                ],
-                                function(value) {
-                                  return _c(
-                                    "v-flex",
-                                    {
-                                      key: _vm.values,
-                                      attrs: { xs4: "" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.appendToQ7(value)
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-card",
-                                        {
-                                          staticClass: "white--text",
-                                          attrs: {
-                                            color: "blue-grey darken-2",
-                                            hover: ""
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "v-card-title",
-                                            { attrs: { "primary-title": "" } },
-                                            [
-                                              _c("div", [
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "headline" },
-                                                  [_vm._v(_vm._s(value))]
-                                                )
-                                              ])
-                                            ]
-                                          )
-                                        ],
+                                        [_c("v-icon", [_vm._v("thumb_down")])],
                                         1
                                       )
                                     ],
                                     1
                                   )
-                                }
-                              )
-                            ],
-                            2
-                          ),
-                          _vm._v(" "),
-                          _c("br"),
-                          _vm._v(" "),
-                          _c(
-                            "v-layout",
-                            { attrs: { row: "", "justify-center": "" } },
-                            [
-                              _c(
-                                "h4",
-                                { staticStyle: { "text-align": "center" } },
-                                [
-                                  _vm._v(
-                                    "How will you rate your overall experience in the #ASTIGCountryside?"
-                                  )
-                                ]
-                              ),
-                              _c("br"),
-                              _vm._v(" "),
-                              _vm._l(
-                                [
-                                  "Not Satisfied",
-                                  "Somewhat Satisfied",
-                                  "Satisfied",
-                                  "Very Satisfied"
-                                ],
-                                function(value) {
-                                  return _c(
-                                    "v-flex",
-                                    {
-                                      key: _vm.values,
-                                      attrs: { xs4: "" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.appendToQ8(value)
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-card",
-                                        {
-                                          staticClass: "white--text",
-                                          attrs: {
-                                            color: "blue-grey darken-2",
-                                            hover: ""
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "v-card-title",
-                                            { attrs: { "primary-title": "" } },
-                                            [
-                                              _c("div", [
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "headline" },
-                                                  [_vm._v(_vm._s(value))]
-                                                )
-                                              ])
-                                            ]
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  )
-                                }
-                              )
-                            ],
-                            2
-                          ),
-                          _vm._v(" "),
-                          _c("br"),
-                          _vm._v(" "),
-                          _c(
-                            "v-layout",
-                            { attrs: { row: "", "justify-center": "" } },
-                            [
-                              _c(
-                                "h4",
-                                { staticStyle: { "text-align": "center" } },
-                                [
-                                  _vm._v(
-                                    "How likely will you recommend the #ASTIGCountryside to your family and friends?"
-                                  )
-                                ]
-                              ),
-                              _c("br"),
-                              _vm._v(" "),
-                              _vm._l(["Thumbs Up", "Thumbs Down"], function(
-                                value
-                              ) {
-                                return _c(
-                                  "v-flex",
-                                  {
-                                    key: _vm.values,
-                                    attrs: { xs4: "" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.appendToQ9(value)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "v-card",
-                                      {
-                                        staticClass: "white--text",
-                                        attrs: {
-                                          color: "blue-grey darken-2",
-                                          hover: ""
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "v-card-title",
-                                          { attrs: { "primary-title": "" } },
-                                          [
-                                            _c("div", [
-                                              _c(
-                                                "div",
-                                                { staticClass: "headline" },
-                                                [_vm._v(_vm._s(value))]
-                                              )
-                                            ])
-                                          ]
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                )
-                              })
-                            ],
-                            2
-                          ),
-                          _vm._v(
-                            "\n            \n            " +
-                              _vm._s(_vm.evaluation) +
-                              "    \n            "
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { color: "primary" },
-                          on: {
-                            click: function($event) {
-                              _vm.e1 = 2
-                            }
-                          }
-                        },
-                        [_vm._v("\n              PREVIOUS\n            ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { color: "primary" },
-                          on: {
-                            click: function($event) {
-                              _vm.e1 = 4
-                            }
-                          }
-                        },
-                        [_vm._v("\n              NEXT\n            ")]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-stepper-content",
-                    { attrs: { step: "4" } },
-                    [
-                      _c(
-                        "v-card",
-                        { staticClass: "mb-5", attrs: { height: "400px" } },
-                        [
-                          _c(
-                            "v-layout",
-                            { attrs: { row: "", "justify-center": "" } },
-                            [
-                              _c(
-                                "h4",
-                                { staticStyle: { "text-align": "center" } },
-                                [
-                                  _vm._v(
-                                    "Your insights about the #ASTIGCountryside..?  (Multiple selections allowed)"
-                                  )
-                                ]
-                              ),
-                              _c("br"),
-                              _vm._v(" "),
-                              _vm._l(
-                                [
-                                  "I am inspired to avail more DOST programs and services",
-                                  "I will highly recommend DOST programs and services to my family and friends",
-                                  "My knowledge of DOST programs and services has widened",
-                                  "I already have learned about DOST programs and services elsewhere",
-                                  "I have only been aware of most of DOST programs and services today"
-                                ],
-                                function(value) {
-                                  return _c(
-                                    "v-flex",
-                                    {
-                                      key: _vm.values,
-                                      attrs: { xs4: "" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.appendToQ10(value)
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "v-card",
-                                        {
-                                          staticClass: "white--text",
-                                          attrs: {
-                                            color: "blue-grey darken-2",
-                                            hover: ""
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "v-card-title",
-                                            { attrs: { "primary-title": "" } },
-                                            [
-                                              _c("div", [
-                                                _c(
-                                                  "div",
-                                                  { staticClass: "headline" },
-                                                  [_vm._v(_vm._s(value))]
-                                                )
-                                              ])
-                                            ]
-                                          )
-                                        ],
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  )
-                                }
-                              )
-                            ],
-                            2
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "v-layout",
-                            { attrs: { row: "", "justify-center": "" } },
-                            [
-                              _c(
-                                "h4",
-                                { staticStyle: { "text-align": "center" } },
-                                [
-                                  _vm._v(
-                                    "What would you like to suggest to improve our services?"
-                                  )
-                                ]
-                              ),
-                              _c("br"),
-                              _vm._v(" "),
-                              _c(
-                                "v-flex",
-                                { attrs: { xs6: "" } },
-                                [
-                                  _c("v-textarea", {
-                                    attrs: {
-                                      name: "input-7-1",
-                                      label: "Default style",
-                                      hint:
-                                        "What would you like to suggest to improve our services?"
-                                    },
-                                    model: {
-                                      value: _vm.evaluation.q11,
-                                      callback: function($$v) {
-                                        _vm.$set(_vm.evaluation, "q11", $$v)
-                                      },
-                                      expression: "evaluation.q11"
-                                    }
-                                  })
                                 ],
                                 1
                               )
                             ],
                             1
                           ),
-                          _vm._v(
-                            "\n                " +
-                              _vm._s(_vm.evaluation) +
-                              "\n            "
+                          _vm._v(" "),
+                          _c(
+                            "v-stepper-content",
+                            { attrs: { step: "4" } },
+                            [
+                              _c(
+                                "v-layout",
+                                {
+                                  staticClass: "mx-auto",
+                                  attrs: { wrap: "", "justify-center": "" }
+                                },
+                                [
+                                  _c("v-flex", { attrs: { xs12: "" } }, [
+                                    _c("span", { staticClass: "display-2" }, [
+                                      _vm._v(
+                                        "What are your insights about the #ASTIGCountryside?"
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-flex",
+                                    { attrs: { xs12: "" } },
+                                    [
+                                      _c(
+                                        "v-layout",
+                                        { attrs: { wrap: "" } },
+                                        _vm._l(
+                                          _vm.constants.astigc_insights,
+                                          function(astigc_insights, index) {
+                                            return _c(
+                                              "v-flex",
+                                              {
+                                                key: astigc_insights,
+                                                staticClass: "mr-3",
+                                                attrs: { shrink: "" }
+                                              },
+                                              [
+                                                _c("v-checkbox", {
+                                                  attrs: {
+                                                    color: "teal",
+                                                    label:
+                                                      index +
+                                                      ": " +
+                                                      astigc_insights,
+                                                    value: index
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.evaluation
+                                                        .astigc_insights,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        _vm.evaluation,
+                                                        "astigc_insights",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "evaluation.astigc_insights"
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          }
+                                        ),
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
                           )
                         ],
                         1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { color: "primary" },
-                          on: {
-                            click: function($event) {
-                              _vm.e1 = 3
-                            }
-                          }
-                        },
-                        [_vm._v("\n              PREVIOUS\n            ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { color: "primary" },
-                          on: {
-                            click: function($event) {
-                              return _vm.submitForm(_vm.evaluation)
-                            }
-                          }
-                        },
-                        [_vm._v("\n              SUBMIT\n            ")]
                       )
                     ],
                     1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-flex",
+                { staticClass: "white pa-2", attrs: { shrink: "" } },
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { large: "", disabled: _vm.step === 1 },
+                      on: {
+                        click: function($event) {
+                          _vm.step -= 1
+                        }
+                      }
+                    },
+                    [_vm._v("Previous")]
+                  ),
+                  _vm._v(" "),
+                  _vm.step < 4
+                    ? _c(
+                        "v-btn",
+                        {
+                          attrs: {
+                            large: "",
+                            dark: "",
+                            color: "teal lighten-1"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.step += 1
+                            }
+                          }
+                        },
+                        [_vm._v("Next")]
+                      )
+                    : _c(
+                        "v-btn",
+                        {
+                          attrs: {
+                            large: "",
+                            dark: !_vm.loading,
+                            color: "teal lighten-1",
+                            loading: _vm.loading,
+                            disabled: _vm.loading
+                          },
+                          on: { click: _vm.submit }
+                        },
+                        [_vm._v("Submit")]
+                      )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: { "max-width": "320" },
+          model: {
+            value: _vm.prompt,
+            callback: function($$v) {
+              _vm.prompt = $$v
+            },
+            expression: "prompt"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c("v-card-text", [
+                _c("p", { staticClass: "subheading" }, [
+                  _vm._v(_vm._s(_vm.response.message))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("v-divider"),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                [
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { flat: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.prompt = false
+                        }
+                      }
+                    },
+                    [_vm._v("\n          Close\n        ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    { attrs: { flat: "", color: "primary", to: "/game" } },
+                    [_vm._v("\n          Proceed\n        ")]
                   )
                 ],
                 1
@@ -69200,6 +68763,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Landing_vue_vue_type_template_id_5ec6495c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/front-end/screens/Evaluation/constants.json":
+/*!***************************************************************!*\
+  !*** ./resources/front-end/screens/Evaluation/constants.json ***!
+  \***************************************************************/
+/*! exports provided: NOTE (PLEASE READ!), age_group, organization, prev_nstw, nstw_ref, prev_astigc, astigc_ref, astigc_insights, default */
+/***/ (function(module) {
+
+module.exports = {"NOTE (PLEASE READ!)":["DO NOT CHANGE THE ORDER OF ANY VALUE AS IT IS LINKED IN THE DATABASE.","THIS IS NOT THE IDEAL WAY, BUT THIS IS THE FASTEST FOR NOW."],"age_group":["Below 10","10 - 15","16 - 20","21 - 30","31 - 40","41 - 50","51 - 60","Above 60"],"organization":["Academe","Government Agency","Industry/MSME/Business Entity","People's Organization","Private Individual"],"prev_nstw":["Not satisfied","Somewhat satisfied","Satisfied","Very Satisfied"],"nstw_ref":["TV","Radio","Newspaper","Social Media (Facebook, Twitter, Instagram)","Print Ads (flyers, streamers, posters)","Word of Mouth","Invitation"],"prev_astigc":["Not satisfied","Somewhat satisfied","Satisfied","Very Satisfied"],"astigc_ref":["TV","Radio","Newspaper","Social Media (Facebook, Twitter, Instagram)","Print Ads (flyers, streamers, posters)","Word of Mouth","Invitation"],"astigc_insights":["I am inspired to avail more DOST programs and services","I will highly recommend DOST programs and services to my family and friends","My knowledge of DOST programs and services has widened","I already have learned about DOST programs and services elsewhere","I have only been aware of most DOST programs and services today"]};
 
 /***/ }),
 

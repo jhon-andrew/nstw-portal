@@ -1,6 +1,10 @@
 <template>
-  <v-dialog persistent v-model="dialog" max-width="30%">
-    <v-card>
+  <v-dialog persistent v-model="dialog" max-width="80%">
+    <v-btn small fab icon color="primary elevation-1" style="float: right; margin-left: -64px;z-index: 1" @click="$router.go(-1)">
+      <v-icon>close</v-icon>
+    </v-btn>
+    <evaluation-form />
+    <!-- <v-card>
       <v-card-title primary-title class="blue lighten-1">
         <div class="white--text">
           <p class="title mb-0">Answer the Evaluation</p>
@@ -20,11 +24,13 @@
         </ol>
         <p class="text-xs-center"><img :src="`/api/qrcode/generate.png?data=${surveyLink}`" style="width: 300px; height: 300px;"></p>
       </v-card-text>
-    </v-card>
+    </v-card> -->
   </v-dialog>
 </template>
 <script>
+import EvaluationForm from '../Evaluation/Form'
 export default {
+  components: { EvaluationForm },
   data () {
     return {
       dialog: false,

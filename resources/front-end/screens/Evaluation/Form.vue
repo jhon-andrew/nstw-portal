@@ -1,486 +1,258 @@
-
-   <template>
-    <v-content :class="[$vuetify.breakpoint.mdAndDown ? 'mobile' : null]">
-       <v-container fluid>
-        <v-stepper v-model="e1">
+<template>
+  <v-content>
+    <v-container fill-height>
+      <v-layout column>
+        <v-flex shrink>
+          <h2 :class="[$vuetify.breakpoint.mdAndDown ? 'display-1' : 'display-3']" class="white--text">Evaluation Form</h2>
+        </v-flex>
+        <v-flex d-flex>
+          <v-stepper v-model="step">
             <v-stepper-header>
-              <v-stepper-step :complete="e1 > 1" step="1">Gender | Age Group</v-stepper-step>
-
-              <v-divider></v-divider>
-
-              <v-stepper-step :complete="e1 > 2" step="2">Name of step 2</v-stepper-step>
-
-              <v-divider></v-divider>
-
-              <v-stepper-step step="3">Name of step 3</v-stepper-step>
+              <v-stepper-step :complete="step > 1" step="1">Personal Information</v-stepper-step>
+              <v-stepper-step :complete="step > 2" step="2">NSTW</v-stepper-step>
+              <v-stepper-step :complete="step > 3" step="3">#ASTIGCountryside</v-stepper-step>
+              <v-stepper-step :complete="step > 4" step="4">Insights</v-stepper-step>
             </v-stepper-header>
-
             <v-stepper-items>
+              <!-- Personal Information -->
               <v-stepper-content step="1">
-                <v-card
-                  class="mb-5"
-                  height="100%"
-                >
-                   <v-form ref="evaluationForm">
-                        <v-container fluid>
-                            <v-layout row wrap style="auto: 0;">
-                              <v-flex xs12 lg4 style="auto: 0; text-align: center;">
-                              </v-flex>
-                           </v-layout>
-                        </v-container>
-                        <v-layout row justify-center>
-                            
-                            <v-flex xs2>
-                                <v-hover>
-                                  <v-img
-                                    hover
-                                    width="155"
-                                    src="/assets/evaluation/q1-male.png"
-                                    @click="evaluation.q1 = 'male'"
-                                  ></v-img>
-                                  
-                              </v-hover>
-                              <div width="155" style="text-align: center">Male</div>
-                            </v-flex>
-                             <v-flex xs2>
-                              <v-hover>
-                                  <v-img
-                                    hover
-                                    width="155"
-                                    src="/assets/evaluation/q1-female.png"
-                                    @click="evaluation.q1 = 'female'"
-                                  ></v-img>
-                              </v-hover>
-                              <div width="155" style="text-align: center">Female</div>
-                            </v-flex>
-                            
-                          </v-layout>
-                          <br>
-                            <h3 style="text-align: center;">I am a:</h3>
-                          <br> <br>
-                       <br>
-                       <v-layout row justify-center>
-                           <!--h4 style="text-align: center;">How will you rate your overall experience in the #ASTIGCountryside?</h4><br-->
-                            <v-flex xs4 v-for="value of ['Below 10', '10-15', '16-20', '21-30', '31-40', '41-50', '51-60', 'Above 60']" :key="values" @click="appendToQ2(value)">
-                                <v-card color="blue-grey darken-2" class="white--text" hover> 
-                                  <v-card-title primary-title>
-                                    <div>
-                                      <div class="headline">{{value}}</div>
-                                    </div>
-                                  </v-card-title>
-                                  </v-card>
-                            </v-flex>
-                        </v-layout>
-                       <h3 style="text-align: center;">Which age group do you belong?</h3>
-                       
-                       
-                       <v-layout row justify-center>
-                                    <v-flex xs4 @click="evaluation.q3 = 'Academe'">
-                                        <v-card color="blue-grey darken-2" class="white--text" hover> 
-                                          <v-card-title primary-title>
-                                            <div>
-                                              <div class="headline">Academe</div>
-                                            </div>
-                                          </v-card-title>
-                                          </v-card>
-                                    </v-flex>
-                                    <v-flex xs4 @click="evaluation.q3 = 'Government Agency'">
-                                        <v-card color="blue-grey darken-2" class="white--text" hover> 
-                                          <v-card-title primary-title>
-                                            <div>
-                                              <div class="headline">Government Agency</div>
-                                            </div>
-                                          </v-card-title>
-                                          </v-card>
-                                    </v-flex>
-
-                                    <v-flex xs4 @click="evaluation.q3 = 'Industry/ MSME/Business Entity'">
-                                        <v-card color="blue-grey darken-2" class="white--text" hover> 
-                                          <v-card-title primary-title>
-                                            <div>
-                                              <div class="headline">Industry/ MSME/Business Entity</div>
-                                            </div>
-                                          </v-card-title>
-                                          </v-card>
-                                    </v-flex>
-
-                                    <v-flex xs4 @click="evaluation.q3 = 'Peoples Organization'">
-                                        <v-card color="blue-grey darken-2" class="white--text" hover> 
-                                          <v-card-title primary-title>
-                                            <div>
-                                              <div class="headline">People's Organization</div>
-                                            </div>
-                                          </v-card-title>
-                                          </v-card>
-                                    </v-flex>
-                                    <v-flex xs4 @click="evaluation.q3 = 'Private Individual'">
-                                        <v-card color="blue-grey darken-2" class="white--text" hover> 
-                                          <v-card-title primary-title>
-                                            <div>
-                                              <div class="headline">Private Individual</div>
-                                            </div>
-                                          </v-card-title>
-                                          </v-card>
-                                    </v-flex>
-                           </v-layout>
-                       <br>
-                       <h3 style="text-align: center;">Type of Organization:</h3>
-                    </v-form>
-                    {{evaluation}}
-                </v-card>
-                
-                <v-btn
-                  color="primary"
-                  @click="e1 = 2"
-                >
-                  NEXT
-                </v-btn>
-
+                <v-layout wrap justify-center class="mx-auto">
+                  <!-- Activation Code -->
+                  <v-flex xs12 lg4>
+                    <span class="display-1">Registration Code</span>
+                  </v-flex>
+                  <v-flex xs12 lg8>
+                    <v-text-field label="Fill up if you pre-registered." v-model="evaluation.activation_code" />
+                  </v-flex>
+                  <!-- Sex -->
+                  <v-flex xs12 lg4>
+                    <span class="display-2">Sex</span>
+                  </v-flex>
+                  <v-flex xs12 lg8>
+                    <v-container grid-list-lg>
+                      <v-layout wrap justify-center>
+                        <v-flex xs6>
+                          <v-card :color="evaluation.sex === 'male' ? 'teal lighten-4' : ''" @click="evaluation.sex = 'male'">
+                            <v-card-text class="text-xs-center">
+                              <v-img contain src="/assets/evaluation/q1-male.png" style="max-height: 128px;" />
+                              <span>Male</span>
+                            </v-card-text>
+                          </v-card>
+                        </v-flex>
+                        <v-flex xs6>
+                          <v-card :color="evaluation.sex === 'female' ? 'teal lighten-4' : ''" @click="evaluation.sex = 'female'">
+                            <v-card-text class="text-xs-center">
+                              <v-img contain src="/assets/evaluation/q1-female.png" style="max-height: 128px;" />
+                              <span>Female</span>
+                            </v-card-text>
+                          </v-card>
+                        </v-flex>
+                      </v-layout>
+                    </v-container>
+                  </v-flex>
+                  <!-- Age Group -->
+                  <v-flex xs12 lg4>
+                    <span class="display-2">Age Group</span>
+                  </v-flex>
+                  <v-flex xs12 lg8>
+                    <v-select box v-model="evaluation.age_group" label="Which age group do you belong?" :items="constants.age_group"></v-select>
+                  </v-flex>
+                  <!-- Organization -->
+                  <v-flex xs12 lg4>
+                    <span class="display-2">Organization</span>
+                  </v-flex>
+                  <v-flex xs12 lg8>
+                    <v-select box v-model="evaluation.organization" label="Where are you connected?" :items="constants.organization"></v-select>
+                  </v-flex>
+                </v-layout>
               </v-stepper-content>
-
+              <!-- NSTW -->
               <v-stepper-content step="2">
-                <v-card
-                  class="mb-5"
-                  height="400px"
-                >
-                <v-layout row justify-center>
-                           <h4 style="text-align: center;">Is this your first time to attend the event (NSTW)?</h4><br>
-                            <v-flex xs4 @click="evaluation.q4 = 'Yes'">
-                                <v-card color="blue-grey darken-2" class="white--text" hover> 
-                                  <v-card-title primary-title>
-                                    <div>
-                                      <div class="headline">Yes</div>
-                                    </div>
-                                  </v-card-title>
-                                  </v-card>
-                            </v-flex>
-                            <v-flex xs4 @click="evaluation.q4 = 'No'">
-                                <v-card color="blue-grey darken-2" class="white--text" hover> 
-                                  <v-card-title primary-title>
-                                    <div>
-                                      <div class="headline">No</div>
-                                    </div>
-                                  </v-card-title>
-                                  </v-card>
-                            </v-flex>
+                <v-layout wrap justify-center class="mx-auto">
+                  <v-flex xs12>
+                    <span class="display-2">Is this your first time to attend the NSTW?</span>
+                  </v-flex>
+                  <!-- first_time -->
+                  <v-flex xs12>
+                    <v-radio-group row v-model="evaluation.first_time">
+                      <v-radio color="teal" label="Yes, it is." :value="true" />
+                      <v-radio color="teal" label="No, I have joined previously." :value="false" />
+                    </v-radio-group>
+                  </v-flex>
+                  <v-slide-x-transition>
+                    <v-flex xs12 v-if="evaluation.first_time === false">
+                      <span class="display-2">How was your experience of the last NSTW?</span>
+                    </v-flex>
+                  </v-slide-x-transition>
+                  <v-slide-x-transition>
+                    <!-- prev_nstw -->
+                    <v-flex xs12 v-if="evaluation.first_time === false">
+                      <v-radio-group row v-model="evaluation.prev_nstw">
+                        <v-radio
+                          color="teal"
+                          v-for="(prev_nstw, index) in constants.prev_nstw"
+                          :key="prev_nstw"
+                          :label="index + ': ' + prev_nstw"
+                          :value="index" />
+                      </v-radio-group>
+                    </v-flex>
+                  </v-slide-x-transition>
+                  <v-flex xs12>
+                    <span class="display-2 d-block">How did you know about the NSTW 2019?</span>
+                    <span class="caption">Select multiple options if applicable.</span>
+                  </v-flex>
+                  <!-- nstw_ref -->
+                  <v-flex xs12>
+                    <v-layout wrap>
+                      <v-flex shrink class="mr-3" v-for="(nstw_ref, index) in constants.nstw_ref" :key="nstw_ref">
+                        <v-checkbox color="teal" v-model="evaluation.nstw_ref" :label="index + ': ' + nstw_ref" :value="index"></v-checkbox>
+                      </v-flex>
+                    </v-layout>
+                  </v-flex>
                 </v-layout>
-                <br>
-                <v-layout row justify-center v-if="evaluation.q4 == 'No'">
-                           <h4 style="text-align: center;">How was your experience of the last event (NSTW2018)?  (Multiple selections allowed)</h4><br>
-                            <v-flex xs4 v-for="value of ['Not Satisfied', 'Somewhat Satisfied', 'Satisfied', 'Very Satisfied']" :key="values" @click="appendToQ5(value)">
-                                <v-card color="blue-grey darken-2" class="white--text" hover> 
-                                  <v-card-title primary-title>
-                                    <div>
-                                      <div class="headline">{{value}}</div>
-                                    </div>
-                                  </v-card-title>
-                                  </v-card>
-                            </v-flex>
-
-                </v-layout>
-                
-                <br>
-                <v-layout row justify-center v-if="evaluation.q4">
-                           <h4 style="text-align: center;">How did you know about the NSTW2019? (Multiple selections allowed)?</h4><br>
-                            <v-flex xs4 v-for="value of ['TV', 'Radio', 'Newspaper', 'Social Media (FB, twitter, IG)', 'Print Ads (flyers, streamers, poster)', 'Word of Mouth', 'Invitations']" :key="values" @click="appendToQ6(value)">
-                                <v-card color="blue-grey darken-2" class="white--text" hover> 
-                                  <v-card-title primary-title>
-                                    <div>
-                                      <div class="headline">{{value}}</div>
-                                    </div>
-                                  </v-card-title>
-                                  </v-card>
-                            </v-flex>
-
-                </v-layout>
-                <br>
-                  {{evaluation}}
-                </v-card>
-                
-                <v-btn
-                  color="primary"
-                  @click="e1 = 1"
-                >
-                  PREVIOUS
-                </v-btn>
-                
-                <v-btn
-                  color="primary"
-                  @click="e1 = 3"
-                >
-                  NEXT
-                </v-btn>
               </v-stepper-content>
-
+              <!-- #ASTIGCountryside -->
               <v-stepper-content step="3">
-                <v-card
-                  class="mb-5"
-                  
-                  height="400px"
-                >
-                <v-layout row justify-center>
-                           <h4 style="text-align: center;">How did you know about the  #ASTIGCountryside?  (Multiple selections allowed)</h4><br>
-                            <v-flex xs4 v-for="value of ['TV', 'Radio', 'Newspaper', 'Social Media (FB, twitter, IG)', 'Print Ads (flyers, streamers, poster)', 'Word of Mouth', 'Invitations']" :key="values" @click="appendToQ7(value)">
-                                <v-card color="blue-grey darken-2" class="white--text" hover> 
-                                  <v-card-title primary-title>
-                                    <div>
-                                      <div class="headline">{{value}}</div>
-                                    </div>
-                                  </v-card-title>
-                                  </v-card>
-                            </v-flex>
-
+                <v-layout wrap justify-center class="mx-auto">
+                  <v-flex xs12>
+                    <span class="display-2 d-block">How did you know about the #ASTIGCountryside?</span>
+                    <span class="caption">Select multiple options if applicable.</span>
+                  </v-flex>
+                  <!-- astigc_ref -->
+                  <v-flex xs12>
+                    <v-layout wrap>
+                      <v-flex shrink class="mr-3" v-for="(astigc_ref, index) in constants.astigc_ref" :key="astigc_ref">
+                        <v-checkbox color="teal" v-model="evaluation.astigc_ref" :label="index + ': ' + astigc_ref" :value="index"></v-checkbox>
+                      </v-flex>
+                    </v-layout>
+                  </v-flex>
+                  <v-flex xs12>
+                    <span class="display-2">How will you rate your overall experience in the #ASTIGCountryside?</span>
+                  </v-flex>
+                  <!-- prev_astigc -->
+                  <v-flex xs12>
+                    <v-radio-group row v-model="evaluation.prev_astigc">
+                      <v-radio
+                        color="teal"
+                        v-for="(prev_astigc, index) in constants.prev_astigc"
+                        :key="prev_astigc"
+                        :label="index + ': ' + prev_astigc"
+                        :value="index" />
+                    </v-radio-group>
+                  </v-flex>
+                  <v-flex xs12>
+                    <span class="display-2">How likely will you recommend the #ASTIGCountryside to your family and friends?</span>
+                  </v-flex>
+                  <v-flex xs12>
+                    <v-btn large icon round outline @click="evaluation.recommend_astigc = true" :color="evaluation.recommend_astigc ? 'teal' : ''">
+                      <v-icon>thumb_up</v-icon>
+                    </v-btn>
+                    <v-btn large icon round outline @click="evaluation.recommend_astigc = false" :color="evaluation.recommend_astigc === false ? 'teal' : ''">
+                      <v-icon>thumb_down</v-icon>
+                    </v-btn>
+                  </v-flex>
                 </v-layout>
-                <br>
-                <v-layout row justify-center>
-                           <h4 style="text-align: center;">How will you rate your overall experience in the #ASTIGCountryside?</h4><br>
-                            <v-flex xs4 v-for="value of ['Not Satisfied', 'Somewhat Satisfied', 'Satisfied', 'Very Satisfied']" :key="values" @click="appendToQ8(value)">
-                                <v-card color="blue-grey darken-2" class="white--text" hover> 
-                                  <v-card-title primary-title>
-                                    <div>
-                                      <div class="headline">{{value}}</div>
-                                    </div>
-                                  </v-card-title>
-                                  </v-card>
-                            </v-flex>
-                </v-layout>
-                
-                <br>
-                <v-layout row justify-center>
-                           <h4 style="text-align: center;">How likely will you recommend the #ASTIGCountryside to your family and friends?</h4><br>
-                            <v-flex xs4 v-for="value of ['Thumbs Up', 'Thumbs Down']" :key="values" @click="appendToQ9(value)">
-                                <v-card color="blue-grey darken-2" class="white--text" hover> 
-                                  <v-card-title primary-title>
-                                    <div>
-                                      <div class="headline">{{value}}</div>
-                                    </div>
-                                  </v-card-title>
-                                  </v-card>
-                            </v-flex>
-
-                </v-layout>
-                
-                {{evaluation}}    
-                </v-card>
-                <v-btn
-                  color="primary"
-                  @click="e1 = 2"
-                >
-                  PREVIOUS
-                </v-btn>
-                
-                <v-btn
-                  color="primary"
-                  @click="e1 = 4"
-                >
-                  NEXT
-                </v-btn>
-
               </v-stepper-content>
-              
+              <!-- Insights -->
               <v-stepper-content step="4">
-                <v-card
-                  class="mb-5"
-
-                  height="400px"
-                >
-                    <v-layout row justify-center>
-                           <h4 style="text-align: center;">Your insights about the #ASTIGCountryside..?  (Multiple selections allowed)</h4><br>
-                            <v-flex xs4 v-for="value of ['I am inspired to avail more DOST programs and services',
-                                'I will highly recommend DOST programs and services to my family and friends', 
-                                'My knowledge of DOST programs and services has widened', 
-                                'I already have learned about DOST programs and services elsewhere', 
-                                'I have only been aware of most of DOST programs and services today']" :key="values" @click="appendToQ10(value)">
-                                <v-card color="blue-grey darken-2" class="white--text" hover> 
-                                  <v-card-title primary-title>
-                                    <div>
-                                      <div class="headline">{{value}}</div>
-                                    </div>
-                                  </v-card-title>
-                                  </v-card>
-                            </v-flex>
-
+                <v-layout wrap justify-center class="mx-auto">
+                  <v-flex xs12>
+                    <span class="display-2">What are your insights about the #ASTIGCountryside?</span>
+                  </v-flex>
+                  <v-flex xs12>
+                    <v-layout wrap>
+                      <v-flex shrink class="mr-3" v-for="(astigc_insights, index) in constants.astigc_insights" :key="astigc_insights">
+                        <v-checkbox color="teal" v-model="evaluation.astigc_insights" :label="index + ': ' + astigc_insights" :value="index"></v-checkbox>
+                      </v-flex>
                     </v-layout>
-                    
-                    <v-layout row justify-center>
-                           <h4 style="text-align: center;">What would you like to suggest to improve our services?</h4><br>
-                            <v-flex xs6>
-                            <v-textarea v-model="evaluation.q11"
-                              name="input-7-1"
-                              label="Default style"
-                              hint="What would you like to suggest to improve our services?"
-                            ></v-textarea>
-                          </v-flex>
-
-                    </v-layout>
-                    {{evaluation}}
-                </v-card>
-
-                <v-btn
-                  color="primary"
-                  @click="e1 = 3"
-                >
-                  PREVIOUS
-                </v-btn>
-                
-                <v-btn
-                  color="primary"
-                  @click="submitForm(evaluation)"
-                >
-                  SUBMIT
-                </v-btn>
-
+                  </v-flex>
+                </v-layout>
               </v-stepper-content>
             </v-stepper-items>
           </v-stepper>
-          </v-container>
-    </v-content>
+        </v-flex>
+        <v-flex shrink class="white pa-2">
+          <v-btn large :disabled="step === 1" @click="step -= 1">Previous</v-btn>
+          <v-btn v-if="step < 4" large dark color="teal lighten-1" @click="step += 1">Next</v-btn>
+          <v-btn v-else large :dark="!loading" color="teal lighten-1" @click="submit" :loading="loading" :disabled="loading">Submit</v-btn>
+        </v-flex>
+      </v-layout>
+    </v-container>
+
+    <v-dialog v-model="prompt" max-width="320">
+      <v-card>
+        <v-card-text>
+          <p class="subheading">{{response.message}}</p>
+        </v-card-text>
+        <v-divider />
+        <v-card-actions>
+          <v-spacer />
+          <v-btn flat @click="prompt = false">
+            Close
+          </v-btn>
+          <v-btn flat color="primary" to="/game">
+            Proceed
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-content>
 </template>
 <script>
-  export default {
-    data () {
-      return {
-        e1: 0,
-        loading: false,
-        evaluation: {
-              q1: '',
-              q2: '',
-              q3: '',
-              q4: '',
-              q5: '',
-              q6: [],
-              q7: [],
-              q8: '',
-              q9: '',
-              q10: [],
-              q11: ''
-        },
+import constants from './constants.json'
+export default {
+  data () {
+    return {
+      step: 1,
+      evaluation: {
+        sex: null,
+        nstw_ref: [],
+        astigc_ref: [],
+        astigc_insights: [],
+        recommend_astigc: null,
+      },
+      constants,
+      loading: false,
+      prompt: false,
+      response: {}
+    }
+  },
+  watch: {
+    'evaluation.first_time' (from, to) {
+      if (to === true) {
+        this.evaluation.prev_nstw = undefined
       }
-    },
-      methods: {
-          submitForm (evaluation) {
-              //this.$http.post('/evaluation/create', this.evaluation).then(() => alert('test msg'))
-              //alert(evaluation)
-          },
-          appendToQ2 (value) {
-              this.evaluation.q2 = value
-          },
-          appendToQ5 (value) {
-              this.evaluation.q5 = value
-          },
-          appendToQ6 (value) {
-              
-              var index = this.evaluation.q6.indexOf(value)
-              if(index < 0){
-                 this.evaluation.q6.push(value); 
-              }else{
-                  this.evaluation.q6.splice(index, 1);
-              }  
-          },
-          appendToQ7 (value) {
-              
-              var index = this.evaluation.q7.indexOf(value)
-              if(index < 0){
-                 this.evaluation.q7.push(value); 
-              }else{
-                  this.evaluation.q7.splice(index, 1);
-              }  
-          },
-          appendToQ8 (value) {
-              this.evaluation.q8 = value
-          },
-          appendToQ9 (value) {
-              this.evaluation.q9 = value
-          },
-          appendToQ10 (value) {
-              
-              var index = this.evaluation.q10.indexOf(value)
-              if(index < 0){
-                 this.evaluation.q10.push(value); 
-              }else{
-                  this.evaluation.q10.splice(index, 1);
-              }  
-          },
-      }
+    }
+  },
+  methods: {
+    async submit () {
+      let evaluation = {}
+
+      this.loading = true
+
+      Object.keys(this.evaluation).forEach(key => {
+        if (typeof this.evaluation[key] === 'object') {
+          evaluation[key] = this.evaluation[key].length > 1 ? this.evaluation[key].join(',') : String(this.evaluation[key][0])
+        } else evaluation[key] = this.evaluation[key]
+      })
+
+      let { data: response } = await this.$request.post('/api/evaluation/', evaluation)
+      this.loading = false
+      this.response = response
+      this.prompt = true
+    }
   }
+}
 </script>
 
 <style scoped>
 .v-content {
-  /* background-image: url('/assets/landing-bg.jpg'), linear-gradient(99deg,  #ffffff 53.2%,#4fa891 46.8%); */
-  background-image: url('https://drive.google.com/uc?export=download&id=1-UEW228dNkLuOHAIHZ8-QyLUxBgTfWAo'), linear-gradient(99deg,  #ffffff 53.2%,#4fa891 46.8%);
-  background-position: center center, center center;
-  background-size: contain;
-  background-attachment: fixed;
+  background-image: linear-gradient(145deg, #11998e, #38ef7d);
 }
-
-.v-content.mobile {
-  background-image: linear-gradient(0deg, #42c3a2 50%, #4fa891 85%);
-  background-attachment: scroll;
-}
-
-.nstw2019 {
-  font-style: italic;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.nstw2019 > .v-image {
-  vertical-align: middle;
-}
-
-.footer {
-  transform: skew(170deg);
-}
-
-.footer.mobile {
-  transform: none;
-}
-
-.footer.mobile .headline {
-  transform: skew(14deg);
-}
-
-.footer.mobile > .flex:first-child {
-  border-top: 1px dashed #ffffff;
-  padding-top: 24px;
-}
-
-.footer > .flex:nth-child(2) {
-  border-left: 5px solid #ffffff;
-}
-
-.footer > .flex:nth-child(2).mobile {
-  border-left: none;
-  border-top: 1px dashed #ffffff;
-}
-
-.footer .schedule {
-  transform: skew(15deg);
+.display-3, .display-2, .display-1 {
   font-family: 'Poppins', sans-serif !important;
-  font-weight: 700;
-  font-style: italic;
-  text-align: center !important;
 }
-
-.footer .schedule > small {
-  font-size: 18px;
+.v-stepper__content .layout {
+  max-width: 1024px;
 }
-
-.footer p {
-  text-indent: 25px;
-}
-    
-.gender-selecttion {
-  width: 200px;
-  height: 200px;
-  display: block;
-  border-right: 100px;
-  float: left;
-  text-align: center;
-}
-
-    .headline {
-        text-align: center;
-    }
 </style>
