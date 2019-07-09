@@ -11,6 +11,7 @@ import ExhibitSlideshow from '@/screens/Exhibit/Slideshow'
 import Evaluation from '@/screens/Evaluation'
 import EvaluationLanding from '@/screens/Evaluation/Landing'
 import EvaluationForm from '@/screens/Evaluation/Form'
+import EvaluationGame from '@/screens/Evaluation/Game'
 import Dashboard from '@/screens/Dashboard'
 import DashboardPrograms from '@/screens/Dashboard/Programs'
 import DashboardStats from '@/screens/Dashboard/Stats'
@@ -97,17 +98,17 @@ export default new Router({
       component: Evaluation,
       children: [
         {
-            path: '',
-            component: EvaluationLanding
+          path: '',
+          component: EvaluationLanding
         },
         {
-            path: 'form',
-            component: EvaluationForm
+          path: 'form',
+          component: EvaluationForm
         },
-        /*{
-            path: 'statistics',
-            component: EvaluationStatistic
-        }*/
+        {
+          path: 'game',
+          component: EvaluationGame
+        }
       ]
     },
     { // Registration Route
