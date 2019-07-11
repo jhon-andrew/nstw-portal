@@ -92,7 +92,7 @@
                           color="teal"
                           v-for="(prev_nstw, index) in constants.prev_nstw"
                           :key="prev_nstw"
-                          :label="index + ': ' + prev_nstw"
+                          :label="prev_nstw"
                           :value="index" />
                       </v-radio-group>
                     </v-flex>
@@ -105,7 +105,7 @@
                   <v-flex xs12>
                     <v-layout wrap>
                       <v-flex shrink class="mr-3" v-for="(nstw_ref, index) in constants.nstw_ref" :key="nstw_ref">
-                        <v-checkbox color="teal" v-model="evaluation.nstw_ref" :label="index + ': ' + nstw_ref" :value="index"></v-checkbox>
+                        <v-checkbox color="teal" v-model="evaluation.nstw_ref" :label="nstw_ref" :value="index"></v-checkbox>
                       </v-flex>
                     </v-layout>
                   </v-flex>
@@ -122,7 +122,7 @@
                   <v-flex xs12>
                     <v-layout wrap>
                       <v-flex shrink class="mr-3" v-for="(astigc_ref, index) in constants.astigc_ref" :key="astigc_ref">
-                        <v-checkbox color="teal" v-model="evaluation.astigc_ref" :label="index + ': ' + astigc_ref" :value="index"></v-checkbox>
+                        <v-checkbox color="teal" v-model="evaluation.astigc_ref" :label="astigc_ref" :value="index"></v-checkbox>
                       </v-flex>
                     </v-layout>
                   </v-flex>
@@ -136,7 +136,7 @@
                         color="teal"
                         v-for="(prev_astigc, index) in constants.prev_astigc"
                         :key="prev_astigc"
-                        :label="index + ': ' + prev_astigc"
+                        :label="prev_astigc"
                         :value="index" />
                     </v-radio-group>
                   </v-flex>
@@ -162,7 +162,7 @@
                   <v-flex xs12>
                     <v-layout wrap>
                       <v-flex shrink class="mr-3" v-for="(astigc_insights, index) in constants.astigc_insights" :key="astigc_insights">
-                        <v-checkbox color="teal" v-model="evaluation.astigc_insights" :label="index + ': ' + astigc_insights" :value="index"></v-checkbox>
+                        <v-checkbox color="teal" v-model="evaluation.astigc_insights" :label="astigc_insights" :value="index"></v-checkbox>
                       </v-flex>
                     </v-layout>
                   </v-flex>
@@ -179,18 +179,19 @@
       </v-layout>
     </v-container>
 
-    <v-dialog v-model="prompt" max-width="320">
+    <v-dialog v-model="prompt" max-width="512">
       <v-card>
         <v-card-text>
           <p class="subheading">{{response.message}}</p>
         </v-card-text>
         <v-divider />
         <v-card-actions>
+          <v-btn flat to="/evaluation/statistics">Statistics</v-btn>
           <v-spacer />
           <v-btn flat @click="prompt = false">
             Close
           </v-btn>
-          <v-btn flat color="primary" to="/game">
+          <v-btn flat color="primary" to="/evaluation/game">
             Proceed
           </v-btn>
         </v-card-actions>
