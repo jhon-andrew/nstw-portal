@@ -13,6 +13,7 @@ import EvaluationLanding from '@/screens/Evaluation/Landing'
 import EvaluationForm from '@/screens/Evaluation/Form'
 import EvaluationGame from '@/screens/Evaluation/Game'
 import EvaluationStatistics from '@/screens/Evaluation/Statistics'
+import EvaluationWinners from '@/screens/Evaluation/Winners'
 import Dashboard from '@/screens/Dashboard'
 import DashboardPrograms from '@/screens/Dashboard/Programs'
 import DashboardStats from '@/screens/Dashboard/Stats'
@@ -113,6 +114,10 @@ export default new Router({
         {
           path: 'statistics',
           component: EvaluationStatistics
+        },
+        {
+          path: 'winners',
+          component: EvaluationWinners
         }
       ]
     },

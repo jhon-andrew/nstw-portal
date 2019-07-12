@@ -5,8 +5,8 @@
         <!-- Header -->
         <v-flex shrink>
           <h2 :class="[$vuetify.breakpoint.mdAndDown ? 'display-1' : 'display-3']">#ASTIGCountryside Mini-game</h2>
-          <span class="caption">We have hidden prizes in some of the cards below. Choose one and try your luck!</span>
-          <v-btn small class="right" @click="reset">Reset</v-btn>
+          <span>Prizes are randomly hidden in {{prizes.length || 0}} of the cards below. You only have 3 tries until you get one. Enjoy!</span>
+          <!-- <v-btn small class="right" @click="reset">Reset</v-btn> -->
         </v-flex>
 
         <!-- Main Content -->
@@ -50,7 +50,7 @@
       </v-layout>
     </v-container>
 
-    <v-dialog v-model="dialog" max-width="340">
+    <v-dialog v-model="dialog" max-width="500">
       <v-card>
         <v-card-title primary-title>
           <span class="title">Congratulations!</span>
@@ -58,8 +58,9 @@
         <v-form ref="winner">
           <v-card-text>
             <p>You won a {{prizeWon.prize}}.</p>
-            <p>To claim your prize, please provide your full name below and present an ID to the concierge.</p>
+            <p>To claim your prize, please provide your full name below and <em>present an ID</em> to the concierge.</p>
             <v-text-field label="Full name" v-model="full_name" :rules="[$rules.required]" />
+            <p class="caption">*DISCLAIMER: Prizes are only good until supplies last. Please claim immediately.</p>
           </v-card-text>
           <v-divider />
           <v-card-actions>
@@ -130,7 +131,7 @@ export default {
           }
 
           if (winningCards.length === prizes.length) {
-            console.log('Winning numbers are:', winningCards)
+            console.log('Winning numbers are:', winningCards) // TO-BE-REMOVED
             resolve(winningCards)
           }
         }
@@ -143,45 +144,60 @@ export default {
         prize
       }))
     },
-    submitName () {
-      console.log({
+    async submitName () {
+      const { data: response } = await this.$request.post('/api/evaluation/winner', {
         full_name: this.full_name,
-        prize: this.prizeWon.prize
+        prize: this.prizeWon.prize,
+        quantity: 1
       })
-      /**
-       * TODO:
-       * 1. Send the data to an API endpoint, record to the database for reference.
-       * 2. Create a controller to manage this request.
-       * 3. Create a migration file containing the schema.
-       */
-    },
-    reset () {
-      this.flipped = []
-      this.userFlipped = []
-      this.withPrize = []
-      this.winner = false
-      this.addPrize(this.prizes)
-    }
-  },
-  created () {
-    this.prizes = [
-      'House and Lot',
-      'Honda Civic RS Turbo',
-      'Php 1,000,000.00',
-      'iPhone XS',
-      'Sticker (8ft x 6ft)'
-    ]
-    this.addPrize(this.prizes)
 
-    /**
-     * TODO:
-     * 1. List a record of all items available as prizes and its quantity.
-     * 2. Create a database table containing the winner's info and the prize they won.
-     * 3. Base from the records, count the prizes won and deduct to the quantity in the list
-     *    to identify how many is left.
-     * 4. Prizes will be randomly included but with a configurable quantity. (E.g. 5 possible prizes per game)
-     * 5. Remove 'reset button' as the user has only 1 chance to win after filling up the evaluation form.
-     */
+      if (!response.error) {
+        this.dialog = false
+      }
+    },
+    // reset () {
+    //   this.flipped = []
+    //   this.userFlipped = []
+    //   this.withPrize = []
+    //   this.winner = false
+    //   setTimeout(() => this.addPrize(this.prizes), 1000)
+    // }
+  },
+  async created () {
+    let prizes = {
+      'Face Towel': 40,
+      'Bag Tag': 60,
+      'Button Pin': 200
+    }
+
+    const { data: givenPrizes } = await this.$request.get('/api/evaluation/prizes-won')
+
+    Object.keys(prizes).forEach(prize => {
+      prizes[prize] = prizes[prize] - givenPrizes[prize]
+    })
+
+    const difficulty = 10
+    const totalNumberOfPrizes = this.$objectSum(prizes)
+    const prizeCalculation = Object.keys(prizes).map(key => ({
+      prize: key,
+      remainingQty: prizes[key],
+      percent: Math.round(prizes[key] * 100 / totalNumberOfPrizes),
+      qtyPerGame: Math.round((prizes[key] * 100 / totalNumberOfPrizes) / difficulty)
+    }))
+
+    let prizeList = []
+
+    prizeCalculation.forEach(item => {
+      if (item.qtyPerGame === 0 && item.remainingQty > 0) {
+        item.qtyPerGame = 1
+      }
+
+      const qty = [...Array(item.qtyPerGame)].map(i => item.prize)
+      prizeList = [...prizeList, ...qty]
+    })
+
+    this.prizes = prizeList
+    this.addPrize(this.prizes)
   }
 }
 </script>

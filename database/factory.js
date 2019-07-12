@@ -37,3 +37,11 @@ Factory.blueprint('App/Models/Profile', (faker) => {
     contact_number: faker.phone()
   }
 })
+
+Factory.blueprint('App/Models/Winner', (faker) => {
+  return {
+    full_name: faker.name(),
+    prize: faker.pickone(['Face Towel', 'Bag Tag', 'Button Pin']),
+    quantity: 1
+  }
+})

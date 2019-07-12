@@ -22,7 +22,7 @@
                     <span class="display-1">Registration Code</span>
                   </v-flex>
                   <v-flex xs12 lg8>
-                    <v-text-field label="Fill up if you pre-registered." v-model="evaluation.activation_code" />
+                    <v-text-field box label="Fill up if you pre-registered." v-model="evaluation.activation_code" />
                   </v-flex>
                   <!-- Sex -->
                   <v-flex xs12 lg4>
