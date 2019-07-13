@@ -5049,18 +5049,173 @@ var _contents_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpa
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       kiosks: _contents_json__WEBPACK_IMPORTED_MODULE_0__["exhibits"].kiosks.map(function (kiosk) {
         kiosk.slug = kiosk.name.toLowerCase().split(' ').join('-');
+        if (kiosk.name === 'Game Zone') kiosk.slug += '-1';
         return kiosk;
-      })
+      }),
+      selected: null,
+      resume: false,
+      dialog: false,
+      selectedFile: {}
     };
   },
-  mounted: function mounted() {
-    this.$refs['sustainable-development-goal-1'].play();
+  computed: {
+    kiosk: function kiosk() {
+      var _this = this;
+
+      return this.kiosks.find(function (kiosk) {
+        return kiosk.slug === _this.selected;
+      }) || {};
+    }
+  },
+  methods: {
+    goTo: function goTo(kiosk) {
+      var _this2 = this;
+
+      this.selected = kiosk;
+      var video = this.$refs[kiosk][0];
+      video.playbackRate = 1.5;
+      video.addEventListener('timeupdate', function () {
+        var duration = kiosk.startsWith('game-zone') ? 4.2 : 2; // If video reaches the specified duration, pause.
+
+        if (video.currentTime >= duration && !_this2.resume) video.pause(); // If video reaches its full length, return to initial state.
+
+        if (video.currentTime === video.duration) {
+          _this2.resume = false;
+          _this2.selected = null;
+        }
+      });
+      video.play();
+    },
+    leaveFrom: function leaveFrom(kiosk) {
+      this.resume = true;
+      this.$refs[kiosk][0].play();
+    },
+    showDownload: function showDownload(id) {
+      this.dialog = true;
+      this.selectedFile = {
+        name: "Filename #".concat(id)
+      };
+    }
+  },
+  beforeMount: function beforeMount() {
+    // Duplicate game-zone as game-zone-2
+    var gameZone2 = JSON.parse(JSON.stringify(this.kiosks.find(function (kiosk) {
+      return kiosk.name === 'Game Zone';
+    })));
+    gameZone2.slug = 'game-zone-2';
+    this.kiosks.push(gameZone2);
   }
 });
 
@@ -7688,10 +7843,10 @@ exports.push([module.i, "/*!\n* Vuetify v1.5.14\n* Forged by John Leider\n* Rele
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
-exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Material+Icons|Poppins:300,400,700&display=swap);", ""]);
+exports.push([module.i, "@import url(/fonts/fonts.css);", ""]);
 
 // module
-exports.push([module.i, "\n#app, body {\r\n  font-family: 'Poppins', sans-serif !important;\r\n  user-select: none;\n}\n.display-4, .display-3, .display-2, .display-1, .headline, .title, .subheading, .body-2, .body-1, .caption {\r\n  font-family: 'Poppins', sans-serif !important;\n}\n.fw-300 { font-weight: 300 !important;\n}\n.fw-400 { font-weight: 400 !important;\n}\n.fw-700, .fw-bold { font-weight: 700 !important;\n}\n.fs-italic { font-style: italic;\n}\n.v-btn.custom-btn {\r\n  font-weight: bold !important;\r\n  color: #4fa891 !important;\r\n  box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.5) !important;\r\n  border-radius: 0 !important;\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* @import url('https://fonts.googleapis.com/css?family=Material+Icons|Poppins:300,400,700&display=swap'); */\n#app, body {\r\n  font-family: 'Poppins', sans-serif !important;\r\n  user-select: none;\n}\n.display-4, .display-3, .display-2, .display-1, .headline, .title, .subheading, .body-2, .body-1, .caption {\r\n  font-family: 'Poppins', sans-serif !important;\n}\n.fw-300 { font-weight: 300 !important;\n}\n.fw-400 { font-weight: 400 !important;\n}\n.fw-700, .fw-bold { font-weight: 700 !important;\n}\n.fs-italic { font-style: italic;\n}\n.v-btn.custom-btn {\r\n  font-weight: bold !important;\r\n  color: #4fa891 !important;\r\n  box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.5) !important;\r\n  border-radius: 0 !important;\n}\r\n", ""]);
 
 // exports
 
@@ -7862,7 +8017,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.maps > video[data-v-73723a7c] {\r\n  position: fixed;\r\n  right: 0;\r\n  bottom: 0;\r\n  min-width: 100%;\r\n  min-height: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.maps > video[data-v-73723a7c] {\r\n  position: fixed;\r\n  right: 0;\r\n  bottom: 0;\r\n  min-width: 100%;\r\n  min-height: 100%;\n}\n.navigation[data-v-73723a7c] {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  min-width: 100%;\r\n  height: 100vh !important;\n}\n.navigation > div[data-v-73723a7c] {\r\n  /* background-color: rgba(0,0,0,0.2); */\r\n  border-radius: 50%;\r\n  position: absolute;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  text-align: center;\r\n  color: #ffffff;\r\n  text-shadow: 1px 2px 4px #000000;\r\n  font-size: 25px;\n}\n.navigation > .garden-and-wellness-area[data-v-73723a7c] {\r\n  width: 310px;\r\n  height: 310px;\r\n  bottom: 53px;\r\n  right: 567px;\r\n  z-index: 0;\n}\n.navigation > .concierge[data-v-73723a7c] {\r\n  width: 245px;\r\n  height: 245px;\r\n  bottom: 159px;\r\n  right: 401px;\r\n  z-index: 1;\n}\n.navigation > .innovation-lounge[data-v-73723a7c] {\r\n  width: 410px;\r\n  height: 410px;\r\n  bottom: 65px;\r\n  left: 417px;\r\n  z-index: 2;\n}\n.navigation > .game-zone[data-v-73723a7c] {\r\n  width: 400px;\r\n  height: 400px;\r\n  top: 137px;\r\n  right: 431px;\r\n  z-index: 3;\n}\n.navigation > .game-zone-2[data-v-73723a7c] {\r\n  width: 385px;\r\n  height: 385px;\r\n  top: 71px;\r\n  right: 764px;\r\n  z-index: 4;\n}\n.navigation > .souvenir-shoppe[data-v-73723a7c] {\r\n  width: 430px;\r\n  height: 430px;\r\n  top: 52px;\r\n  left: 395px;\r\n  z-index: 5;\n}\n.navigation > .sustainable-development-goal-16[data-v-73723a7c] {\r\n  width: 455px;\r\n  height: 455px;\r\n  top: 252px;\r\n  left: 287px;\r\n  z-index: 6;\n}\n.navigation > .sustainable-development-goal-1[data-v-73723a7c] {\r\n  width: 475px;\r\n  height: 475px;\r\n  top: 329px;\r\n  right: 315px;\r\n  z-index: 7;\n}\n.navigation > .sustainable-development-goal-8[data-v-73723a7c] {\r\n  width: 590px;\r\n  height: 590px;\r\n  bottom: 44px;\r\n  left: 638px;\r\n  z-index: 8;\n}\r\n", ""]);
 
 // exports
 
@@ -22009,28 +22164,545 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("v-content", [
-    _c("div", { staticClass: "maps" }, [
+  return _c(
+    "v-content",
+    [
       _c(
-        "video",
+        "div",
+        { staticClass: "maps" },
+        [
+          _c(
+            "video",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.selected,
+                  expression: "!selected"
+                }
+              ],
+              ref: "initial_video",
+              attrs: { muted: "" },
+              domProps: { muted: true }
+            },
+            [
+              _c("source", {
+                attrs: {
+                  src: "/assets/dashboard/rendered/videos/concierge.mp4",
+                  type: "video/mp4"
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _vm._l(_vm.kiosks, function(kiosk) {
+            return _c(
+              "video",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: kiosk.slug === _vm.selected,
+                    expression: "kiosk.slug === selected"
+                  }
+                ],
+                key: kiosk.slug,
+                ref: kiosk.slug,
+                refInFor: true,
+                attrs: { muted: "" },
+                domProps: { muted: true }
+              },
+              [
+                _c("source", {
+                  attrs: {
+                    src:
+                      "/assets/dashboard/rendered/videos/" +
+                      kiosk.slug +
+                      ".mp4",
+                    type: "video/mp4"
+                  }
+                })
+              ]
+            )
+          })
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
         {
-          ref: "sustainable-development-goal-1",
-          staticClass: "hidden-xs",
-          attrs: { muted: "" },
-          domProps: { muted: true }
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: !_vm.selected,
+              expression: "!selected"
+            }
+          ],
+          staticClass: "navigation"
         },
         [
-          _c("source", {
-            attrs: {
-              src:
-                "/assets/dashboard/rendered/videos/sustainable-development-goal-1.mp4",
-              type: "video/mp4"
-            }
-          })
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "ripple",
+                  rawName: "v-ripple",
+                  value: { class: "indigo--text text--lighten-3" },
+                  expression: "{ class: 'indigo--text text--lighten-3' }"
+                }
+              ],
+              staticClass: "garden-and-wellness-area",
+              on: {
+                click: function($event) {
+                  return _vm.goTo("garden-and-wellness-area")
+                }
+              }
+            },
+            [
+              _c("span", [
+                _vm._v("Garden and"),
+                _c("br"),
+                _vm._v("Wellness Area")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "ripple",
+                  rawName: "v-ripple",
+                  value: { class: "indigo--text text--lighten-3" },
+                  expression: "{ class: 'indigo--text text--lighten-3' }"
+                }
+              ],
+              staticClass: "concierge",
+              on: {
+                click: function($event) {
+                  return _vm.goTo("concierge")
+                }
+              }
+            },
+            [_c("span", [_vm._v("Concierge")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "ripple",
+                  rawName: "v-ripple",
+                  value: { class: "indigo--text text--lighten-3" },
+                  expression: "{ class: 'indigo--text text--lighten-3' }"
+                }
+              ],
+              staticClass: "innovation-lounge",
+              on: {
+                click: function($event) {
+                  return _vm.goTo("innovation-lounge")
+                }
+              }
+            },
+            [_c("span", [_vm._v("Innovation Lounge")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "ripple",
+                  rawName: "v-ripple",
+                  value: { class: "indigo--text text--lighten-3" },
+                  expression: "{ class: 'indigo--text text--lighten-3' }"
+                }
+              ],
+              staticClass: "game-zone",
+              on: {
+                click: function($event) {
+                  return _vm.goTo("game-zone-1")
+                }
+              }
+            },
+            [_c("span", [_vm._v("Game Zone")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "ripple",
+                  rawName: "v-ripple",
+                  value: { class: "indigo--text text--lighten-3" },
+                  expression: "{ class: 'indigo--text text--lighten-3' }"
+                }
+              ],
+              staticClass: "game-zone-2",
+              on: {
+                click: function($event) {
+                  return _vm.goTo("game-zone-2")
+                }
+              }
+            },
+            [_c("span", [_vm._v("Game Zone")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "ripple",
+                  rawName: "v-ripple",
+                  value: { class: "indigo--text text--lighten-3" },
+                  expression: "{ class: 'indigo--text text--lighten-3' }"
+                }
+              ],
+              staticClass: "souvenir-shoppe",
+              on: {
+                click: function($event) {
+                  return _vm.goTo("souvenir-shoppe")
+                }
+              }
+            },
+            [_c("span", [_vm._v("Souvenir Shoppe")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "ripple",
+                  rawName: "v-ripple",
+                  value: { class: "indigo--text text--lighten-3" },
+                  expression: "{ class: 'indigo--text text--lighten-3' }"
+                }
+              ],
+              staticClass: "sustainable-development-goal-16",
+              on: {
+                click: function($event) {
+                  return _vm.goTo("sustainable-development-goal-16")
+                }
+              }
+            },
+            [_c("span", [_vm._v("Sustainable Development Goal 16")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "ripple",
+                  rawName: "v-ripple",
+                  value: { class: "indigo--text text--lighten-3" },
+                  expression: "{ class: 'indigo--text text--lighten-3' }"
+                }
+              ],
+              staticClass: "sustainable-development-goal-1",
+              on: {
+                click: function($event) {
+                  return _vm.goTo("sustainable-development-goal-1")
+                }
+              }
+            },
+            [_c("span", [_vm._v("Sustainable Development Goal 1")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "ripple",
+                  rawName: "v-ripple",
+                  value: { class: "indigo--text text--lighten-3" },
+                  expression: "{ class: 'indigo--text text--lighten-3' }"
+                }
+              ],
+              staticClass: "sustainable-development-goal-8",
+              on: {
+                click: function($event) {
+                  return _vm.goTo("sustainable-development-goal-8")
+                }
+              }
+            },
+            [_c("span", [_vm._v("Sustainable Development Goal 8")])]
+          )
         ]
+      ),
+      _vm._v(" "),
+      _c(
+        "v-container",
+        { attrs: { fluid: "", "fill-height": "" } },
+        [
+          _c(
+            "v-layout",
+            { attrs: { "align-start": "" } },
+            [
+              _c(
+                "v-flex",
+                { attrs: { xs1: "" } },
+                [
+                  _vm.selected
+                    ? _c(
+                        "v-btn",
+                        {
+                          staticClass: "ma-3",
+                          attrs: { fab: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.leaveFrom(_vm.selected)
+                            }
+                          }
+                        },
+                        [_c("v-icon", [_vm._v("arrow_back")])],
+                        1
+                      )
+                    : _c(
+                        "v-btn",
+                        {
+                          staticClass: "ma-3",
+                          attrs: { fab: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.$router.go(-1)
+                            }
+                          }
+                        },
+                        [_c("v-icon", [_vm._v("arrow_back")])],
+                        1
+                      )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-flex",
+                { attrs: { "offset-xs9": "", xs2: "", "d-flex": "" } },
+                [
+                  _vm.selected
+                    ? _c(
+                        "v-container",
+                        { attrs: { fluid: "", "grid-list-lg": "" } },
+                        [
+                          _c(
+                            "v-layout",
+                            { attrs: { column: "" } },
+                            [
+                              _c(
+                                "v-flex",
+                                [
+                                  _c(
+                                    "v-card",
+                                    [
+                                      _c(
+                                        "v-card-title",
+                                        { attrs: { "primary-title": "" } },
+                                        [
+                                          _c("h6", { staticClass: "title" }, [
+                                            _vm._v(_vm._s(_vm.kiosk.name))
+                                          ])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("v-card-text", [
+                                        _c("p", {
+                                          domProps: {
+                                            innerHTML: _vm._s(
+                                              _vm.kiosk.description
+                                            )
+                                          }
+                                        })
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-flex",
+                                [
+                                  _c(
+                                    "v-card",
+                                    [
+                                      _c(
+                                        "v-card-title",
+                                        { attrs: { "primary-title": "" } },
+                                        [
+                                          _c("h6", { staticClass: "title" }, [
+                                            _vm._v("Downloads")
+                                          ])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-list",
+                                        _vm._l(5, function(n) {
+                                          return _c(
+                                            "v-list-tile",
+                                            {
+                                              key: n,
+                                              attrs: { ripple: "" },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.showDownload(n)
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c("v-list-tile-title", [
+                                                _vm._v("File name")
+                                              ])
+                                            ],
+                                            1
+                                          )
+                                        }),
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-dialog",
+        {
+          attrs: { "max-width": "500" },
+          model: {
+            value: _vm.dialog,
+            callback: function($$v) {
+              _vm.dialog = $$v
+            },
+            expression: "dialog"
+          }
+        },
+        [
+          _c(
+            "v-card",
+            [
+              _c("v-card-title", { staticClass: "indigo" }, [
+                _c("div", { staticClass: "white--text" }, [
+                  _c("h6", { staticClass: "title" }, [_vm._v("Download File")]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "caption" }, [
+                    _vm._v(_vm._s(_vm.selectedFile.name))
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                { staticClass: "indigo lighten-5" },
+                [
+                  _c(
+                    "v-layout",
+                    [
+                      _c(
+                        "v-flex",
+                        { attrs: { "d-flex": "", xs4: "" } },
+                        [
+                          _c("v-img", {
+                            staticClass: "elevation-2",
+                            attrs: {
+                              src:
+                                "/api/qrcode/generate.png?data=" +
+                                _vm.selectedFile.name
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-flex",
+                        {
+                          staticClass: "pl-2",
+                          attrs: { "d-flex": "", xs8: "" }
+                        },
+                        [
+                          _c("div", [
+                            _c("p", [_vm._v("Instructions:")]),
+                            _vm._v(" "),
+                            _c("ol", [
+                              _c("li", [
+                                _vm._v("Connect to the Concierge WiFi.")
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _vm._v("And scan the QR code to download.")
+                              ])
+                            ])
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("v-divider"),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                { staticClass: "indigo lighten-5" },
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { flat: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.dialog = false
+                        }
+                      }
+                    },
+                    [_vm._v("\n          Done\n        ")]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
       )
-    ])
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -69639,14 +70311,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     }]
   }, {
     path: '/dashboard/map',
-    component: _screens_Dashboard_Map__WEBPACK_IMPORTED_MODULE_22__["default"],
-    children: [{
-      path: '',
-      component: _screens_Dashboard_Map_map__WEBPACK_IMPORTED_MODULE_23__["default"]
-    }, {
-      path: 'kiosk/:id',
-      component: _screens_Dashboard_Map_contents__WEBPACK_IMPORTED_MODULE_24__["default"]
-    }]
+    component: _screens_Dashboard_Map__WEBPACK_IMPORTED_MODULE_22__["default"]
   }, {
     path: '/evaluation',
     component: _screens_Evaluation__WEBPACK_IMPORTED_MODULE_10__["default"],

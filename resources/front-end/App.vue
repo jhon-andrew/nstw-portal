@@ -11,7 +11,8 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Material+Icons|Poppins:300,400,700&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Material+Icons|Poppins:300,400,700&display=swap'); */
+@import url('/fonts/fonts.css');
 
 #app, body {
   font-family: 'Poppins', sans-serif !important;

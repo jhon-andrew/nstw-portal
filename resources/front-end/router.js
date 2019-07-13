@@ -83,17 +83,7 @@ export default new Router({
     },
     {
       path: '/dashboard/map',
-      component: DashboardMap,
-      children: [
-        {
-          path: '',
-          component: DashboardMapMap
-        },
-        {
-          path: 'kiosk/:id',
-          component: DashboardMapKiosk
-        }
-      ]
+      component: DashboardMap
     },
     {
       path: '/evaluation',
