@@ -1,23 +1,23 @@
 <template>
   <v-content>
     <v-toolbar dark fixed color="primary" class="hidden-lg-and-up">
-      <v-toolbar-title>Pre-registration</v-toolbar-title>
+      <v-toolbar-title>Registration</v-toolbar-title>
     </v-toolbar>
     <section class="primary pa-4 hidden-lg-and-up" style="margin-top: 56px;">
-      <!-- <v-img src="/assets/dost-seal.png" contain height="48" /> -->
-      <v-img src="https://drive.google.com/uc?id=11EvmezlErcmdMUhrLmSk6HKzrLtkhC0E" contain height="48" />
-      <!-- <v-img src="/assets/ro-exhibit-branding.png" class="my-3" contain /> -->
-      <v-img src="https://drive.google.com/uc?id=1ju5nmAXAf6Fk-ahx-t_4H49lBaieyphS" class="my-3" contain />
-      <!-- <v-img src="/assets/nstw.png" contain height="48" /> -->
-      <v-img src="https://drive.google.com/uc?id=1MHlfZJiNYYXK0gTZRMrJO6XxCqhN0S9C" contain height="48" />
+      <v-img src="/assets/dost-seal.png" contain height="48" />
+      <!-- <v-img src="https://drive.google.com/uc?id=11EvmezlErcmdMUhrLmSk6HKzrLtkhC0E" contain height="48" /> -->
+      <v-img src="/assets/ro-exhibit-branding.png" class="my-3" contain />
+      <!-- <v-img src="https://drive.google.com/uc?id=1ju5nmAXAf6Fk-ahx-t_4H49lBaieyphS" class="my-3" contain /> -->
+      <v-img src="/assets/nstw.png" contain height="48" />
+      <!-- <v-img src="https://drive.google.com/uc?id=1MHlfZJiNYYXK0gTZRMrJO6XxCqhN0S9C" contain height="48" /> -->
       <h3 class="headline yellow--text text-xs-center mt-3">NSTW 2019</h3>
     </section>
     <section class="primary hidden-md-and-down">
       <v-container>
         <v-layout row wrap align-center class="white--text my-4">
           <v-flex xs1>
-            <!-- <v-img src="/assets/dost-seal.png" contain width="80" /> -->
-            <v-img src="https://drive.google.com/uc?id=11EvmezlErcmdMUhrLmSk6HKzrLtkhC0E" contain width="80" />
+            <v-img src="/assets/dost-seal.png" contain width="80" />
+            <!-- <v-img src="https://drive.google.com/uc?id=11EvmezlErcmdMUhrLmSk6HKzrLtkhC0E" contain width="80" /> -->
           </v-flex>
           <v-flex xs6 class="main-header">
             <div class="mb-1 pb-1 mr-5" style="border-bottom: 1px solid #ffffff;">Department of Science and Technology</div>
@@ -27,15 +27,15 @@
           <v-flex xs4>
             <v-layout row wrap align-center>
               <v-flex xs3>
-                <!-- <v-img src="/assets/nstw.png" contain width="94" /> -->
-                <v-img src="https://drive.google.com/uc?id=1MHlfZJiNYYXK0gTZRMrJO6XxCqhN0S9C" contain width="94" />
+                <v-img src="/assets/nstw.png" contain width="94" />
+                <!-- <v-img src="https://drive.google.com/uc?id=1MHlfZJiNYYXK0gTZRMrJO6XxCqhN0S9C" contain width="94" /> -->
               </v-flex>
               <v-flex xs9 class="promotion">
                 <!-- <h2 class="white--text">Regional Offices'</h2>
                 <h1 class="yellow--text display-3">Exhibit <small>area</small></h1>
                 <h3 class="white--text caption">#ASTIGCountryside</h3> -->
-                <!-- <v-img src="/assets/ro-exhibit-branding.png" contain /> -->
-                <v-img src="https://drive.google.com/uc?id=1ju5nmAXAf6Fk-ahx-t_4H49lBaieyphS" contain />
+                <v-img src="/assets/ro-exhibit-branding.png" contain />
+                <!-- <v-img src="https://drive.google.com/uc?id=1ju5nmAXAf6Fk-ahx-t_4H49lBaieyphS" contain /> -->
               </v-flex>
             </v-layout>
           </v-flex>

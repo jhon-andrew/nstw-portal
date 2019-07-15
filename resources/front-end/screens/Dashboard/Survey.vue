@@ -1,10 +1,10 @@
 <template>
-  <v-dialog persistent v-model="dialog" max-width="80%">
-    <v-btn small fab icon color="primary elevation-1" style="float: right; margin-left: -64px;z-index: 1" @click="$router.go(-1)">
+  <v-dialog persistent v-model="dialog" max-width="500">
+    <!-- <v-btn small fab icon color="primary elevation-1" style="float: right; margin-left: -64px;z-index: 1" @click="$router.go(-1)">
       <v-icon>close</v-icon>
     </v-btn>
-    <evaluation-form />
-    <!-- <v-card>
+    <evaluation-form /> -->
+    <v-card>
       <v-card-title primary-title class="blue lighten-1">
         <div class="white--text">
           <p class="title mb-0">Answer the Evaluation</p>
@@ -22,9 +22,9 @@
           <li>You will then be redirected to our survey form.</li>
           <li>Fill up the form and have an entry to win some of our special prizes.</li>
         </ol>
-        <p class="text-xs-center"><img :src="`/api/qrcode/generate.png?data=${surveyLink}`" style="width: 300px; height: 300px;"></p>
+        <p class="text-xs-center"><img v-ripple @click="$router.push({ path: '/evaluation/form/' })" :src="`/api/qrcode/generate.png?data=${surveyLink}`" style="width: 300px; height: 300px;"></p>
       </v-card-text>
-    </v-card> -->
+    </v-card>
   </v-dialog>
 </template>
 <script>

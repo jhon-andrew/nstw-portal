@@ -5,7 +5,7 @@
         <v-flex xs4 d-flex :class="[$route.params.type === 'pre-registered' ? 'teal darken-1' : 'indigo darken-2']">
           <v-card-text class="my-auto">
             <!-- <h1 class="display-4 text-xs-center my-2">{{$route.query.count}}</h1> -->
-            <v-img :src="`/api/qrcode/generate.png?data=${registrationLink}`" class="elevation-2" />
+            <v-img @click="$router.push({ path: '/registration/' })" :src="`/api/qrcode/generate.png?data=${registrationLink}`" class="elevation-2" />
           </v-card-text>
         </v-flex>
         <v-flex xs8 d-flex>

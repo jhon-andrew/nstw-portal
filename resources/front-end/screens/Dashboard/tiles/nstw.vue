@@ -57,7 +57,7 @@ export default {
 }
 
 .nstw-branding {
-  background: url('/assets/dashboard/backdrop-nstw-2019.jpg') center center / cover;
+  background: url('/assets/dashboard/backdrop-nstw-2019.jpg') no-repeat center center / cover;
   flex-direction: column;
   text-shadow: 0 1px 0 #74ebd5;
 }

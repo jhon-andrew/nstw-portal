@@ -1,12 +1,16 @@
 <template>
-  <v-app>
+  <v-app ref="app">
     <router-view />
   </v-app>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted () {
+    let app = document.getElementsByTagName('html')[0]
+    app.addEventListener('click', () => app.requestFullscreen())
+  }
 }
 </script>
 

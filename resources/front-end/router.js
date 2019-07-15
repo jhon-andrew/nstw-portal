@@ -20,6 +20,7 @@ import DashboardStats from '@/screens/Dashboard/Stats'
 import DashboardSurvey from '@/screens/Dashboard/Survey'
 import DashboardActivation from '@/screens/Dashboard/Activation'
 import DashboardContest from '@/screens/Dashboard/Contest'
+import DashboardiLounge from '@/screens/Dashboard/iLounge'
 import DashboardMap from '@/screens/Dashboard/Map'
 import DashboardMapMap from '@/screens/Dashboard/Map/map'
 import DashboardMapKiosk from '@/screens/Dashboard/Map/contents'
@@ -57,6 +58,10 @@ export default new Router({
         {
           path: 'contest',
           component: DashboardContest
+        },
+        {
+          path: 'i-lounge',
+          component: DashboardiLounge
         }
       ]
     },

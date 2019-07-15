@@ -16,7 +16,7 @@
                 </v-flex>
                 <v-flex d-flex class="flex-to-30">
                   <v-layout>
-                    <v-flex xs6 d-flex>
+                    <v-flex xs3 d-flex>
                       <!-- Survey -->
                       <survey />
                       <!-- /Survey -->
@@ -27,8 +27,9 @@
                     <v-flex xs3 d-flex>
                       <pre-registered />
                     </v-flex> -->
-                    <v-flex xs3 d-flex>
-                      <contest />
+                    <v-flex xs6 d-flex>
+                      <!-- <contest /> -->
+                      <i-lounge />
                     </v-flex>
                     <v-flex xs3 d-flex>
                       <!-- Confirmed Participants -->
@@ -74,11 +75,12 @@ import confirmedParticipants from './tiles/confirmed-participants'
 import survey from './tiles/survey'
 import activation from './tiles/activation'
 import contest from './tiles/contest'
+import iLounge from './tiles/i-lounge'
 
 export default {
   name: 'dashboard',
   components: {
-    nstwBranding, programOfActivities, exhibits, preRegistered, confirmedParticipants, survey, activation, contest
+    nstwBranding, programOfActivities, exhibits, preRegistered, confirmedParticipants, survey, activation, contest, iLounge
   },
   data () {
     return {

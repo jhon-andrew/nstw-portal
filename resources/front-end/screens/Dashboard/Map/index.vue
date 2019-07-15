@@ -2,15 +2,15 @@
   <v-content>
     <!-- Video Maps -->
     <div class="maps">
-      <video muted v-show="!selected" ref="initial_video">
+      <video muted v-show="!selected" ref="initial_video" :style="`width: ${$vuetify.breakpoint.width}px;`">
         <source src="/assets/dashboard/rendered/videos/concierge.mp4" type="video/mp4" />
       </video>
-      <video muted v-for="kiosk in kiosks" :key="kiosk.slug" v-show="kiosk.slug === selected" :ref="kiosk.slug">
+      <video muted v-for="kiosk in kiosks" :key="kiosk.slug" v-show="kiosk.slug === selected" :ref="kiosk.slug" :style="`width: ${$vuetify.breakpoint.width}px;`">
         <source :src="`/assets/dashboard/rendered/videos/${kiosk.slug}.mp4`" type="video/mp4" />
       </video>
     </div>
     <!-- Navigation -->
-    <div class="navigation" v-show="!selected">
+    <div class="navigation" v-show="!selected && ($vuetify.breakpoint.width === 1920 && $vuetify.breakpoint.height === 1080)">
       <div class="garden-and-wellness-area" v-ripple="{ class: 'indigo--text text--lighten-3' }" @click="goTo('garden-and-wellness-area')">
         <span>Garden and<br />Wellness Area</span>
       </div>
@@ -42,15 +42,27 @@
     <!-- Contents -->
     <v-container fluid fill-height>
       <v-layout align-start>
-        <v-flex xs1>
+        <v-flex xs2 md3>
           <v-btn fab v-if="selected" class="ma-3" @click="leaveFrom(selected)">
             <v-icon>arrow_back</v-icon>
           </v-btn>
           <v-btn fab v-else class="ma-3" @click="$router.go(-1)">
             <v-icon>arrow_back</v-icon>
           </v-btn>
+          <v-card v-if="$vuetify.breakpoint.width !== 1920 && $vuetify.breakpoint.height !== 1080" v-show="!selected">
+            <v-card-title primary-title>
+              <h6 class="title">Navigation</h6>
+            </v-card-title>
+            <v-list>
+              <v-list-tile v-for="kiosk in kiosks" :key="kiosk.slug" @click="goTo(kiosk.slug)">
+                <v-list-tile-title>
+                  {{kiosk.name}}
+                </v-list-tile-title>
+              </v-list-tile>
+            </v-list>
+          </v-card>
         </v-flex>
-        <v-flex offset-xs9 xs2 d-flex>
+        <v-flex offset-xs9 xs2 md3 d-flex>
           <v-container fluid grid-list-lg v-if="selected">
             <v-layout column>
               <v-flex>
@@ -63,14 +75,14 @@
                   </v-card-text>
                 </v-card>
               </v-flex>
-              <v-flex>
+              <v-flex v-if="Object.entries(files).length > 0">
                 <v-card>
                   <v-card-title primary-title>
                     <h6 class="title">Downloads</h6>
                   </v-card-title>
                   <v-list>
-                    <v-list-tile ripple v-for="n in 5" :key="n" @click="showDownload(n)">
-                      <v-list-tile-title>File name</v-list-tile-title>
+                    <v-list-tile ripple v-for="file in Object.entries(files)" :key="file[0]" @click="showDownload(file)">
+                      <v-list-tile-title>{{file[0]}}</v-list-tile-title>
                     </v-list-tile>
                   </v-list>
                 </v-card>
@@ -91,7 +103,7 @@
         <v-card-text class="indigo lighten-5">
           <v-layout>
             <v-flex d-flex xs4>
-              <v-img :src="`/api/qrcode/generate.png?data=${selectedFile.name}`" class="elevation-2" />
+              <v-img :src="`/api/qrcode/generate.png?data=${origin + selectedFile.path}`" class="elevation-2" />
             </v-flex>
             <v-flex d-flex xs8 class="pl-2">
               <div>
@@ -116,6 +128,8 @@
 </template>
 <script>
 import { exhibits } from '@/contents.json'
+import directory from './directory.json'
+
 export default {
   data () {
     return {
@@ -127,7 +141,9 @@ export default {
       selected: null,
       resume: false,
       dialog: false,
-      selectedFile: {}
+      selectedFile: {},
+      files: {},
+      origin: window.location.origin
     }
   },
   computed: {
@@ -138,6 +154,8 @@ export default {
   methods: {
     goTo(kiosk) {
       this.selected = kiosk
+      this.files = directory.hasOwnProperty(kiosk) ? directory[kiosk] : {}
+
       const video = this.$refs[kiosk][0]
 
       video.playbackRate = 1.5
@@ -155,16 +173,17 @@ export default {
         }
       })
 
-      video.play()
+      video.play().then(() => console.log('OK')).catch(err => console.log(err))
     },
     leaveFrom (kiosk) {
       this.resume = true
       this.$refs[kiosk][0].play()
     },
-    showDownload (id) {
+    showDownload (file) {
       this.dialog = true
       this.selectedFile = {
-        name: `Filename #${id}`
+        name: file[0],
+        path: file[1]
       }
     }
   },
@@ -177,12 +196,16 @@ export default {
 }
 </script>
 <style scoped>
+.v-content {
+ background: url('/assets/dashboard/rendered/bg-pattern.jpg') top right;
+}
+
 .maps > video {
   position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+  top: 0;
+  left: 0;
+  /* bottom: 0;
+  right: 0; */
 }
 
 .navigation {

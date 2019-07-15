@@ -6,12 +6,12 @@
 
           <v-layout column wrap align-center>
             <v-flex>
-              <!-- <v-img src="/assets/dost-seal.png" contain width="80" /> -->
-              <v-img src="https://drive.google.com/uc?id=11EvmezlErcmdMUhrLmSk6HKzrLtkhC0E" contain width="80" />
+              <v-img src="/assets/dost-seal.png" contain width="80" />
+              <!-- <v-img src="https://drive.google.com/uc?id=11EvmezlErcmdMUhrLmSk6HKzrLtkhC0E" contain width="80" /> -->
             </v-flex>
             <v-flex class="my-5 nstw2019 yellow--text">
-              <!-- <v-img src="/assets/nstw.png" contain width="64" class="d-inline-block mr-2" /> -->
-              <v-img src="https://drive.google.com/uc?id=1MHlfZJiNYYXK0gTZRMrJO6XxCqhN0S9C" contain width="64" class="d-inline-block mr-2" />
+              <v-img src="/assets/nstw.png" contain width="64" class="d-inline-block mr-2" />
+              <!-- <v-img src="https://drive.google.com/uc?id=1MHlfZJiNYYXK0gTZRMrJO6XxCqhN0S9C" contain width="64" class="d-inline-block mr-2" /> -->
               <span class="hidden-md-and-down">National Science and Technology Week 2019</span>
               <span class="hidden-sm-and-up">NSTW 2019</span>
             </v-flex>
@@ -19,8 +19,8 @@
               <!-- <h2 class="white--text">Regional Offices'</h2>
               <h1 class="yellow--text" :class="[$vuetify.breakpoint.mdAndDown ? 'display-3' : 'display-4']">Exhibit <small>area</small></h1>
               <h3 class="headline white--text">#ASTIGCountryside</h3> -->
-              <!-- <v-img src="/assets/ro-exhibit-branding.png" contain /> -->
-              <v-img src="https://drive.google.com/uc?id=1ju5nmAXAf6Fk-ahx-t_4H49lBaieyphS" contain />
+              <v-img src="/assets/ro-exhibit-branding.png" contain />
+              <!-- <v-img src="https://drive.google.com/uc?id=1ju5nmAXAf6Fk-ahx-t_4H49lBaieyphS" contain /> -->
             </v-flex>
             <v-flex class="my-5">
               <v-btn large class="custom-btn" to="/registration/form">
@@ -48,8 +48,8 @@
         </v-flex>
         <v-flex class="xs12 hidden-sm-and-up">
           <v-card>
-            <!-- <v-img src="/assets/landing-mobile.jpg" contain /> -->
-            <v-img src="https://drive.google.com/uc?id=158uCPM9PaYAs-ocp6JQIo9BFCX2fOAvx" contain />
+            <v-img src="/assets/landing-mobile.jpg" contain />
+            <!-- <v-img src="https://drive.google.com/uc?id=158uCPM9PaYAs-ocp6JQIo9BFCX2fOAvx" contain /> -->
           </v-card>
         </v-flex>
       </v-layout>
@@ -65,8 +65,8 @@ export default {
 
 <style scoped>
 .v-content {
-  /* background-image: url('/assets/landing-bg.jpg'), linear-gradient(99deg,  #ffffff 53.2%,#4fa891 46.8%); */
-  background-image: url('https://drive.google.com/uc?export=download&id=1-UEW228dNkLuOHAIHZ8-QyLUxBgTfWAo'), linear-gradient(99deg,  #ffffff 53.2%,#4fa891 46.8%);
+  background-image: url('/assets/landing-bg.jpg'), linear-gradient(99deg,  #ffffff 53.2%,#4fa891 46.8%);
+  /* background-image: url('https://drive.google.com/uc?export=download&id=1-UEW228dNkLuOHAIHZ8-QyLUxBgTfWAo'), linear-gradient(99deg,  #ffffff 53.2%,#4fa891 46.8%); */
   background-position: center center, center center;
   background-size: contain;
   background-attachment: fixed;

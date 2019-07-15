@@ -21,6 +21,12 @@ public/**/*.map
 # mp4 Files
 public/**/*.mp4
 
+# Documents & Materials
+public/assets/dashboard/materials
+
 # Front-end must be rebuild on every instance
 public/js/main.*
 public/mix-manifest.json
+
+# For testing
+test.js
