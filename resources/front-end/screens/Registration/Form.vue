@@ -184,7 +184,7 @@
             participant = {}
             $refs.registrationForm.reset()
           }">Close</v-btn>
-          <v-btn color="primary" to="/exhibit/">Go to Exhibits</v-btn>
+          <v-btn color="primary" to="/evaluation/">Go to Evaluation</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

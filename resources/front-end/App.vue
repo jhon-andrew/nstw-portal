@@ -6,11 +6,7 @@
 
 <script>
 export default {
-  name: 'App',
-  mounted () {
-    let app = document.getElementsByTagName('html')[0]
-    app.addEventListener('click', () => app.requestFullscreen())
-  }
+  name: 'App'
 }
 </script>
 

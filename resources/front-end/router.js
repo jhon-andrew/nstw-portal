@@ -37,6 +37,7 @@ export default new Router({
     {
       name: 'dashboard',
       path: '/dashboard',
+      alias: '/',
       component: Dashboard,
       children: [
         {
@@ -118,7 +119,6 @@ export default new Router({
     },
     { // Registration Route
       path: '/registration',
-      alias: '/',
       component: Registration,
       children: [
         {
