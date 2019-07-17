@@ -274,7 +274,7 @@ export default {
           return first_time ? nstw_ref.length < 1 : (!prev_nstw || nstw_ref.length < 1)
           break
         case 3:
-          return astigc_ref.length < 1 || !prev_astigc || !recommend_astigc
+          return astigc_ref.length < 1 || !prev_astigc || recommend_astigc === null
           break
         case 4:
           return astigc_insights.length < 1
