@@ -143,7 +143,8 @@ export default {
       dialog: false,
       selectedFile: {},
       files: {},
-      origin: window.location.origin
+      origin: window.location.origin,
+      directory: {}
     }
   },
   computed: {
@@ -152,9 +153,10 @@ export default {
     }
   },
   methods: {
-    goTo(kiosk) {
+    async goTo(kiosk) {
       this.selected = kiosk
-      this.files = directory.hasOwnProperty(kiosk) ? directory[kiosk] : {}
+      const kioskDir = kiosk.startsWith('game-zone') ? 'game-zone' : kiosk
+      this.files = this.directory.hasOwnProperty(kioskDir) ? this.directory[kioskDir] : {}
 
       const video = this.$refs[kiosk][0]
 
@@ -192,6 +194,10 @@ export default {
     let gameZone2 = JSON.parse(JSON.stringify(this.kiosks.find(kiosk => kiosk.name === 'Game Zone')))
     gameZone2.slug = 'game-zone-2'
     this.kiosks.push(gameZone2)
+  },
+  async created () {
+    const { data } = await this.$request.get('/api/map/downloads-directory')
+    this.directory = data
   }
 }
 </script>

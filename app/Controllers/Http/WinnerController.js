@@ -13,16 +13,22 @@ class WinnerController {
     return response.json({ error: !winner, winner })
   }
 
-  async getPrizesWon ({ response }) {
-    const faceTowels = await Winner.query().where('prize', 'Face Towel').sum({ qty: 'quantity' })
-    const bagTags = await Winner.query().where('prize', 'Bag Tag').sum({ qty: 'quantity' })
-    const buttonPins = await Winner.query().where('prize', 'Button Pin').sum({ qty: 'quantity' })
+  async getPrizesWon ({ request, response }) {
+    const prizes = {}
 
-    return response.json({
-      'Face Towel': faceTowels[0].qty || 0,
-      'Bag Tag': bagTags[0].qty || 0,
-      'Button Pin': buttonPins[0].qty || 0
+    const prizesWon = () => new Promise((resolve) => {
+      const prizesConfig = request.all()
+      const prizeKeys = Object.keys(prizesConfig)
+
+      prizeKeys.forEach(async (key, index) => {
+        const query = await Winner.query().where('prize', key).sum({ qty: 'quantity' })
+        prizes[key] = query[0].qty || 0
+        if (index === (prizeKeys.length - 1)) resolve(prizes)
+      })
     })
+
+    await prizesWon()
+    return response.json(prizes)
   }
 
   async getWinners ({ response }) {

@@ -131,7 +131,6 @@ export default {
           }
 
           if (winningCards.length === prizes.length) {
-            console.log('Winning numbers are:', winningCards) // TO-BE-REMOVED
             resolve(winningCards)
           }
         }
@@ -152,25 +151,14 @@ export default {
       })
 
       if (!response.error) {
-        this.dialog = false
+        // this.dialog = false
+        this.$router.push({ path: '/evaluation/form/' })
       }
-    },
-    // reset () {
-    //   this.flipped = []
-    //   this.userFlipped = []
-    //   this.withPrize = []
-    //   this.winner = false
-    //   setTimeout(() => this.addPrize(this.prizes), 1000)
-    // }
+    }
   },
   async created () {
-    let prizes = {
-      'Face Towel': 40,
-      'Bag Tag': 60,
-      'Button Pin': 200
-    }
-
-    const { data: givenPrizes } = await this.$request.get('/api/evaluation/prizes-won')
+    let { data: prizes } = await this.$request.get('/prizes.json')
+    const { data: givenPrizes } = await this.$request.post('/api/evaluation/prizes-won', prizes)
 
     Object.keys(prizes).forEach(prize => {
       prizes[prize] = prizes[prize] - givenPrizes[prize]
@@ -204,7 +192,6 @@ export default {
 <style scoped>
 .v-content {
   background-image: linear-gradient(145deg, #e1eec3, #f05053);
-  /* background-image: linear-gradient(145deg, #b2fefa, #0ed2f7); */
 }
 .display-3, .display-2, .display-1 {
   font-family: 'Poppins', sans-serif !important;

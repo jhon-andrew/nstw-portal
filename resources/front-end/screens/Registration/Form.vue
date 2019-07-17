@@ -60,7 +60,7 @@
         </v-flex>
 
         <v-flex lg10>
-          <h1 class="headline text-xs-left mb-5 hidden-md-and-down">Pre-registration Form</h1>
+          <h1 class="headline text-xs-left mb-5 hidden-md-and-down">Registration Form</h1>
           <v-form ref="registrationForm">
             <v-layout row wrap>
               <v-flex xs12 lg5>
