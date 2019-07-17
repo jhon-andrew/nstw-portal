@@ -91,14 +91,16 @@ export default {
   },
   methods: {
     flipCard (n) {
+      const maxTries = 1
+
       // Flip card
-      if (this.flipped.length < 3 && !this.winner) {
+      if (this.flipped.length < maxTries && !this.winner) {
         this.flipped.push(n)
         this.userFlipped.push(n)
       }
 
       // Reveal cards if max tries reached or a prize has been picked
-      if (this.flipped.length === 3 || this.withPrize.findIndex(({ card }) => card === n) >= 0) {
+      if (this.flipped.length === maxTries || this.withPrize.findIndex(({ card }) => card === n) >= 0) {
         setTimeout(() => this.revealCards(), 1000)
       }
 
