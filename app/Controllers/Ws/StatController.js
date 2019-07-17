@@ -15,7 +15,9 @@ class StatController {
 
     switch (socket.topic) {
       case 'stats:preregistered':
-        response = { stats: await Profile.getCount() }
+        const profiles = await Profile.getCount()
+        const evaluations = await Evaluation.getCount()
+        response = { stats: profiles + evaluations }
         break
       case 'stats:confirmed':
         response = { stats: await Profile.query().where('confirmed', true).getCount() }
