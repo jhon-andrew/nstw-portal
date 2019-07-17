@@ -5,8 +5,10 @@
         <!-- Header -->
         <v-flex shrink>
           <h2 :class="[$vuetify.breakpoint.mdAndDown ? 'display-1' : 'display-3']">#ASTIGCountryside Mini-game</h2>
-          <span>Prizes are randomly hidden in {{prizes.length || 0}} of the cards below. You only have 3 tries until you get one. Enjoy!</span>
-          <!-- <v-btn small class="right" @click="reset">Reset</v-btn> -->
+          <span>Prizes are randomly hidden in {{prizes.length || 0}} of the cards below. You only have {{maxTries}} {{maxTries > 1 ? 'tries' : 'try'}} until you get one. Enjoy!</span>
+          <v-btn fab style="position: fixed; top: 0; right: 0;" to="/evaluation/form/">
+            <v-icon>close</v-icon>
+          </v-btn>
         </v-flex>
 
         <!-- Main Content -->
@@ -36,7 +38,7 @@
                       </div>
                       <div v-else>
                         <span v-if="userFlipped.indexOf(n) >= 0">
-                          Try again.
+                          Sorry!
                         </span>
                         <v-icon v-else color="red" style="font-size: 48px !important;">highlight_off</v-icon>
                       </div>
@@ -86,21 +88,20 @@ export default {
       prizes: [],
       prizeWon: {},
       dialog: false,
-      full_name: undefined
+      full_name: undefined,
+      maxTries: 1
     }
   },
   methods: {
     flipCard (n) {
-      const maxTries = 1
-
       // Flip card
-      if (this.flipped.length < maxTries && !this.winner) {
+      if (this.flipped.length < this.maxTries && !this.winner) {
         this.flipped.push(n)
         this.userFlipped.push(n)
       }
 
       // Reveal cards if max tries reached or a prize has been picked
-      if (this.flipped.length === maxTries || this.withPrize.findIndex(({ card }) => card === n) >= 0) {
+      if (this.flipped.length === this.maxTries || this.withPrize.findIndex(({ card }) => card === n) >= 0) {
         setTimeout(() => this.revealCards(), 1000)
       }
 
