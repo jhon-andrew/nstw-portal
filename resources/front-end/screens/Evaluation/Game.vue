@@ -66,7 +66,7 @@
           </v-card-text>
           <v-divider />
           <v-card-actions>
-            <v-btn flat color="blue" @click="submitName">
+            <v-btn flat color="blue" @click="submitName" :disabled="loading" :loading="loading">
               Submit
             </v-btn>
           </v-card-actions>
@@ -89,7 +89,8 @@ export default {
       prizeWon: {},
       dialog: false,
       full_name: undefined,
-      maxTries: 1
+      maxTries: 1,
+      loading: false
     }
   },
   methods: {
@@ -147,6 +148,8 @@ export default {
       }))
     },
     async submitName () {
+      this.loading = true
+
       const { data: response } = await this.$request.post('/api/evaluation/winner', {
         full_name: this.full_name,
         prize: this.prizeWon.prize,
@@ -157,6 +160,8 @@ export default {
         // this.dialog = false
         this.$router.push({ path: '/evaluation/form/' })
       }
+
+      this.loading = false
     }
   },
   async created () {
