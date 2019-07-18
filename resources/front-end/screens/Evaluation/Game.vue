@@ -172,7 +172,7 @@ export default {
       prizes[prize] = prizes[prize] - givenPrizes[prize]
     })
 
-    const difficulty = 10
+    const difficulty = 13
     const totalNumberOfPrizes = this.$objectSum(prizes)
     const prizeCalculation = Object.keys(prizes).map(key => ({
       prize: key,
@@ -194,6 +194,7 @@ export default {
 
     this.prizes = prizeList
     this.addPrize(this.prizes)
+    console.log(this.prizes)
   }
 }
 </script>
