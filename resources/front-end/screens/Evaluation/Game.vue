@@ -165,14 +165,15 @@ export default {
     }
   },
   async created () {
-    let { data: prizes } = await this.$request.get('/prizes.json')
+    let { data: { prizes, numberOfPossiblePrizes } } = await this.$request.get('/prizes.json')
     const { data: givenPrizes } = await this.$request.post('/api/evaluation/prizes-won', prizes)
 
     Object.keys(prizes).forEach(prize => {
       prizes[prize] = prizes[prize] - givenPrizes[prize]
     })
 
-    const difficulty = 13
+    const difficultySettings = [26,26,26,26,26,26,19,14,13,12,10]
+    const difficulty = difficultySettings[numberOfPossiblePrizes]
     const totalNumberOfPrizes = this.$objectSum(prizes)
     const prizeCalculation = Object.keys(prizes).map(key => ({
       prize: key,
@@ -192,9 +193,12 @@ export default {
       prizeList = [...prizeList, ...qty]
     })
 
+    if (prizeList.length > numberOfPossiblePrizes) {
+      console.log(prizeCalculation)
+    }
+
     this.prizes = prizeList
     this.addPrize(this.prizes)
-    console.log(this.prizes)
   }
 }
 </script>
