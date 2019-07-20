@@ -194,11 +194,34 @@ export default {
     })
 
     if (prizeList.length > numberOfPossiblePrizes) {
-      console.log(prizeCalculation)
+      (async () => {
+        let generatePrizesToOmit = () => new Promise((resolve) => {
+          let difference = prizeList.length - numberOfPossiblePrizes
+          let prizesToOmit = []
+
+          while (prizesToOmit.length < difference) {
+            const prizeToOmit = Math.floor(Math.random()*((difference - 1)-0+1)+0)
+
+            if (prizesToOmit.indexOf(prizeToOmit) < 0) {
+              prizesToOmit.push(prizeToOmit)
+            }
+
+            if (prizesToOmit.length === difference) {
+              resolve(prizesToOmit)
+            }
+          }
+        })
+
+        let prizesToOmit = await generatePrizesToOmit()
+
+        prizesToOmit.forEach(prizeToOmit => prizeList.splice(prizeToOmit, 1))
+        this.prizes = prizeList
+        this.addPrize(this.prizes)
+      })()
     }
 
-    this.prizes = prizeList
-    this.addPrize(this.prizes)
+    // this.prizes = prizeList
+    // this.addPrize(this.prizes)
   }
 }
 </script>

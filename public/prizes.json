@@ -1,9 +1,9 @@
 {
-  "numberOfPossiblePrizes": 8,
+  "numberOfPossiblePrizes": 5,
   "prizes": {
     "Face Towel": 40,
     "Bag Tag": 60,
-    "Button Pin": 20,
+    "Button Pin": 200,
     "Tumbler": 48,
     "Eco Bag": 42,
     "Ballpen": 30,
