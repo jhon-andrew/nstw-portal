@@ -19,12 +19,12 @@
             <v-img src="/assets/dost-seal.png" contain width="80" />
             <!-- <v-img src="https://drive.google.com/uc?id=11EvmezlErcmdMUhrLmSk6HKzrLtkhC0E" contain width="80" /> -->
           </v-flex>
-          <v-flex xs6 class="main-header">
-            <div class="mb-1 pb-1 mr-5" style="border-bottom: 1px solid #ffffff;">Department of Science and Technology</div>
-            <div class="subheading yellow--text">National Science and Technology Week 2019</div>
-            <div class="slogan body-2">"Enabling Technologies for Sustainable Development"</div>
+          <v-flex xs11 class="main-header">
+            <div class="mb-1 pb-1 mr-5" style="border-bottom: 1px solid #ffffff;">Department of Science and Technology IX</div>
+            <div class="subheading yellow--text">2019 Regional Science and Technology Week</div>
+            <div class="slogan body-2">"Enabling Technologies for Sustainable Development in Zamboanga Peninsula"</div>
           </v-flex>
-          <v-flex xs4>
+          <v-flex xs4 v-if="false">
             <v-layout row wrap align-center>
               <v-flex xs3>
                 <v-img src="/assets/nstw.png" contain width="94" />
