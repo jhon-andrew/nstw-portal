@@ -6,35 +6,42 @@
     <section class="primary pa-4 hidden-lg-and-up" style="margin-top: 56px;">
       <v-img src="/assets/dost-seal.png" contain height="48" />
       <!-- <v-img src="https://drive.google.com/uc?id=11EvmezlErcmdMUhrLmSk6HKzrLtkhC0E" contain height="48" /> -->
-      <v-img src="/assets/ro-exhibit-branding.png" class="my-3" contain />
+      <!-- <v-img src="/assets/ro-exhibit-branding.png" class="my-3" contain /> -->
+      <v-img src="/assets/rice.jpg" contain class="my-3" style="border-radius: 4px; box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);" />
       <!-- <v-img src="https://drive.google.com/uc?id=1ju5nmAXAf6Fk-ahx-t_4H49lBaieyphS" class="my-3" contain /> -->
-      <v-img src="/assets/nstw.png" contain height="48" />
+      <!-- <v-img src="/assets/nstw.png" contain height="48" /> -->
       <!-- <v-img src="https://drive.google.com/uc?id=1MHlfZJiNYYXK0gTZRMrJO6XxCqhN0S9C" contain height="48" /> -->
-      <h3 class="headline yellow--text text-xs-center mt-3">NSTW 2019</h3>
+      <h3 class="headline yellow--text text-xs-center mt-3">2019 RSTW</h3>
     </section>
     <section class="primary hidden-md-and-down">
       <v-container>
         <v-layout row wrap align-center class="white--text my-4">
-          <v-flex xs1>
-            <v-img src="/assets/dost-seal.png" contain width="80" />
+          <v-flex xs5 class="main-header pl-5">
+            <!-- <div class="mb-1 pb-1 mr-5" style="border-bottom: 1px solid #ffffff;">Department of Science and Technology IX</div>
+            <div class="subheading yellow--text">2019 Regional Science and Technology Week</div>
+            <div class="slogan body-2">"Enabling Technologies for Sustainable Development in Zamboanga Peninsula"</div> -->
+            <v-img src="/assets/rstw.jpg" height="120" contain style="border-radius: 4px;" />
+          </v-flex>
+          <v-flex xs2>
+            <v-img src="/assets/dost-seal.png" contain width="120" class="ma-auto" />
+            <div class="text-xs-center">
+              <div>Department of Science and Technology</div>
+              <div>Regional Office IX</div>
+            </div>
             <!-- <v-img src="https://drive.google.com/uc?id=11EvmezlErcmdMUhrLmSk6HKzrLtkhC0E" contain width="80" /> -->
           </v-flex>
-          <v-flex xs11 class="main-header">
-            <div class="mb-1 pb-1 mr-5" style="border-bottom: 1px solid #ffffff;">Department of Science and Technology IX</div>
-            <div class="subheading yellow--text">2019 Regional Science and Technology Week</div>
-            <div class="slogan body-2">"Enabling Technologies for Sustainable Development in Zamboanga Peninsula"</div>
-          </v-flex>
-          <v-flex xs4 v-if="false">
+          <v-flex xs5 class="pr-5">
             <v-layout row wrap align-center>
-              <v-flex xs3>
-                <v-img src="/assets/nstw.png" contain width="94" />
+              <v-flex xs3 v-if="false">
+                <v-img src="/assets/rice2.jpg" contain width="94" />
                 <!-- <v-img src="https://drive.google.com/uc?id=1MHlfZJiNYYXK0gTZRMrJO6XxCqhN0S9C" contain width="94" /> -->
               </v-flex>
-              <v-flex xs9 class="promotion">
+              <v-flex xs12 class="promotion">
                 <!-- <h2 class="white--text">Regional Offices'</h2>
                 <h1 class="yellow--text display-3">Exhibit <small>area</small></h1>
                 <h3 class="white--text caption">#ASTIGCountryside</h3> -->
-                <v-img src="/assets/ro-exhibit-branding.png" contain />
+                <!-- <v-img src="/assets/ro-exhibit-branding.png" contain /> -->
+                <v-img src="/assets/rice.jpg" height="120" contain style="border-radius: 4px;" />
                 <!-- <v-img src="https://drive.google.com/uc?id=1ju5nmAXAf6Fk-ahx-t_4H49lBaieyphS" contain /> -->
               </v-flex>
             </v-layout>
