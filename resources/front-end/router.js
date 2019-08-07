@@ -35,9 +35,12 @@ export default new Router({
   mode: 'history',
   routes: [
     {
+      path: '/',
+      redirect: '/registration/form/'
+    },
+    {
       name: 'dashboard',
       path: '/dashboard',
-      alias: '/',
       component: Dashboard,
       children: [
         {

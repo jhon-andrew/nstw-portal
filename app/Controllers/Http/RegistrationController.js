@@ -42,12 +42,12 @@ class RegistrationController {
     const profile = await user.profile().create({ activation_code: activationCode, ...participant })
 
     // Send email
-    await Mail.send('email-templates.welcome', { activationCode, ...profile.toJSON() }, message => {
-      message
-        .to(profile.email)
-        .from(Env.get('MAIL_USERNAME'))
-        .subject('[Email Confirmation] Regional Offices\' Exhibit #ASTIGCountryside')
-    })
+    // await Mail.send('email-templates.welcome', { activationCode, ...profile.toJSON() }, message => {
+    //   message
+    //     .to(profile.email)
+    //     .from(Env.get('MAIL_USERNAME'))
+    //     .subject('[Email Confirmation] Regional Offices\' Exhibit #ASTIGCountryside')
+    // })
 
     // Broadcast to websocket
     const topic = Ws.getChannel('stats:*').topic('stats:preregistered')

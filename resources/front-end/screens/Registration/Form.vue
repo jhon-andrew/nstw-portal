@@ -165,7 +165,8 @@
     <v-dialog v-if="success.response" v-model="success.show" width="500" persistent>
       <v-card>
         <v-card-title primary-title class="title">
-          Done
+          <!-- Done -->
+          Thank you!
         </v-card-title>
         <v-divider />
         <v-card-text>
@@ -174,7 +175,8 @@
           <p>or keep the activation code below</p>
           <p><code style="font-size: 24px;">{{ success.response.activationCode }}</code></p>
           <p>and verify it on the Concierge during the event.</p> -->
-          <p>We've sent an activation code to your email. Please follow the instructions from there on how to verify your registration.</p>
+          <!-- <p>We've sent an activation code to your email. Please follow the instructions from there on how to verify your registration.</p> -->
+          <p>See you at the event.</p>
         </v-card-text>
         <v-divider />
         <v-card-actions>
@@ -183,8 +185,8 @@
             success.show = false
             participant = {}
             $refs.registrationForm.reset()
-          }">Close</v-btn>
-          <v-btn color="primary" to="/evaluation/">Go to Evaluation</v-btn>
+          }">Done</v-btn>
+          <!-- <v-btn color="primary" to="/evaluation/">Go to Evaluation</v-btn> -->
         </v-card-actions>
       </v-card>
     </v-dialog>
