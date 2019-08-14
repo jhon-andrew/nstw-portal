@@ -15,14 +15,14 @@
     </section>
     <section class="primary hidden-md-and-down">
       <v-container>
-        <v-layout row wrap align-center class="white--text my-4">
-          <v-flex xs5 class="main-header pl-5">
+        <v-layout row wrap justify-center align-center class="white--text my-4">
+          <v-flex xs5 order-lg2 class="main-header pl-5">
             <!-- <div class="mb-1 pb-1 mr-5" style="border-bottom: 1px solid #ffffff;">Department of Science and Technology IX</div>
             <div class="subheading yellow--text">2019 Regional Science and Technology Week</div>
             <div class="slogan body-2">"Enabling Technologies for Sustainable Development in Zamboanga Peninsula"</div> -->
             <v-img src="/assets/rstw.jpg" height="120" contain style="border-radius: 4px;" />
           </v-flex>
-          <v-flex xs2>
+          <v-flex xs2 order-lg1>
             <v-img src="/assets/dost-seal.png" contain width="120" class="ma-auto" />
             <div class="text-xs-center">
               <div>Department of Science and Technology</div>
@@ -30,7 +30,7 @@
             </div>
             <!-- <v-img src="https://drive.google.com/uc?id=11EvmezlErcmdMUhrLmSk6HKzrLtkhC0E" contain width="80" /> -->
           </v-flex>
-          <v-flex xs5 class="pr-5">
+          <v-flex xs5 class="pr-5" v-if="false">
             <v-layout row wrap align-center>
               <v-flex xs3 v-if="false">
                 <v-img src="/assets/rice2.jpg" contain width="94" />
