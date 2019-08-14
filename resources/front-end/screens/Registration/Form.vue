@@ -14,7 +14,8 @@
       <h3 class="headline yellow--text text-xs-center mt-3">2019 RSTW</h3>
     </section>
     <section class="primary hidden-md-and-down">
-      <v-container>
+      <v-img src="/assets/registration-header.png" contain />
+      <v-container v-if="false">
         <v-layout row wrap justify-center align-center class="white--text my-4">
           <v-flex xs5 order-lg2 class="main-header pl-5">
             <!-- <div class="mb-1 pb-1 mr-5" style="border-bottom: 1px solid #ffffff;">Department of Science and Technology IX</div>
