@@ -81,6 +81,14 @@ class RegistrationController {
       response: `${profile.first_name}, your registration has been confirmed.`
     })
   }
+
+  async stats ({ response }) {
+    let profiles = await Profile.query().where('created_at', '>', '2019-08-12 00:00:00').fetch()
+    response.json({
+      count: profiles.toJSON().length,
+      profiles
+    })
+  }
 }
 
 module.exports = RegistrationController

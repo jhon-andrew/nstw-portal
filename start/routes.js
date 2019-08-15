@@ -30,6 +30,7 @@ Route
     Route.get('evaluation/winners', 'WinnerController.getWinners')
     Route.post('evaluation/claim', 'WinnerController.claimPrize')
     Route.get('map/downloads-directory', 'DownloadsDirectoryController.updateDirectory')
+    Route.get('registration/stats', 'RegistrationController.stats')
   })
   .prefix('api')
   .middleware(['guest'])
