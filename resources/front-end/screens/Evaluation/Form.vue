@@ -1,5 +1,9 @@
 <template>
   <v-content>
+    <!-- 
+
+      NSTW switch to "RSTW/RICE"
+     -->
     <v-container fill-height>
       <v-layout column>
         <v-flex shrink>
@@ -9,8 +13,8 @@
           <v-stepper v-model="step">
             <v-stepper-header>
               <v-stepper-step :complete="step > 1" step="1">Personal Information</v-stepper-step>
-              <v-stepper-step :complete="step > 2" step="2">NSTW</v-stepper-step>
-              <v-stepper-step :complete="step > 3" step="3">#ASTIGCountryside</v-stepper-step>
+              <v-stepper-step :complete="step > 2" step="2">RSTW</v-stepper-step>
+              <v-stepper-step :complete="step > 3" step="3">RSTW/RICE</v-stepper-step>
               <v-stepper-step :complete="step > 4" step="4">Insights</v-stepper-step>
             </v-stepper-header>
             <v-stepper-items>
@@ -73,7 +77,7 @@
                 <v-form ref="step-2">
                   <v-layout wrap justify-center class="mx-auto">
                     <v-flex xs12>
-                      <span class="display-2">Is this your first time to attend the NSTW?</span>
+                      <span class="display-2">Is this your first time to attend the RSTW/RICE?</span>
                     </v-flex>
                     <!-- first_time -->
                     <v-flex xs12>
@@ -84,7 +88,7 @@
                     </v-flex>
                     <v-slide-x-transition>
                       <v-flex xs12 v-if="evaluation.first_time === false">
-                        <span class="display-2">How was your experience of the last NSTW?</span>
+                        <span class="display-2">How was your experience of the last RSTW/RICE?</span>
                       </v-flex>
                     </v-slide-x-transition>
                     <v-slide-x-transition>
@@ -101,7 +105,7 @@
                       </v-flex>
                     </v-slide-x-transition>
                     <v-flex xs12>
-                      <span class="display-2 d-block">How did you know about the NSTW 2019?</span>
+                      <span class="display-2 d-block">How did you know about the RSTW/RICE 2019?</span>
                       <span class="caption">Select multiple options if applicable.</span>
                     </v-flex>
                     <!-- nstw_ref -->
@@ -119,20 +123,20 @@
               <v-stepper-content step="3">
                 <v-form ref="step-3">
                   <v-layout wrap justify-center class="mx-auto">
-                    <v-flex xs12>
+                    <!-- <v-flex xs12>
                       <span class="display-2 d-block">How did you know about the #ASTIGCountryside?</span>
                       <span class="caption">Select multiple options if applicable.</span>
-                    </v-flex>
+                    </v-flex> -->
                     <!-- astigc_ref -->
-                    <v-flex xs12>
+                    <!-- <v-flex xs12>
                       <v-layout wrap>
                         <v-flex shrink class="mr-3" v-for="(astigc_ref, index) in constants.astigc_ref" :key="astigc_ref">
                           <v-checkbox color="teal" v-model="evaluation.astigc_ref" :label="astigc_ref" :value="index"></v-checkbox>
                         </v-flex>
                       </v-layout>
-                    </v-flex>
+                    </v-flex> -->
                     <v-flex xs12>
-                      <span class="display-2">How will you rate your overall experience in the #ASTIGCountryside?</span>
+                      <span class="display-2">How will you rate your overall experience in the RSTW/RICE?</span>
                     </v-flex>
                     <!-- prev_astigc -->
                     <v-flex xs12>
@@ -146,7 +150,7 @@
                       </v-radio-group>
                     </v-flex>
                     <v-flex xs12>
-                      <span class="display-2">How likely will you recommend the #ASTIGCountryside to your family and friends?</span>
+                      <span class="display-2">How likely will you recommend the RSTW/RICE to your family and friends?</span>
                     </v-flex>
                     <v-flex xs12>
                       <v-btn large icon round outline @click="evaluation.recommend_astigc = true" :color="evaluation.recommend_astigc ? 'teal' : ''">
@@ -164,7 +168,7 @@
                 <v-form ref="step-4">
                   <v-layout wrap justify-center class="mx-auto">
                     <v-flex xs12>
-                      <span class="display-2">What are your insights about the #ASTIGCountryside?</span>
+                      <span class="display-2">What are your insights about the RSTW/RICE?</span>
                     </v-flex>
                     <v-flex xs12>
                       <v-layout wrap>
@@ -274,7 +278,7 @@ export default {
           return first_time ? nstw_ref.length < 1 : (!prev_nstw || nstw_ref.length < 1)
           break
         case 3:
-          return astigc_ref.length < 1 || !prev_astigc || recommend_astigc === null
+          return !prev_astigc || recommend_astigc === null
           break
         case 4:
           return astigc_insights.length < 1

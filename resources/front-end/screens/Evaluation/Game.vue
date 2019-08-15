@@ -167,6 +167,8 @@ export default {
   async created () {
     let { data: { prizes, numberOfPossiblePrizes } } = await this.$request.get('/prizes.json')
     const { data: givenPrizes } = await this.$request.post('/api/evaluation/prizes-won', prizes)
+    // const actualPrizes = Object.keys(prizes)
+    numberOfPossiblePrizes = 5
 
     Object.keys(prizes).forEach(prize => {
       prizes[prize] = prizes[prize] - givenPrizes[prize]
@@ -193,35 +195,38 @@ export default {
       prizeList = [...prizeList, ...qty]
     })
 
-    if (prizeList.length > numberOfPossiblePrizes) {
-      (async () => {
-        let generatePrizesToOmit = () => new Promise((resolve) => {
-          let difference = prizeList.length - numberOfPossiblePrizes
-          let prizesToOmit = []
+    console.table(prizeCalculation)
+    console.log(prizeList)
 
-          while (prizesToOmit.length < difference) {
-            const prizeToOmit = Math.floor(Math.random()*((difference - 1)-0+1)+0)
+    // if (prizeList.length > numberOfPossiblePrizes || prizes.length > actualPrizes.length) {
+    //   (async () => {
+    //     let generatePrizesToOmit = () => new Promise((resolve) => {
+    //       let difference = prizeList.length - numberOfPossiblePrizes
+    //       let prizesToOmit = []
 
-            if (prizesToOmit.indexOf(prizeToOmit) < 0) {
-              prizesToOmit.push(prizeToOmit)
-            }
+    //       while (prizesToOmit.length < difference) {
+    //         const prizeToOmit = Math.floor(Math.random()*((difference - 1)-0+1)+0)
 
-            if (prizesToOmit.length === difference) {
-              resolve(prizesToOmit)
-            }
-          }
-        })
+    //         if (prizesToOmit.indexOf(prizeToOmit) < 0) {
+    //           prizesToOmit.push(prizeToOmit)
+    //         }
 
-        let prizesToOmit = await generatePrizesToOmit()
+    //         if (prizesToOmit.length === difference) {
+    //           resolve(prizesToOmit)
+    //         }
+    //       }
+    //     })
 
-        prizesToOmit.forEach(prizeToOmit => prizeList.splice(prizeToOmit, 1))
-        this.prizes = prizeList
-        this.addPrize(this.prizes)
-      })()
-    }
+    //     let prizesToOmit = await generatePrizesToOmit()
 
-    // this.prizes = prizeList
-    // this.addPrize(this.prizes)
+    //     prizesToOmit.forEach(prizeToOmit => prizeList.splice(prizeToOmit, 1))
+    //     // this.prizes = prizeList
+    //     // this.addPrize(this.prizes)
+    //   })()
+    // }
+
+    this.prizes = prizeList
+    this.addPrize(this.prizes)
   }
 }
 </script>
