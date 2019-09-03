@@ -14,20 +14,13 @@ class WinnerController {
   }
 
   async getPrizesWon ({ request, response }) {
-    const prizes = {}
+    const pluckedPrizes = await Winner.query().pluck('prize')
+    let prizes = request.all()
 
-    const prizesWon = () => new Promise((resolve) => {
-      const prizesConfig = request.all()
-      const prizeKeys = Object.keys(prizesConfig)
-
-      prizeKeys.forEach(async (key, index) => {
-        const query = await Winner.query().where('prize', key).sum({ qty: 'quantity' })
-        prizes[key] = query[0].qty || 0
-        if (index === (prizeKeys.length - 1)) resolve(prizes)
-      })
+    Object.keys(prizes).forEach(key => {
+      prizes[key] = pluckedPrizes.filter(prize => prize === key).length
     })
 
-    await prizesWon()
     return response.json(prizes)
   }
 
