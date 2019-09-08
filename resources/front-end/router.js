@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Registration from '@/screens/Registration'
 import RegistrationLanding from '@/screens/Registration/Landing'
 import RegistrationForm from '@/screens/Registration/Form'
+import RegistrationDatabase from '@/screens/Registration/Database'
 import Exhibit from '@/screens/Exhibit'
 import ExhibitLanding from '@/screens/Exhibit/Landing'
 import ExhibitMap from '@/screens/Exhibit/Map'
@@ -132,6 +133,10 @@ export default new Router({
         {
           path: 'form',
           component: RegistrationForm
+        },
+        {
+          path: 'database',
+          component: RegistrationDatabase
         }
       ]
     },

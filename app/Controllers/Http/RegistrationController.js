@@ -7,11 +7,13 @@
 const Env = use('Env')
 const User = use('App/Models/User')
 const Profile = use('App/Models/Profile')
+const Attendance = use('App/Models/Attendance')
 const Mail = use('Mail')
 const Ws = use('Ws')
 
 const qr = require('qr-image')
 const hashids = require('hashids')
+const csv = require('csvtojson')
 
 const hashid = new hashids(Env.get('APP_KEY'), 6)
 
@@ -88,6 +90,33 @@ class RegistrationController {
       count: profiles.toJSON().length,
       profiles
     })
+  }
+
+  async participants ({ response }) {
+    // const participants = await Profile.query().where('created_at', '>', '2019-08-12 00:00:00').fetch()
+    // return response.json(participants)
+    const csvData = await csv().fromFile('./master-list.csv')
+    return response.json(csvData)
+  }
+
+  async importCsv ({ request, response }) {
+    const csvData = await csv().fromFile('./master-list.csv')
+    const profiles = await Profile.createMany(csvData.map(profile => {
+      delete profile.field5
+      return profile
+    }))
+    return response.json(profiles)
+  }
+
+  async present ({ request, response }) {
+    const participant = request.only(['full_name', 'first_name', 'surname', 'affiliation', 'affiliation_type'])
+    const attendance = await Attendance.create(participant)
+    return response.json(attendance)
+  }
+
+  async attendance ({ response }) {
+    const attendance = await Attendance.all()
+    return response.json(attendance)
   }
 }
 
