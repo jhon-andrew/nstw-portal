@@ -1,12 +1,11 @@
 {
   "numberOfPossiblePrizes": 5,
   "prizes": {
-    "Face Towel": 40,
-    "Bag Tag": 60,
-    "Button Pin": 200,
-    "Tumbler": 48,
-    "Eco Bag": 42,
-    "Ballpen": 30,
-    "Lanyard": 20
+    "Ballpen": 299,
+    "Lanyard": 23,
+    "Fan": 300,
+    "Tumbler": 23,
+    "Notepad": 600,
+    "T-Shirt": 10
   }
 }

@@ -7,11 +7,7 @@ class PreRegister {
       surname: 'required',
       age_group: 'required',
       sex: 'required',
-      address: 'required',
-      affiliation: 'required',
-      affiliation_type: 'required',
-      email: 'required|email|unique:adonis_users',
-      contact_number: 'required'
+      affiliation_type: 'required'
     }
   }
 

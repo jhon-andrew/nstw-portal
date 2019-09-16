@@ -35,10 +35,10 @@ class RegistrationController {
     const participant = request.only(['first_name', 'middle_initial', 'surname', 'age_group', 'sex', 'address', 'affiliation', 'affiliation_type', 'email', 'contact_number'])
 
     const user = await User.create({
-      username: participant.email,
-      email: participant.email,
-      password: participant.email
-    })
+	  username: `${participant.first_name} ${participant.surname}`,
+	  email: `${participant.first_name} ${participant.surname}`,
+	  password: `${participant.first_name} ${participant.surname}`
+	})
 
     const activationCode = hashid.encode(user.id)
     const profile = await user.profile().create({ activation_code: activationCode, ...participant })
@@ -93,8 +93,8 @@ class RegistrationController {
   }
 
   async participants ({ response }) {
-    // const participants = await Profile.query().where('created_at', '>', '2019-08-12 00:00:00').fetch()
-    // return response.json(participants)
+    //const participants = await Profile.query().select('first_name', 'surname', 'affiliation', 'affiliation_type').where('created_at', '>', '2019-09-10 00:00:00').fetch()
+    //return response.json(participants)
     const csvData = await csv().fromFile('./master-list.csv')
     return response.json(csvData)
   }
@@ -115,7 +115,7 @@ class RegistrationController {
   }
 
   async attendance ({ response }) {
-    const attendance = await Attendance.all()
+    const attendance = await Attendance.query().where('created_at', '>', '2019-09-11 00:00:00').fetch()
     return response.json(attendance)
   }
 }

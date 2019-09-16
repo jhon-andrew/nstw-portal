@@ -114,10 +114,10 @@
                 </v-radio-group>
               </v-flex>
               <v-flex xs12 lg6>
-                <v-text-field box v-model="participant.address" label="ADDRESS" :rules="[$rules.required]" :disabled="loading" required />
+                <v-text-field box v-model="participant.address" label="ADDRESS" :disabled="loading" required />
               </v-flex>
               <v-flex xs12 lg5>
-                <v-text-field box v-model="participant.affiliation" label="ORGANIZATION/SCHOOL" :rules="[$rules.required]" :disabled="loading" required />
+                <v-text-field box v-model="participant.affiliation" label="ORGANIZATION/SCHOOL" :disabled="loading" required />
               </v-flex>
               <v-flex xs12 lg7>
                 <span class="grey--text">TYPE OF ORGANIZATION</span>
@@ -156,10 +156,10 @@
                 </v-radio-group>
               </v-flex>
               <v-flex xs12 lg5>
-                <v-text-field box v-model="participant.email" label="EMAIL" :rules="[$rules.required, $rules.email]" :disabled="loading" hint="We will be sending a confirmation email to this address." required />
+                <v-text-field box v-model="participant.email" label="EMAIL" :disabled="loading" hint="We will be sending a confirmation email to this address." required />
               </v-flex>
               <v-flex xs12 lg5>
-                <v-text-field box v-model="participant.contact_number" label="CONTACT NUMBER" :rules="[$rules.required]" :disabled="loading" required />
+                <v-text-field box v-model="participant.contact_number" label="CONTACT NUMBER" :disabled="loading" required />
               </v-flex>
               <v-flex xs12 lg2>
                 <v-btn block large color="primary" @click="register" :disabled="loading" :loading="loading">Get Code</v-btn>
